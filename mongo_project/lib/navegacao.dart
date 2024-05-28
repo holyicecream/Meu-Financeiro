@@ -21,7 +21,7 @@ class _NavegacaoState extends State<Navegacao> {
             textAlign: TextAlign.center,
           ),
         ),
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
             child: Center(
                 child: SizedBox(
                     height: 600,
@@ -47,14 +47,14 @@ class _NavegacaoState extends State<Navegacao> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Listar(),
+                    builder: (context) => const Listar(),
                   ),
                 );
               } else if (indexDoBottom == 1) {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Inserir(),
+                    builder: (context) => const Inserir(),
                   ),
                 );
               }
