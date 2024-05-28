@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/zDatabase/mongodb_clientes.dart';
+import 'package:projeto_integrador/zDatabase/mongodb_clientes.dart';
 
 import '../zModels/model_area_consumo.dart';
 import '../zModels/model_bancos_usuario.dart';
@@ -36,9 +36,16 @@ void inBuildRedefinicaoDeSenha(context) {
 String? senha1;
 String? senha2;
 
+void senha1OnChange(value) {
+  senha1 = value;
+}
+
+void senha2OnChange(value) {
+  senha2 = value;
+}
+
 String? senha1Validator(String? value) {
   value ??= '';
-  senha1 = value;
   if (value == '') {
     return 'Este campo não pode ser vazio.';
   } else if (value.length < 8) {
@@ -52,7 +59,6 @@ String? senha1Validator(String? value) {
 
 String? senha2Validator(String? value) {
   value ??= '';
-  senha2 = value;
   if (value == '') {
     return 'Este campo não pode ser vazio.';
   } else if (senha1 != senha2) {

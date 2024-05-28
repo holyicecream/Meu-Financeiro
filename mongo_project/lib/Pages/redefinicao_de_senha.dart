@@ -37,6 +37,9 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                     child: Column(
                       children: [
                         TextFormField(
+                          onChanged: (value) {
+                            senha1OnChange(value);
+                          },
                           validator: (value) {
                             return senha1Validator(value);
                           },
@@ -49,7 +52,9 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                           height: 30,
                         ),
                         TextFormField(
-                          obscureText: true,
+                          onChanged: (value) {
+                            senha2OnChange(value);
+                          },
                           validator: (value) {
                             return senha2Validator(value);
                           },
