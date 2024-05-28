@@ -5,6 +5,7 @@ import 'package:projeto_integrador/Pages/add-extrato.dart';
 import 'package:projeto_integrador/Pages/cadastro.dart';
 import 'package:projeto_integrador/Pages/login-cadastro.dart';
 import 'package:projeto_integrador/Pages/login.dart';
+import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
 import 'Pages/jeantxt.dart';
 import 'Pages/page_teste.dart';
 import 'Pages/recuperacao_de_senha.dart';
@@ -46,14 +47,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/EntrarCom...',
+      initialRoute: '/PrimeiroAcesso',
       routes: {
         '/PageTeste': (context) => PageTeste(),
-        '/PrimeiroAcesso': (context) => PageTeste(),
+        '/PrimeiroAcesso': (context) => PrimeiroAcesso(),
         '/EntrarCom...': (context) => LoginCadastro(),
         '/Login': (context) => Login(),
-        '/RecuperacaoDeSenha': (context) => PageTeste(),
-        '/RedefinicaoDeSenha': (context) => PageTeste(),
+        '/RecuperacaoDeSenha': (context) => RecuperacaoDeSenha(),
+        '/RedefinicaoDeSenha': (context) => RedefinicaoDeSenha(),
         '/Cadastro': (context) => Cadastro(),
         '/EntrarComContaJaExistente': (context) => PageTeste(),
         '/VinculoBancarioOuInserçãoManual': (context) => PageTeste(),
