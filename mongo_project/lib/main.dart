@@ -7,6 +7,8 @@ import 'package:projeto_integrador/Pages/login-cadastro.dart';
 import 'package:projeto_integrador/Pages/login.dart';
 import 'Pages/jeantxt.dart';
 import 'Pages/page_teste.dart';
+import 'Pages/recuperacao_de_senha.dart';
+import 'Pages/redefinicao_de_senha.dart';
 import 'zDatabase/mongodb_area_consumo.dart';
 import 'zDatabase/mongodb_bancos.dart';
 import 'zDatabase/mongodb_bancos_usuario.dart';

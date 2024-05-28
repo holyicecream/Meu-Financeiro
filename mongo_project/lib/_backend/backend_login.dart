@@ -76,6 +76,11 @@ void cadastreseOnTap(context) {
       arguments: todosArguments);
 }
 
+void esqueceuASenhaOnTap(context) {
+  Navigator.pushNamed(context, '/RecuperacaoDeSenha',
+      arguments: todosArguments);
+}
+
 final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 void entrarOnTap(context) {
   if (formKey.currentState!.validate()) {
