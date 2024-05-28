@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
+//selected color
+//unselected color
+//icons: login, person, wc, assignment, delete, login_outlined, foward
 import 'package:flutter/material.dart';
-import '/_backend/backend_tela_principal.dart';
+import 'package:projeto_integrador/_backend/backend_login.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -11,86 +13,122 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
-  int indexDoBottom = 0;
   @override
   Widget build(BuildContext context) {
-    inBuildTelaPrincipal(context);
+    inBuildLogin(context);
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(4.0),
-          child: Container(
-            color: Colors.black,
-            height: 1.0,
-          ),
-        ),
-        title: const Text(
-          "Entrar",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          textAlign: TextAlign.center,
-        ),
+        centerTitle: true,
+        title: Text('Entrar'),
+        backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(), labelText: "Email"),
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          onChanged: (value) {
+                            emailOnChange(value);
+                          },
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'E-mail',
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        TextFormField(
+                          obscureText: true,
+                          onChanged: (value) {
+                            senhaOnChange(value);
+                          },
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Senha',
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(), labelText: "Senha"),
-                    ),
-                    SizedBox(
-                      height: 250,
-                    ),
-                    Container(
-                        width: 250,
-                        height: 60,
-                        child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushReplacementNamed(context, '/Main');
-                            },
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF224912),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8))),
-                            child: Text(
-                              "Entrar",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontSize: 20),
-                            ))),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    InkWell(
-                      child: Text(
-                        "Ainda não possui uma conta? Cadastre-se",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF224912)),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                        child: Text(
+                          "Esqueceu a senha?",
+                          style: TextStyle(color: Colors.green.shade900),
+                        ),
+                        onTap: () {
+                          esqueceuASenhaOnTap(context);
+                        },
                       ),
-                      onTap: () {
-                        Navigator.pushReplacementNamed(context, '/Cadastro');
+                      Text(''),
+                      Text(''),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 25,
+                      ),
+                      Icon(Icons.square),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Text("Continuar conectado?"),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        entrarOnTap(context);
                       },
-                    )
-                  ],
-                ),
-              )
-            ],
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8))),
+                        backgroundColor: MaterialStateColor.resolveWith(
+                            (states) => Colors.green),
+                        minimumSize:
+                            MaterialStateProperty.resolveWith((states) {
+                          return Size(200, 50);
+                        }),
+                      ),
+                      child: Text("Entrar"),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Ainda não possui cadastro?  "),
+                      GestureDetector(
+                        child: Text("Cadastre-se."),
+                        onTap: () {
+                          cadastreseOnTap(context);
+                        },
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),
