@@ -38,6 +38,9 @@ class LoginState extends State<Login> {
                     child: Column(
                       children: [
                         TextFormField(
+                          validator: (value) {
+                            return emailValidator(value);
+                          },
                           onChanged: (value) {
                             emailOnChange(value);
                           },
@@ -50,6 +53,9 @@ class LoginState extends State<Login> {
                           height: 30,
                         ),
                         TextFormField(
+                          validator: (value) {
+                            return senhaValidator(value);
+                          },
                           obscureText: true,
                           onChanged: (value) {
                             senhaOnChange(value);
