@@ -40,9 +40,9 @@ class _NavegacaoState extends State<Inserir> {
                     },
                     style: ButtonStyle(
                         minimumSize:
-                            MaterialStateProperty.all(const Size(300, 100)),
+                            WidgetStateProperty.all(const Size(300, 100)),
                         maximumSize:
-                            MaterialStateProperty.all(const Size(300, 100))),
+                            WidgetStateProperty.all(const Size(300, 100))),
                     child: const Text(
                       "Inserir nova Agência Bancária.",
                       textAlign: TextAlign.center,
@@ -59,9 +59,9 @@ class _NavegacaoState extends State<Inserir> {
                       },
                       style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all(const Size(300, 100)),
+                              WidgetStateProperty.all(const Size(300, 100)),
                           maximumSize:
-                              MaterialStateProperty.all(const Size(300, 100))),
+                              WidgetStateProperty.all(const Size(300, 100))),
                       child: const Text(
                         "Inserir novo Cliente.",
                         textAlign: TextAlign.center,
@@ -77,9 +77,9 @@ class _NavegacaoState extends State<Inserir> {
                       },
                       style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all(const Size(300, 100)),
+                              WidgetStateProperty.all(const Size(300, 100)),
                           maximumSize:
-                              MaterialStateProperty.all(const Size(300, 100))),
+                              WidgetStateProperty.all(const Size(300, 100))),
                       child: const Text(
                         "Inserir nova Conta Bancária.",
                         textAlign: TextAlign.center,
@@ -95,9 +95,9 @@ class _NavegacaoState extends State<Inserir> {
                       },
                       style: ButtonStyle(
                           minimumSize:
-                              MaterialStateProperty.all(const Size(300, 100)),
+                              WidgetStateProperty.all(const Size(300, 100)),
                           maximumSize:
-                              MaterialStateProperty.all(const Size(300, 100))),
+                              WidgetStateProperty.all(const Size(300, 100))),
                       child: const Text(
                         "Fazer PIX.",
                         style: TextStyle(fontSize: 20),
@@ -121,7 +121,7 @@ class _NavegacaoState extends State<Inserir> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Listar(),
+                    builder: (context) => const Listar(),
                   ),
                 );
               } else if (indexDoBottom == 1) {}

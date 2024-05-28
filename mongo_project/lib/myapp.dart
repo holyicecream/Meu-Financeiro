@@ -1,12 +1,12 @@
 import 'package:estudo_prova01/listar.dart';
 import 'package:estudo_prova01/pages/initial-page.dart';
+import 'package:projeto_integrador/Pages/initial-page.dart';
 
 import '/Agencia/display_agencia.dart';
 import '/Banco/display_banco.dart';
 import '/Cliente/display_client.dart';
 import '/Conta_Cli/display_conta_cli.dart';
 import '/Transacoes/display_transacoes.dart';
-import '/navegacao.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -18,11 +18,6 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const InitialPage(),
-        '/displayAgencia': (context) => const DisplayAgencia(),
-        '/displayBanco': (context) => const DisplayBanco(),
-        '/displayClient': (context) => const DisplayClient(),
-        '/displayContaCli': (context) => const DisplayContaCli(),
-        '/displayTransacoes': (context) => const DisplayTransacoes(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
