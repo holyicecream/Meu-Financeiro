@@ -33,9 +33,9 @@ void inBuildPrimeiroAcesso(context) {
 }
 
 void entrarOnTap(context){
-  Navigator.pushNamed(context, '/EntrarCom...', arguments: todosArguments);
+  Navigator.pushNamed(context, '/Login', arguments: todosArguments);
 }
 
 void cadastrarOnTap(context){
-  Navigator.pushNamed(context, '/Login', arguments: todosArguments);
+  Navigator.pushNamed(context, '/Cadastro', arguments: todosArguments);
 }
