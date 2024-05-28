@@ -37,10 +37,10 @@ class _NavegacaoState extends State<InitialPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 40,
                         ),
-                        Text(
+                        const Text(
                           "Olá, User",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -50,7 +50,7 @@ class _NavegacaoState extends State<InitialPage> {
                         ),
                         Row(
                           children: [
-                            Text(
+                            const Text(
                               "RS 999,99",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -60,15 +60,15 @@ class _NavegacaoState extends State<InitialPage> {
                             ),
                             TextButton(
                                 onPressed: () {},
-                                child: Icon(Icons.remove_red_eye_rounded))
+                                child: const Icon(Icons.remove_red_eye_rounded))
                           ],
                         )
                       ],
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
+                const Padding(
+                  padding: EdgeInsets.all(20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -94,15 +94,16 @@ class _NavegacaoState extends State<InitialPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "Extrato",
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      TextButton(onPressed: () {}, child: Icon(Icons.share)),
-                      Text(
+                      TextButton(
+                          onPressed: () {}, child: const Icon(Icons.share)),
+                      const Text(
                         "Mostrar gráfico",
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold),

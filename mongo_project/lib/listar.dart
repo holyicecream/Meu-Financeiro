@@ -40,9 +40,9 @@ class _NavegacaoState extends State<Listar> {
                     },
                     style: ButtonStyle(
                         minimumSize:
-                            WidgetStateProperty.all(const Size(300, 100)),
+                            MaterialStateProperty.all(const Size(300, 100)),
                         maximumSize:
-                            WidgetStateProperty.all(const Size(300, 100))),
+                            MaterialStateProperty.all(const Size(300, 100))),
                     child: const Text(
                       "Listar Agências Bancárias.",
                       textAlign: TextAlign.center,
@@ -59,9 +59,9 @@ class _NavegacaoState extends State<Listar> {
                     },
                     style: ButtonStyle(
                         minimumSize:
-                            WidgetStateProperty.all(const Size(300, 100)),
+                            MaterialStateProperty.all(const Size(300, 100)),
                         maximumSize:
-                            WidgetStateProperty.all(const Size(300, 100))),
+                            MaterialStateProperty.all(const Size(300, 100))),
                     child: const Text(
                       "Listar Bancos.",
                       style: TextStyle(fontSize: 20),
@@ -77,9 +77,9 @@ class _NavegacaoState extends State<Listar> {
                       },
                       style: ButtonStyle(
                           minimumSize:
-                              WidgetStateProperty.all(const Size(300, 100)),
+                              MaterialStateProperty.all(const Size(300, 100)),
                           maximumSize:
-                              WidgetStateProperty.all(const Size(300, 100))),
+                              MaterialStateProperty.all(const Size(300, 100))),
                       child: const Text(
                         "Listar Clientes.",
                         style: TextStyle(fontSize: 20),
@@ -94,9 +94,9 @@ class _NavegacaoState extends State<Listar> {
                       },
                       style: ButtonStyle(
                           minimumSize:
-                              WidgetStateProperty.all(const Size(300, 100)),
+                              MaterialStateProperty.all(const Size(300, 100)),
                           maximumSize:
-                              WidgetStateProperty.all(const Size(300, 100))),
+                              MaterialStateProperty.all(const Size(300, 100))),
                       child: const Text(
                         "Listar Contas Bancárias dos clientes.",
                         textAlign: TextAlign.center,
@@ -112,9 +112,9 @@ class _NavegacaoState extends State<Listar> {
                       },
                       style: ButtonStyle(
                           minimumSize:
-                              WidgetStateProperty.all(const Size(300, 100)),
+                              MaterialStateProperty.all(const Size(300, 100)),
                           maximumSize:
-                              WidgetStateProperty.all(const Size(300, 100))),
+                              MaterialStateProperty.all(const Size(300, 100))),
                       child: const Text(
                         "Listar Transações.",
                         style: TextStyle(fontSize: 20),

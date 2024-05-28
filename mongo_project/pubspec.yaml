@@ -38,7 +38,6 @@ dependencies:
   mongo_dart: ^0.10.2
   fixnum: ^1.1.0
 
-  estudo_prova01: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

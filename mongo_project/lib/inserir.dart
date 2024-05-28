@@ -40,9 +40,9 @@ class _NavegacaoState extends State<Inserir> {
                     },
                     style: ButtonStyle(
                         minimumSize:
-                            WidgetStateProperty.all(const Size(300, 100)),
+                            MaterialStateProperty.all(const Size(300, 100)),
                         maximumSize:
-                            WidgetStateProperty.all(const Size(300, 100))),
+                            MaterialStateProperty.all(const Size(300, 100))),
                     child: const Text(
                       "Inserir nova Agência Bancária.",
                       textAlign: TextAlign.center,
@@ -59,9 +59,10 @@ class _NavegacaoState extends State<Inserir> {
                       },
                       style: ButtonStyle(
                           minimumSize:
-                              WidgetStateProperty.all(const Size(300, 100)),
+
+                              MaterialStateProperty.all(const Size(300, 100)),
                           maximumSize:
-                              WidgetStateProperty.all(const Size(300, 100))),
+                              MaterialStateProperty.all(const Size(300, 100))),
                       child: const Text(
                         "Inserir novo Cliente.",
                         textAlign: TextAlign.center,
@@ -77,9 +78,9 @@ class _NavegacaoState extends State<Inserir> {
                       },
                       style: ButtonStyle(
                           minimumSize:
-                              WidgetStateProperty.all(const Size(300, 100)),
+                              MaterialStateProperty.all(const Size(300, 100)),
                           maximumSize:
-                              WidgetStateProperty.all(const Size(300, 100))),
+                              MaterialStateProperty.all(const Size(300, 100))),
                       child: const Text(
                         "Inserir nova Conta Bancária.",
                         textAlign: TextAlign.center,
@@ -95,9 +96,9 @@ class _NavegacaoState extends State<Inserir> {
                       },
                       style: ButtonStyle(
                           minimumSize:
-                              WidgetStateProperty.all(const Size(300, 100)),
+                              MaterialStateProperty.all(const Size(300, 100)),
                           maximumSize:
-                              WidgetStateProperty.all(const Size(300, 100))),
+                              MaterialStateProperty.all(const Size(300, 100))),
                       child: const Text(
                         "Fazer PIX.",
                         style: TextStyle(fontSize: 20),
