@@ -6,6 +6,7 @@ import 'package:projeto_integrador/Pages/jeantxt.dart';
 import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
 import 'Pages/page_teste.dart';
 import 'Pages/recuperacao_de_senha.dart';
+import 'Pages/redefinicao_de_senha.dart';
 import 'zDatabase/mongodb_area_consumo.dart';
 import 'zDatabase/mongodb_bancos.dart';
 import 'zDatabase/mongodb_bancos_usuario.dart';
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
         '/EntrarCom...': (context) => PageTeste(),
         '/Login': (context) => Login(),
         '/RecuperacaoDeSenha': (context) => RecuperacaoDeSenha(),
-        '/RedefinicaoDeSenha': (context) => PageTeste(),
+        '/RedefinicaoDeSenha': (context) => RedefinicaoDeSenha(),
         '/Cadastro': (context) => PageTeste(),
         '/EntrarComContaJaExistente': (context) => PageTeste(),
         '/VinculoBancarioOuInserçãoManual': (context) => PageTeste(),
