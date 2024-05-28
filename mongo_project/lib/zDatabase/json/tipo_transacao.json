@@ -1,0 +1,65 @@
+[
+    {
+        "_id": {
+            "$oid": "6619ad60745934eb0f8e69aa"
+        },
+        "cod_transacao": 1,
+        "tipo": "Boleto"
+    },
+    {
+        "_id": {
+            "$oid": "6619ade6745934eb0f8e69ac"
+        },
+        "cod_transacao": 2,
+        "tipo": "Deposito"
+    },
+    {
+        "_id": {
+            "$oid": "6619adeb745934eb0f8e69ad"
+        },
+        "cod_transacao": 3,
+        "tipo": "Pix"
+    },
+    {
+        "_id": {
+            "$oid": "6619adfd745934eb0f8e69ae"
+        },
+        "cod_transacao": 4,
+        "tipo": "Saque"
+    },
+    {
+        "_id": {
+            "$oid": "6619ae0c745934eb0f8e69af"
+        },
+        "cod_transacao": 5,
+        "tipo": "Cartao debito"
+    },
+    {
+        "_id": {
+            "$oid": "6619ae1a745934eb0f8e69b0"
+        },
+        "cod_transacao": 6,
+        "tipo": "Cartao credito"
+    },
+    {
+        "_id": {
+            "$oid": "6619ae55745934eb0f8e69b1"
+        },
+        "cod_transacao": 7,
+        "tipo": "Transferencia"
+    },
+    {
+        "_id": {
+            "$oid": "6619ae63745934eb0f8e69b2"
+        },
+        "cod_transacao": 8,
+        "tipo": "Recarga"
+    },
+    {
+        "_id": {
+            "$oid": "6619ae7f745934eb0f8e69b3"
+        },
+        "cod_transacao": 9,
+        "tipo": "Outros"
+    }
+]

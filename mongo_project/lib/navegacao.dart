@@ -1,14 +1,5 @@
-import 'package:estudo_prova01/Agencia/display_agencia.dart';
-import 'package:estudo_prova01/Agencia/insert_agencia.dart';
-import 'package:estudo_prova01/Banco/display_banco.dart';
-import 'package:estudo_prova01/Cliente/display_client.dart';
-import 'package:estudo_prova01/Cliente/insert_client.dart';
-import 'package:estudo_prova01/Cliente/select_client_transacoes.dart';
-import 'package:estudo_prova01/Conta_Cli/display_conta_cli.dart';
-import 'package:estudo_prova01/Conta_Cli/insert_conta_cli.dart';
-import 'package:estudo_prova01/Transacoes/display_transacoes.dart';
-import 'package:estudo_prova01/inserir.dart';
-import 'package:estudo_prova01/listar.dart';
+import '/inserir.dart';
+import '/listar.dart';
 import 'package:flutter/material.dart';
 
 class Navegacao extends StatefulWidget {
@@ -31,19 +22,17 @@ class _NavegacaoState extends State<Navegacao> {
           ),
         ),
         body: SingleChildScrollView(
-          child: Center(
-            child: SizedBox(
-              height: 600,
-              width: 800,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Image(image: NetworkImage("https://imgur.com/a/5bBAthR"))
-                ]
-              )
-            )
-          )
-        ),
+            child: Center(
+                child: SizedBox(
+                    height: 600,
+                    width: 800,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Image(
+                              image:
+                                  NetworkImage("https://imgur.com/a/5bBAthR"))
+                        ])))),
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.list), label: "Listar"),

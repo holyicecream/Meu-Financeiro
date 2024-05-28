@@ -1,22 +1,108 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
-import 'zDatabase/mongodb_agencia.dart';
-import 'zDatabase/mongodb_banco.dart';
-import 'zDatabase/mongodb_client.dart';
-import 'zDatabase/mongodb_conta_cli.dart';
-import 'zDatabase/mongodb_transacoes.dart';
-import 'myapp.dart';
+import 'Pages/jeantxt.dart';
+import 'Pages/page_teste.dart';
+import 'zDatabase/mongodb_area_consumo.dart';
+import 'zDatabase/mongodb_bancos.dart';
+import 'zDatabase/mongodb_bancos_usuario.dart';
+import 'zDatabase/mongodb_extrato.dart';
+import 'zDatabase/mongodb_tipo_transacoes.dart';
+import 'zDatabase/mongodb_clientes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  MongoDatabaseAgencia.connect();
-  //print('1 foi');
-  MongoDatabaseBanco.connect();
-  //print('2 foi');
-  MongoDatabaseClient.connect();
-  //print('3 foi');
-  MongoDatabaseContaCli.connect();
-  //print('4 foi');
-  MongoDatabaseTransacoes.connect();
-  //print('5 foi*');
-  runApp(const MyApp()); //precisa importar myapp.dart
+  MongoDatabaseAreaConsumo.connect().then((value) {
+    print('1º foi');
+    MongoDatabaseBancosUsuario.connect().then((value) {
+      print('2º foi');
+      MongoDatabaseBancos.connect().then((value) {
+        print('3º foi');
+        MongoDatabaseClientes.connect().then((value) {
+          print('4º foi');
+          MongoDatabaseExtrato.connect().then((value) {
+            print('5º foi');
+            MongoDatabaseTipoTransacoes.connect().then((value) {
+              print('6º foi');
+              print('Iniciando app');
+              runApp(const MyApp());
+            });
+          });
+        });
+      });
+    });
+  });
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: '/Main',
+      routes: {
+        '/PageTeste': (context) => PageTeste(),
+        '/PrimeiroAcesso': (context) => PageTeste(),
+        '/EntrarCom...': (context) => PageTeste(),
+        '/Login': (context) => PageTeste(),
+        '/RecuperacaoDeSenha': (context) => PageTeste(),
+        '/RedefinicaoDeSenha': (context) => PageTeste(),
+        '/Cadastro': (context) => PageTeste(),
+        '/EntrarComContaJaExistente': (context) => PageTeste(),
+        '/VinculoBancarioOuInserçãoManual': (context) => PageTeste(),
+        '/SelecaoDeBanco': (context) => PageTeste(),
+        '/DadosDaContaBancaria': (context) => PageTeste(),
+        '/InsercaoManualDosDadosBancarios': (context) => PageTeste(),
+        '/PersonalizarNome': (context) => PageTeste(),
+        '/AlterarSenha': (context) => PageTeste(),
+        '/AlterarContaBancaria': (context) => PageTeste(),
+        '/InsercaoManualDeNovaContaBancaria': (context) => PageTeste(),
+        '/Main': (context) => Main(),
+        '/GraficoDiario': (context) => PageTeste(),
+        '/GraficoMensal': (context) => PageTeste(),
+        '/EditarPagamentoPendente': (context) => PageTeste(),
+        '/AdicionarPagamentoPendente': (context) => PageTeste(),
+        '/GerarExtrato': (context) => PageTeste(),
+        '/Alarme': (context) => PageTeste(),
+        '/Extrato': (context) => PageTeste(),
+      },
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      // home: const LoginPage(),
+    );
+  }
+}
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => LoginPageState();
+}
+
+class LoginPageState extends State<LoginPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text('ta foda'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
 }

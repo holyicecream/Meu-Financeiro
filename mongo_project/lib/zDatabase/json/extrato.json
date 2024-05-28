@@ -1,0 +1,36 @@
+[
+    {
+        "_id": {
+            "$oid": "6635c2dbb9ed15643ae98759"
+        },
+        "registro": 1,
+        "cod_cliente": 1,
+        "data": {
+            "$date": "2023-02-07T00:00:00.000Z"
+        },
+        "valor": 100.00,
+        "debito_credito": "debito",
+        "cod_transacao": 1,
+        "descricao_transacao": "teste 2",
+        "nome_destinatario": "teste2",
+        "cod_banco": 1,
+        "cod_area_consumo": 2
+    },
+    {
+        "_id": {
+            "$oid": "6635c2dbb9ed15643ae9875a"
+        },
+        "registro": 37,
+        "cod_cliente": 14,
+        "data": {
+            "$date": "2023-02-03T00:00:00.000Z"
+        },
+        "valor": 10.00,
+        "debito_credito": "credito",
+        "cod_transacao": 3,
+        "descricao_transacao": "transaÃ§ao teste",
+        "nome_destinatario": "teste",
+        "cod_banco": 1,
+        "cod_area_consumo": 3
+    }
+]

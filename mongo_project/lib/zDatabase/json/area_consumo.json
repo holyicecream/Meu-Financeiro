@@ -1,0 +1,44 @@
+[
+    {
+        "_id": {
+            "$oid": "6619ae92745934eb0f8e69b5"
+        },
+        "cod_area_consumo": 1,
+        "area_consumo": "Educacao"
+    },
+    {
+        "_id": {
+            "$oid": "6619aeae745934eb0f8e69b6"
+        },
+        "cod_area_consumo": 2,
+        "area_consumo": "Saude"
+    },
+    {
+        "_id": {
+            "$oid": "6619aeba745934eb0f8e69b7"
+        },
+        "cod_area_consumo": 3,
+        "area_consumo": "Lazer"
+    },
+    {
+        "_id": {
+            "$oid": "6619aec2745934eb0f8e69b8"
+        },
+        "cod_area_consumo": 4,
+        "area_consumo": "Outros"
+    },
+    {
+        "_id": {
+            "$oid": "6619aecd745934eb0f8e69b9"
+        },
+        "cod_area_consumo": 5,
+        "area_consumo": "Transporte"
+    },
+    {
+        "_id": {
+            "$oid": "6619aed7745934eb0f8e69ba"
+        },
+        "cod_area_consumo": 6,
+        "area_consumo": "Moradia"
+    }
+]

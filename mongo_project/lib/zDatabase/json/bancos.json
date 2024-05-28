@@ -1,0 +1,212 @@
+[
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69c4"
+        },
+        "cod_banco": 1,
+        "banco": "001 - BANCO DO BRASIL S/A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69c5"
+        },
+        "cod_banco": 2,
+        "banco": "002 - BANCO CENTRAL DO BRASIL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69c6"
+        },
+        "cod_banco": 3,
+        "banco": "003 - BANCO DA AMAZONIA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69c7"
+        },
+        "cod_banco": 4,
+        "banco": "004 - BANCO DO NORDESTE DO BRASIL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69c8"
+        },
+        "cod_banco": 7,
+        "banco": "007 - BANCO NAC DESENV. ECO. SOCIAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69c9"
+        },
+        "cod_banco": 8,
+        "banco": "008 - BANCO MERIDIONAL DO BRASIL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69ca"
+        },
+        "cod_banco": 20,
+        "banco": "020 - BANCO DO ESTADO DE ALAGOAS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69cb"
+        },
+        "cod_banco": 21,
+        "banco": "021 - BANCO DO ESTADO DO ESPIRITO SANTO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69cc"
+        },
+        "cod_banco": 22,
+        "banco": "022 - BANCO DE CREDITO REAL DE MINAS GERAIS SA"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69cd"
+        },
+        "cod_banco": 24,
+        "banco": "024 - BANCO DO ESTADO DE PERNAMBUCO"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69ce"
+        },
+        "cod_banco": 25,
+        "banco": "025 - BANCO ALFA S/A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69cf"
+        },
+        "cod_banco": 26,
+        "banco": "026 - BANCO DO ESTADO DO ACRE S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69d0"
+        },
+        "cod_banco": 27,
+        "banco": "027 - BANCO DO ESTADO DE SANTA CATARINA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69d1"
+        },
+        "cod_banco": 28,
+        "banco": "028 - BANCO DO ESTADO DA BAHIA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69d2"
+        },
+        "cod_banco": 29,
+        "banco": "029 - BANCO DO ESTADO DO RIO DE JANEIRO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69d3"
+        },
+        "cod_banco": 30,
+        "banco": "030 - BANCO DO ESTADO DA PARAIBA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69d4"
+        },
+        "cod_banco": 31,
+        "banco": "031 - BANCO DO ESTADO DE GOIAS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69d5"
+        },
+        "cod_banco": 32,
+        "banco": "032 - BANCO DO ESTADO DO MATO GROSSO S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69d6"
+        },
+        "cod_banco": 33,
+        "banco": "033 - BANCO DO ESTADO DE SAO PAULO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69d7"
+        },
+        "cod_banco": 34,
+        "banco": "034 - BANCO DO ESADO DO AMAZONAS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69d8"
+        },
+        "cod_banco": 35,
+        "banco": "035 - BANCO DO ESTADO DO CEARA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69d9"
+        },
+        "cod_banco": 36,
+        "banco": "036 - BANCO DO ESTADO DO MARANHAO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69da"
+        },
+        "cod_banco": 37,
+        "banco": "037 - BANCO DO ESTADO DO PARA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69db"
+        },
+        "cod_banco": 38,
+        "banco": "038 - BANCO DO ESTADO DO PARANA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69dc"
+        },
+        "cod_banco": 39,
+        "banco": "039 - BANCO DO ESTADO DO PIAUI S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69dd"
+        },
+        "cod_banco": 41,
+        "banco": "041 - BANCO DO ESTADO DO RIO GRANDE DO SUL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69de"
+        },
+        "cod_banco": 47,
+        "banco": "047 - BANCO DO ESTADO DE SERGIPE S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69df"
+        },
+        "cod_banco": 48,
+        "banco": "048 - BANCO DO ESTADO DE MINAS GERAIS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69e0"
+        },
+        "cod_banco": 59,
+        "banco": "059 - BANCO DO ESTADO DE RONDONIA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69e1"
+        },
+        "cod_banco": 66,
+        "banco": "066 - BANCO MORGAN STANLEY S.A"
+    }
+]
