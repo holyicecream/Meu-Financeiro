@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/Pages/Login.dart';
+import 'package:projeto_integrador/Pages/login.dart';
 import 'package:projeto_integrador/Pages/jeantxt.dart';
 import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
 import 'Pages/page_teste.dart';
