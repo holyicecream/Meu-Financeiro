@@ -1,4 +1,5 @@
 import 'package:estudo_prova01/listar.dart';
+import 'package:estudo_prova01/pages/initial-page.dart';
 
 import '/Agencia/display_agencia.dart';
 import '/Banco/display_banco.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => const Listar(),
+        '/': (context) => const InitialPage(),
         '/displayAgencia': (context) => const DisplayAgencia(),
         '/displayBanco': (context) => const DisplayBanco(),
         '/displayClient': (context) => const DisplayClient(),
