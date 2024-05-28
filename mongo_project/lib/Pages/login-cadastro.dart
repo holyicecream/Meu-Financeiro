@@ -16,16 +16,6 @@ class LoginCadastroState extends State<LoginCadastro> {
   Widget build(BuildContext context) {
     inBuildTelaPrincipal(context);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Color(0xFF224912),
-        title: const Text(
-          "",
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-          textAlign: TextAlign.center,
-        ),
-      ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -63,8 +53,8 @@ class LoginCadastroState extends State<LoginCadastro> {
                       height: 10,
                     ),
                     Container(
-                        width: 150,
-                        height: 50,
+                        width: 250,
+                        height: 60,
                         child: TextButton(
                             onPressed: () {
                               Navigator.pushNamed(context, '/Cadastro');

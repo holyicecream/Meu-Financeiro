@@ -92,9 +92,8 @@ void entrarOnTap(context) {
         check = false;
         todosArguments.dataClientes.codCliente = dataClientes[i]['cod_cliente'];
         todosArguments.dataClientes.nomeCliente = dataClientes[i]['nome'];
-        // Navigator.pushNamed(context, '/Main', arguments: todosArguments);
-        Navigator.pushNamed(context, '/VinculoBancarioOuInserçãoManual',
-            arguments: todosArguments);
+        Navigator.pushNamed(context, '/Main', arguments: todosArguments);
+        // Navigator.pushNamed(context, '/VinculoBancarioOuInserçãoManual', arguments: todosArguments);
       }
     }
     if (check) {

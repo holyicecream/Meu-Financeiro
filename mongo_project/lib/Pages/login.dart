@@ -95,7 +95,7 @@ class LoginState extends State<Login> {
                     ],
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 40,
                   ),
                   Center(
                     child: ElevatedButton(
@@ -106,15 +106,16 @@ class LoginState extends State<Login> {
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8))),
                         backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.green),
+                            (states) => Colors.green.shade900),
                         minimumSize:
                             MaterialStateProperty.resolveWith((states) {
-                          return Size(200, 50);
+                          return Size(250, 50);
                         }),
                       ),
-                      child: Text("Entrar"),
+                      child: Text("Entrar", style: TextStyle(color: Colors.white),),
                     ),
                   ),
+                  SizedBox(height: 10,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
