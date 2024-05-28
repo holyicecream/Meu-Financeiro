@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/zDatabase/mongodb_extrato.dart';
+import 'package:projeto_integrador/zDatabase/mongodb_extrato.dart';
 
 import '../zModels/model_area_consumo.dart';
 import '../zModels/model_bancos_usuario.dart';
@@ -19,7 +19,7 @@ TodosArguments todosArguments = TodosArguments(
 );
 int count = 0;
 bool check = true;
-void inBuildAdicionarPagamento(context) {
+void inBuildAdicionarPagamentoPendente(context) {
   count++;
   print("build $count");
   if (check) {
@@ -38,15 +38,17 @@ void nomeOnChange(value) {
 }
 
 void valorOnChange(value) {
-  todosArguments.dataExtrato.valor = value;
+  value??=0;
+  todosArguments.dataExtrato.valor = double.tryParse(value);
 }
 
 void dataOnChange(value) {
-  // var date = DateTime.now();
-  // var dateString = '';
-  // dateString = date.toIso8601String();
+  value??=DateTime.now().toIso8601String();
+  print(value);
+  DateTime.tryParse(value);
+  print(value);
 
-  // todosArguments.dataExtrato.data = DateTime.tryParse(value)!;
+  // todosArguments.dataExtrato.data = DateTime.tryParse(value);
 }
 
 void tipoTransacaoOnChange(value) {
@@ -73,7 +75,8 @@ String? nomeValidator(String? value) {
 }
 
 String? valorValidator(String? value) {
-  value ??= 0.toString();
+  value??= '0';
+  print(value);
   if (value == '0') {
     return 'Este campo não pode ser vazio.';
   } else {

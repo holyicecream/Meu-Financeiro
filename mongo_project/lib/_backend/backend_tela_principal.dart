@@ -75,20 +75,20 @@ void inBuildTelaPrincipal(context) {
       (value) {
         dataExtrato = value;
         for (var i = 0; i < value.length; i++) {
-          if (value[i]['cod_cliente'] == 1 &&
+          if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente &&
               value[i]['debito_credito'] == "debito") {
             saldo -= value[i]['valor'];
-          } else if (value[i]['cod_cliente'] == 1 &&
+          } else if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente &&
               value[i]['debito_credito'] == "credito") {
             saldo += value[i]['valor'];
           }
         }
         for (var i = 0; i < value.length; i++) {
-          if (value[i]['cod_cliente'] == 1 &&
+          if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente &&
               value[i]['data'].day >= DateTime.now().day &&
               value[i]['debito_credito'] == "debito") {
             pagamentosPendentesValue -= value[i]['valor'];
-          } else if (value[i]['cod_cliente'] == 1 &&
+          } else if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente &&
               value[i]['data'].day >= DateTime.now().day &&
               value[i]['debito_credito'] == "credito") {
             pagamentosPendentesValue += value[i]['valor'];
@@ -111,8 +111,8 @@ Widget displayCard(
   if (debitocredito == 'debito') {
     return GestureDetector(
       onTap: () {
-        todosArguments.dataExtrato = data;
-        Navigator.pushNamed(context, '/PageTeste', arguments: todosArguments);
+        // todosArguments.dataExtrato = data;
+        // Navigator.pushNamed(context, '/PageTeste', arguments: todosArguments);
       },
       child: SizedBox(
         height: 125,
@@ -143,8 +143,8 @@ Widget displayCard(
   } else {
     return GestureDetector(
       onTap: () {
-        todosArguments.dataExtrato = data;
-        Navigator.pushNamed(context, '/PageTeste', arguments: todosArguments);
+        // todosArguments.dataExtrato = data;
+        // Navigator.pushNamed(context, '/PageTeste', arguments: todosArguments);
       },
       child: SizedBox(
         height: 125,
@@ -177,7 +177,7 @@ Widget displayCard(
 
 List<Widget> cardPagamentosPendentes(context) {
   for (var i = 0; i < dataExtrato.length; i++) {
-    if (dataExtrato[i]['cod_cliente'] == 1 &&
+    if (dataExtrato[i]['cod_cliente'] == todosArguments.dataClientes.codCliente &&
         dataExtrato[i]['data'].day >= DateTime.now().day) {
       if (dataExtrato[i]['debito_credito'] == 'debito') {
         pagamentosPendentes.add(displayCard(
@@ -196,8 +196,8 @@ Widget displayListView(
   if (debitocredito == 'debito') {
     return GestureDetector(
       onTap: () {
-        todosArguments.dataExtrato = data;
-        Navigator.pushNamed(context, '/PageTeste', arguments: todosArguments);
+        // todosArguments.dataExtrato = data;
+        // Navigator.pushNamed(context, '/PageTeste', arguments: todosArguments);
       },
       child: Row(
         children: [
@@ -250,8 +250,8 @@ Widget displayListView(
   } else {
     return GestureDetector(
       onTap: () {
-        todosArguments.dataExtrato = data;
-        Navigator.pushNamed(context, '/PageTeste', arguments: todosArguments);
+        // todosArguments.dataExtrato = data;
+        // Navigator.pushNamed(context, '/PageTeste', arguments: todosArguments);
       },
       child: Row(
         children: [
@@ -354,6 +354,6 @@ void drawerContaOnTap(context) {
 }
 
 void floatBtnOnTap(context) {
-  Navigator.pushReplacementNamed(context, '/PageTeste',
-      arguments: todosArguments);
+  // Navigator.pushReplacementNamed(context, '/PageTeste',
+  //     arguments: todosArguments);
 }
