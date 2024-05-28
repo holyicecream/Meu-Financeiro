@@ -31,7 +31,7 @@ class LoginCadastroState extends State<LoginCadastro> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    Container(
+                    SizedBox(
                         width: 250,
                         height: 60,
                         child: ElevatedButton(
@@ -52,7 +52,7 @@ class LoginCadastroState extends State<LoginCadastro> {
                     SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                         width: 250,
                         height: 60,
                         child: TextButton(

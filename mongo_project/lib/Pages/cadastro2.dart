@@ -61,7 +61,7 @@ class CadastroState extends State<Cadastro> {
                     SizedBox(
                       height: 250,
                     ),
-                    Container(
+                    SizedBox(
                         width: 250,
                         height: 60,
                         child: ElevatedButton(

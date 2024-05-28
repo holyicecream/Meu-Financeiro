@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/Pages/cadastro.dart';
-import 'package:projeto_integrador/Pages/login-cadastro.dart';
+import 'package:projeto_integrador/Pages/login_cadastro.dart';
 import 'package:projeto_integrador/Pages/login.dart';
 import 'package:projeto_integrador/Pages/jeantxt.dart';
 import 'package:projeto_integrador/Pages/primeiro_acesso.dart';

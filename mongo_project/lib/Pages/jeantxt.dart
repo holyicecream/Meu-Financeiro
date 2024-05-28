@@ -130,11 +130,11 @@ class MainState extends State<Main> {
           Navigator.pushNamed(context, '/GerarExtrato');
         },
         backgroundColor: Colors.green,
+        shape: CircleBorder(),
         child: const Icon(
           Icons.add,
           color: Colors.white,
         ),
-        shape: CircleBorder(),
       ),
     );
   }

@@ -117,7 +117,7 @@ class AddExtratoState extends State<AddExtrato> {
                     SizedBox(
                       height: 20,
                     ),
-                    Container(
+                    SizedBox(
                         width: 250,
                         height: 60,
                         child: ElevatedButton(
