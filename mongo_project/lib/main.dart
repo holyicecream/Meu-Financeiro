@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/Pages/add-extrato.dart';
+import 'package:projeto_integrador/Pages/cadastro.dart';
+import 'package:projeto_integrador/Pages/login-cadastro.dart';
+import 'package:projeto_integrador/Pages/login.dart';
 import 'Pages/jeantxt.dart';
 import 'Pages/page_teste.dart';
 import 'zDatabase/mongodb_area_consumo.dart';
@@ -40,15 +44,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/Main',
+      initialRoute: '/EntrarCom...',
       routes: {
         '/PageTeste': (context) => PageTeste(),
         '/PrimeiroAcesso': (context) => PageTeste(),
-        '/EntrarCom...': (context) => PageTeste(),
-        '/Login': (context) => PageTeste(),
+        '/EntrarCom...': (context) => LoginCadastro(),
+        '/Login': (context) => Login(),
         '/RecuperacaoDeSenha': (context) => PageTeste(),
         '/RedefinicaoDeSenha': (context) => PageTeste(),
-        '/Cadastro': (context) => PageTeste(),
+        '/Cadastro': (context) => Cadastro(),
         '/EntrarComContaJaExistente': (context) => PageTeste(),
         '/VinculoBancarioOuInserçãoManual': (context) => PageTeste(),
         '/SelecaoDeBanco': (context) => PageTeste(),
@@ -63,13 +67,13 @@ class MyApp extends StatelessWidget {
         '/GraficoMensal': (context) => PageTeste(),
         '/EditarPagamentoPendente': (context) => PageTeste(),
         '/AdicionarPagamentoPendente': (context) => PageTeste(),
-        '/GerarExtrato': (context) => PageTeste(),
+        '/GerarExtrato': (context) => AddExtrato(),
         '/Alarme': (context) => PageTeste(),
         '/Extrato': (context) => PageTeste(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
       // home: const LoginPage(),

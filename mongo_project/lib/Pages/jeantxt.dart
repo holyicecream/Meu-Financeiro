@@ -84,7 +84,7 @@ class MainState extends State<Main> {
                       ),
                     ),
                     Text(
-                      "- RS ${pagamentosPendentesValue.toString()}",
+                      "- R\$ ${pagamentosPendentesValue.toString()}",
                       style: TextStyle(
                           fontSize: 12,
                           color: Colors.grey,
@@ -124,6 +124,17 @@ class MainState extends State<Main> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/GerarExtrato');
+        },
+        backgroundColor: Colors.green,
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        shape: CircleBorder(),
       ),
     );
   }
