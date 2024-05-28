@@ -3,7 +3,6 @@
 //unselected color
 //icons: login, person, wc, assignment, delete, login_outlined, foward
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:projeto_integrador/_backend/backend_primeiro_acesso.dart';
 
 class PrimeiroAcesso extends StatefulWidget {
