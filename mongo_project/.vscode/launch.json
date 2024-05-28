@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (Windows)",
+            "program": "lib/main.dart",
+            "deviceId": "windows",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Flutter (Windows main2)",
+            "program": "lib//zTeste/main2.dart",
+            "deviceId": "windows",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Flutter (Small Phone)",
+            "program": "lib/main.dart",
+            "deviceId": "emulator-5554",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Flutter (Small Phone main2)",
+            "program": "lib//zTeste/main2.dart",
+            "deviceId": "emulator-5554",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}
