@@ -1,12 +1,7 @@
-import 'package:estudo_prova01/Agencia/display_agencia.dart';
 import 'package:estudo_prova01/Agencia/insert_agencia.dart';
-import 'package:estudo_prova01/Banco/display_banco.dart';
-import 'package:estudo_prova01/Cliente/display_client.dart';
 import 'package:estudo_prova01/Cliente/insert_client.dart';
 import 'package:estudo_prova01/Cliente/select_client_transacoes.dart';
-import 'package:estudo_prova01/Conta_Cli/display_conta_cli.dart';
 import 'package:estudo_prova01/Conta_Cli/insert_conta_cli.dart';
-import 'package:estudo_prova01/Transacoes/display_transacoes.dart';
 import 'package:estudo_prova01/listar.dart';
 import 'package:flutter/material.dart';
 

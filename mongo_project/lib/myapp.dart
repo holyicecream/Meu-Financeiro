@@ -5,7 +5,6 @@ import '/Banco/display_banco.dart';
 import '/Cliente/display_client.dart';
 import '/Conta_Cli/display_conta_cli.dart';
 import '/Transacoes/display_transacoes.dart';
-import '/navegacao.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
