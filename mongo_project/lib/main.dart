@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'Pages/jeantxt.dart';
+import 'package:projeto_integrador/Pages/jeantxt.dart';
+import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
 import 'Pages/page_teste.dart';
+import 'Pages/recuperacao_de_senha.dart';
 import 'zDatabase/mongodb_area_consumo.dart';
 import 'zDatabase/mongodb_bancos.dart';
 import 'zDatabase/mongodb_bancos_usuario.dart';
@@ -40,13 +42,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/Main',
+      initialRoute: '/PrimeiroAcesso',
       routes: {
         '/PageTeste': (context) => PageTeste(),
-        '/PrimeiroAcesso': (context) => PageTeste(),
+        '/PrimeiroAcesso': (context) => PrimeiroAcesso(),
         '/EntrarCom...': (context) => PageTeste(),
         '/Login': (context) => PageTeste(),
-        '/RecuperacaoDeSenha': (context) => PageTeste(),
+        '/RecuperacaoDeSenha': (context) => RecuperacaoDeSenha(),
         '/RedefinicaoDeSenha': (context) => PageTeste(),
         '/Cadastro': (context) => PageTeste(),
         '/EntrarComContaJaExistente': (context) => PageTeste(),
