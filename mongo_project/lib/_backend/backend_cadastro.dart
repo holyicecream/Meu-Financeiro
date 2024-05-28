@@ -23,7 +23,7 @@ bool check = true;
 List<Map<String, dynamic>> dataClientes = [
   {'': ''}
 ];
-void inBuildLogin(context) {
+void inBuildCadastro(context) {
   count++;
   print("build $count");
   if (check) {
@@ -39,10 +39,10 @@ void inBuildLogin(context) {
   MongoDatabaseClientes.getData().then(
     (value) {
       dataClientes = value;
-      todosArguments.dataClientes.codCliente = (value[value.length - 1]['cod_cliente'] + 1);
+      todosArguments.dataClientes.codCliente =
+          (value[value.length - 1]['cod_cliente'] + 1);
     },
   );
-
 }
 
 void nomeOnChange(value) {
@@ -88,17 +88,20 @@ String? senhaValidator(String? value) {
   }
 }
 
-void cadastroOnTap(context) {
-  MongoDbModelClientes data = todosArguments.dataClientes;
-  if (todosArguments.dataClientes.email != '' &&
-      todosArguments.dataClientes.senha != '' &&
-      todosArguments.dataClientes.nomeCliente != '') {
-    MongoDatabaseClientes.insert(data);
-    Navigator.pushReplacementNamed(context, '/Login',
-        arguments: todosArguments);
-  } else {}
+final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+void cadastrarOnTap(context) {
+  if (formKey.currentState!.validate()) {
+    MongoDbModelClientes data = todosArguments.dataClientes;
+    if (todosArguments.dataClientes.email != '' &&
+        todosArguments.dataClientes.senha != '' &&
+        todosArguments.dataClientes.nomeCliente != '') {
+      MongoDatabaseClientes.insert(data);
+      Navigator.pushReplacementNamed(context, '/Login',
+          arguments: todosArguments);
+    } else {}
+  }
 }
 
-void entrarOnTap(context){
+void entrarOnTap(context) {
   Navigator.pushReplacementNamed(context, '/Login', arguments: todosArguments);
 }

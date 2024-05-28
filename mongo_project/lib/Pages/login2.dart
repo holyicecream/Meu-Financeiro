@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, file_names
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 //selected color
 //unselected color
 //icons: login, person, wc, assignment, delete, login_outlined, foward
@@ -16,7 +16,6 @@ class LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     inBuildLogin(context);
-    print(todosArguments.dataClientes.toJson());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

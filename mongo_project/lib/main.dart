@@ -1,12 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/Pages/add-extrato.dart';
 import 'package:projeto_integrador/Pages/cadastro.dart';
 import 'package:projeto_integrador/Pages/login-cadastro.dart';
 import 'package:projeto_integrador/Pages/login.dart';
+import 'package:projeto_integrador/Pages/jeantxt.dart';
 import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
-import 'Pages/jeantxt.dart';
 import 'Pages/page_teste.dart';
 import 'Pages/recuperacao_de_senha.dart';
 import 'Pages/redefinicao_de_senha.dart';
@@ -47,7 +46,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/PrimeiroAcesso',
+      initialRoute: '/VinculoBancarioOuInserçãoManual',
       routes: {
         '/PageTeste': (context) => PageTeste(),
         '/PrimeiroAcesso': (context) => PrimeiroAcesso(),
@@ -70,13 +69,13 @@ class MyApp extends StatelessWidget {
         '/GraficoMensal': (context) => PageTeste(),
         '/EditarPagamentoPendente': (context) => PageTeste(),
         '/AdicionarPagamentoPendente': (context) => PageTeste(),
-        '/GerarExtrato': (context) => AddExtrato(),
+        '/GerarExtrato': (context) => PageTeste(),
         '/Alarme': (context) => PageTeste(),
         '/Extrato': (context) => PageTeste(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       // home: const LoginPage(),

@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
+//selected color
+//unselected color
+//icons: login, person, wc, assignment, delete, login_outlined, foward
 import 'package:flutter/material.dart';
-import '/_backend/backend_tela_principal.dart';
+import 'package:projeto_integrador/_backend/backend_cadastro.dart';
 
 class Cadastro extends StatefulWidget {
   const Cadastro({super.key});
@@ -11,91 +13,112 @@ class Cadastro extends StatefulWidget {
 }
 
 class CadastroState extends State<Cadastro> {
-  int indexDoBottom = 0;
   @override
   Widget build(BuildContext context) {
-    inBuildTelaPrincipal(context);
+    inBuildCadastro(context);
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(4.0),
-          child: Container(
-            color: Colors.black,
-            height: 1.0,
-          ),
-        ),
-        title: const Text(
-          "Cadastro",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          textAlign: TextAlign.center,
-        ),
+        centerTitle: true,
+        title: Text('Cadastro'),
+        backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(), labelText: "Nome"),
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          validator: (value) {
+                            return nomeValidator(value);
+                          },
+                          onChanged: (value) {
+                            nomeOnChange(value);
+                          },
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Nome',
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        TextFormField(
+                          validator: (value) {
+                            return emailValidator(value);
+                          },
+                          onChanged: (value) {
+                            emailOnChange(value);
+                          },
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'E-mail',
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        TextFormField(
+                          validator: (value) {
+                            return senhaValidator(value);
+                          },
+                          obscureText: true,
+                          onChanged: (value) {
+                            senhaOnChange(value);
+                          },
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Senha',
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(), labelText: "Email"),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(), labelText: "Senha"),
-                    ),
-                    SizedBox(
-                      height: 250,
-                    ),
-                    Container(
-                        width: 250,
-                        height: 60,
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF224912),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8))),
-                            child: Text(
-                              "Cadastrar",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontSize: 20),
-                            ))),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    InkWell(
-                      child: Text(
-                        "Já tem uma conta? Entrar",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF224912)),
-                      ),
-                      onTap: () {
-                        Navigator.pushReplacementNamed(context, '/Login');
+                  ),
+                  SizedBox(
+                    height: 35,
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        cadastrarOnTap(context);
                       },
-                    )
-                  ],
-                ),
-              )
-            ],
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8))),
+                        backgroundColor: MaterialStateColor.resolveWith(
+                            (states) => Colors.green.shade900),
+                        minimumSize:
+                            MaterialStateProperty.resolveWith((states) {
+                          return Size(250, 50);
+                        }),
+                      ),
+                      child: Text("Cadastrar", style: TextStyle(color: Colors.white),),
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Já tem uma conta?  "),
+                      GestureDetector(
+                        child: Text("Entrar."),
+                        onTap: () {
+                          entrarOnTap(context);
+                        },
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),
