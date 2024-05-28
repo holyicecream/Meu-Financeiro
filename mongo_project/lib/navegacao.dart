@@ -1,5 +1,5 @@
-import 'package:estudo_prova01/inserir.dart';
-import 'package:estudo_prova01/listar.dart';
+import '/inserir.dart';
+import '/listar.dart';
 import 'package:flutter/material.dart';
 
 class Navegacao extends StatefulWidget {
@@ -22,19 +22,17 @@ class _NavegacaoState extends State<Navegacao> {
           ),
         ),
         body: SingleChildScrollView(
-          child: Center(
-            child: SizedBox(
-              height: 600,
-              width: 800,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Image(image: NetworkImage("https://imgur.com/a/5bBAthR"))
-                ]
-              )
-            )
-          )
-        ),
+            child: Center(
+                child: SizedBox(
+                    height: 600,
+                    width: 800,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Image(
+                              image:
+                                  NetworkImage("https://imgur.com/a/5bBAthR"))
+                        ])))),
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.list), label: "Listar"),

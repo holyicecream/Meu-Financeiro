@@ -1,4 +1,4 @@
-import 'package:estudo_prova01/inserir.dart';
+import '/inserir.dart';
 import 'package:flutter/material.dart';
 
 class Listar extends StatefulWidget {
@@ -30,95 +30,95 @@ class _NavegacaoState extends State<Listar> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return const Listar();
-                            },
-                          ));
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return const Listar();
                         },
-                        style: ButtonStyle(
-                            minimumSize:
-                                MaterialStateProperty.all(const Size(300, 100)),
-                            maximumSize: MaterialStateProperty.all(
-                                const Size(300, 100))),
-                        child: const Text(
-                          "Listar Agências Bancárias.",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return const Listar();
-                            },
-                          ));
+                      ));
+                    },
+                    style: ButtonStyle(
+                        minimumSize:
+                            MaterialStateProperty.all(const Size(300, 100)),
+                        maximumSize:
+                            MaterialStateProperty.all(const Size(300, 100))),
+                    child: const Text(
+                      "Listar Agências Bancárias.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return const Listar();
                         },
-                        style: ButtonStyle(
-                            minimumSize:
-                                MaterialStateProperty.all(const Size(300, 100)),
-                            maximumSize: MaterialStateProperty.all(
-                                const Size(300, 100))),
-                        child: const Text(
-                          "Listar Bancos.",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return const Listar();
-                              },
-                            ));
+                      ));
+                    },
+                    style: ButtonStyle(
+                        minimumSize:
+                            MaterialStateProperty.all(const Size(300, 100)),
+                        maximumSize:
+                            MaterialStateProperty.all(const Size(300, 100))),
+                    child: const Text(
+                      "Listar Bancos.",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const Listar();
                           },
-                          style: ButtonStyle(
-                              minimumSize: MaterialStateProperty.all(
-                                  const Size(300, 100)),
-                              maximumSize: MaterialStateProperty.all(
-                                  const Size(300, 100))),
-                          child: const Text(
-                            "Listar Clientes.",
-                            style: TextStyle(fontSize: 20),
-                          )),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return const Listar();
-                              },
-                            ));
+                        ));
+                      },
+                      style: ButtonStyle(
+                          minimumSize:
+                              MaterialStateProperty.all(const Size(300, 100)),
+                          maximumSize:
+                              MaterialStateProperty.all(const Size(300, 100))),
+                      child: const Text(
+                        "Listar Clientes.",
+                        style: TextStyle(fontSize: 20),
+                      )),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const Listar();
                           },
-                          style: ButtonStyle(
-                              minimumSize: MaterialStateProperty.all(
-                                  const Size(300, 100)),
-                              maximumSize: MaterialStateProperty.all(
-                                  const Size(300, 100))),
-                          child: const Text(
-                            "Listar Contas Bancárias dos clientes.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
-                          )),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return const Listar();
-                              },
-                            ));
+                        ));
+                      },
+                      style: ButtonStyle(
+                          minimumSize:
+                              MaterialStateProperty.all(const Size(300, 100)),
+                          maximumSize:
+                              MaterialStateProperty.all(const Size(300, 100))),
+                      child: const Text(
+                        "Listar Contas Bancárias dos clientes.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 20),
+                      )),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const Listar();
                           },
-                          style: ButtonStyle(
-                              minimumSize: MaterialStateProperty.all(
-                                  const Size(300, 100)),
-                              maximumSize: MaterialStateProperty.all(
-                                  const Size(300, 100))),
-                          child: const Text(
-                            "Listar Transações.",
-                            style: TextStyle(fontSize: 20),
-                          )),
+                        ));
+                      },
+                      style: ButtonStyle(
+                          minimumSize:
+                              MaterialStateProperty.all(const Size(300, 100)),
+                          maximumSize:
+                              MaterialStateProperty.all(const Size(300, 100))),
+                      child: const Text(
+                        "Listar Transações.",
+                        style: TextStyle(fontSize: 20),
+                      )),
                 ],
               ),
             ),

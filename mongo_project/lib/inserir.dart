@@ -1,4 +1,4 @@
-import 'package:estudo_prova01/listar.dart';
+import '/listar.dart';
 import 'package:flutter/material.dart';
 
 class Inserir extends StatefulWidget {
