@@ -1,0 +1,28 @@
+[
+    {
+        "_id": {
+            "$oid": "6635c2a7b9ed15643ae98746"
+        },
+        "cod_cliente": 1,
+        "email": "teste@gmail.com",
+        "senha": "123",
+        "nome_cliente": "teste 1",
+        "cpf": {
+            "$numberLong": "12312312300"
+        },
+        "cnpj": ""
+    },
+    {
+        "_id": {
+            "$oid": "6635c2a7b9ed15643ae98747"
+        },
+        "cod_cliente": 2,
+        "email": "teste2@hotmail.com",
+        "senha": "123",
+        "nome_cliente": "teste 2",
+        "cpf": {
+            "$numberLong": "32132132100"
+        },
+        "cnpj": ""
+    }
+]

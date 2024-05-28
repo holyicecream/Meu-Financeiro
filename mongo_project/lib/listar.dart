@@ -1,8 +1,3 @@
-import 'package:estudo_prova01/Agencia/display_agencia.dart';
-import 'package:estudo_prova01/Banco/display_banco.dart';
-import 'package:estudo_prova01/Cliente/display_client.dart';
-import 'package:estudo_prova01/Conta_Cli/display_conta_cli.dart';
-import 'package:estudo_prova01/Transacoes/display_transacoes.dart';
 import 'package:estudo_prova01/inserir.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +34,7 @@ class _NavegacaoState extends State<Listar> {
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(
                             builder: (context) {
-                              return const DisplayAgencia();
+                              return const Listar();
                             },
                           ));
                         },
@@ -58,7 +53,7 @@ class _NavegacaoState extends State<Listar> {
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(
                             builder: (context) {
-                              return const DisplayBanco();
+                              return const Listar();
                             },
                           ));
                         },
@@ -76,7 +71,7 @@ class _NavegacaoState extends State<Listar> {
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const DisplayClient();
+                                return const Listar();
                               },
                             ));
                           },
@@ -93,7 +88,7 @@ class _NavegacaoState extends State<Listar> {
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const DisplayContaCli();
+                                return const Listar();
                               },
                             ));
                           },
@@ -111,7 +106,7 @@ class _NavegacaoState extends State<Listar> {
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const DisplayTransacoes();
+                                return const Listar();
                               },
                             ));
                           },
