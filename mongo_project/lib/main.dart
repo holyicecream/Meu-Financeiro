@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/Pages/Login.dart';
 import 'package:projeto_integrador/Pages/jeantxt.dart';
 import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
 import 'Pages/page_teste.dart';
@@ -42,12 +43,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/PrimeiroAcesso',
+      initialRoute: '/Login',
       routes: {
         '/PageTeste': (context) => PageTeste(),
         '/PrimeiroAcesso': (context) => PrimeiroAcesso(),
         '/EntrarCom...': (context) => PageTeste(),
-        '/Login': (context) => PageTeste(),
+        '/Login': (context) => Login(),
         '/RecuperacaoDeSenha': (context) => RecuperacaoDeSenha(),
         '/RedefinicaoDeSenha': (context) => PageTeste(),
         '/Cadastro': (context) => PageTeste(),
