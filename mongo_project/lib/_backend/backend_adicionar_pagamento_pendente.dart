@@ -61,8 +61,13 @@ void descricaoOnChange(value) {
 
 String? groupValue;
 void debitoCreditoOnChanged(value) {
-  groupValue = value;
-  todosArguments.dataExtrato.debitoCredito = value;
+  value??='debito';
+  if(value == 'Pago'){
+  todosArguments.dataExtrato.debitoCredito = 'debito';
+  }
+  else if(value == "Recebido"){
+    todosArguments.dataExtrato.debitoCredito = 'credito';
+  }
 }
 
 String? nomeValidator(String? value) {
@@ -111,9 +116,9 @@ String? debitoCreditoValidator(String? value) {
   }
 }
 
-final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-void salvarOnTap(context) {
+void salvarOnTap(context, formKey) {
   if (formKey.currentState!.validate()) {
+    print("foi");
     todosArguments.dataExtrato.codBanco = todosArguments.dataBancos.codBanco;
     todosArguments.dataExtrato.codCliente =
         todosArguments.dataClientes.codCliente;

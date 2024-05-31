@@ -11,10 +11,12 @@ class Main extends StatefulWidget {
 }
 
 class MainState extends State<Main> {
-  int indexDoBottom = 0;
+
   @override
   Widget build(BuildContext context) {
+    
     inBuildTelaPrincipal(context);
+    print(todosArguments.dataClientes.toJson);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -44,8 +46,7 @@ class MainState extends State<Main> {
                       CircleAvatar(
                         radius: 40,
                       ),
-                      Text(
-                        "Olá, ${todosArguments.dataClientes.nomeCliente.toString()}",
+                      Text("Olá, $nome",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -84,7 +85,7 @@ class MainState extends State<Main> {
                       ),
                     ),
                     Text(
-                      "- R\$ ${pagamentosPendentesValue.toString()}",
+                      "R\$ ${pagamentosPendentesValue.toString()}",
                       style: TextStyle(
                           fontSize: 12,
                           color: Colors.grey,
@@ -96,6 +97,7 @@ class MainState extends State<Main> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: pagamentosPendentes,
                 ),
               ),
