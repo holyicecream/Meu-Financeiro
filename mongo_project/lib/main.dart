@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/Pages/add_extrato.dart';
 import 'package:projeto_integrador/Pages/cadastro.dart';
 import 'package:projeto_integrador/Pages/login_cadastro.dart';
 import 'package:projeto_integrador/Pages/login.dart';
@@ -75,7 +76,7 @@ class MyApp extends StatelessWidget {
         '/GraficoMensal': (context) => PageTeste(),
         '/EditarPagamentoPendente': (context) => PageTeste(),
         '/AdicionarPagamentoPendente': (context) => PageTeste(),
-        '/GerarExtrato': (context) => PageTeste(),
+        '/GerarExtrato': (context) => AddExtrato(),
         '/Alarme': (context) => PageTeste(),
         '/Extrato': (context) => PageTeste(),
       },

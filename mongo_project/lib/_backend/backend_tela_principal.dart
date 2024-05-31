@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/zDatabase/mongodb_clientes.dart';
 
 import '../zDatabase/mongodb_extrato.dart';
 import '../zModels/model_area_consumo.dart';
@@ -55,15 +56,20 @@ List<Widget> pagamentosPendentes = [
 Widget extrato = Container();
 
 int count = 0;
-bool check = true;
+// bool check = true;
 void inBuildTelaPrincipal(context) {
+  if(count > 2){
+    count = 0;
+  }
   count++;
   print("build $count");
-  if (check) {
-    check = false;
+  if (count < 3) {
     try {
       todosArguments =
           ModalRoute.of(context)!.settings.arguments as TodosArguments;
+      print('cade');
+      cardPagamentosPendentes(context);
+      extrato = listViewExtrato(context);
     } catch (e) {
       // print(e.toString());
     }
@@ -71,38 +77,52 @@ void inBuildTelaPrincipal(context) {
     saldo = todosArguments.salario;
     // print(nome);
 
+    MongoDatabaseClientes.getData().then((value) {
+      for (var i = 0; i < value.length; i++) {
+        if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente) {
+          todosArguments.dataClientes.nomeCliente = value[i]['nome_cliente'];
+          print(todosArguments.dataClientes.toJson());
+        }
+      }
+    });
+
     MongoDatabaseExtrato.getData().then(
       (value) {
         dataExtrato = value;
         for (var i = 0; i < value.length; i++) {
-          if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente &&
+          if (value[i]['cod_cliente'] ==
+                  todosArguments.dataClientes.codCliente &&
               value[i]['debito_credito'] == "debito") {
             saldo -= value[i]['valor'];
-          } else if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente &&
+          } else if (value[i]['cod_cliente'] ==
+                  todosArguments.dataClientes.codCliente &&
               value[i]['debito_credito'] == "credito") {
             saldo += value[i]['valor'];
           }
         }
         for (var i = 0; i < value.length; i++) {
-          if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente &&
+          if (value[i]['cod_cliente'] ==
+                  todosArguments.dataClientes.codCliente &&
               value[i]['data'].day >= DateTime.now().day &&
               value[i]['debito_credito'] == "debito") {
             pagamentosPendentesValue -= value[i]['valor'];
-          } else if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente &&
+          } else if (value[i]['cod_cliente'] ==
+                  todosArguments.dataClientes.codCliente &&
               value[i]['data'].day >= DateTime.now().day &&
               value[i]['debito_credito'] == "credito") {
             pagamentosPendentesValue += value[i]['valor'];
           }
         }
         todosArguments.dataExtrato;
-        // print("saldo $saldo");
-        // print("value $pagamentosPendentesValue");
-
-        cardPagamentosPendentes(context);
-        extrato = listViewExtrato(context);
+        print("saldo $saldo");
+        print("value $pagamentosPendentesValue");
       },
     );
   }
+}
+
+String? nomeConfia() {
+  return todosArguments.dataClientes.nomeCliente;
 }
 
 Widget displayCard(
@@ -129,7 +149,10 @@ Widget displayCard(
                 ),
                 Row(
                   children: [
-                    Icon(Icons.arrow_downward_sharp, color: Colors.red,),
+                    Icon(
+                      Icons.arrow_downward_sharp,
+                      color: Colors.red,
+                    ),
                     Text(data.valor.toString()),
                   ],
                 ),
@@ -161,7 +184,10 @@ Widget displayCard(
                 ),
                 Row(
                   children: [
-                    Icon(Icons.arrow_upward, color: Colors.green,),
+                    Icon(
+                      Icons.arrow_upward,
+                      color: Colors.green,
+                    ),
                     Text(data.valor.toString()),
                   ],
                 ),
@@ -177,7 +203,8 @@ Widget displayCard(
 
 List<Widget> cardPagamentosPendentes(context) {
   for (var i = 0; i < dataExtrato.length; i++) {
-    if (dataExtrato[i]['cod_cliente'] == todosArguments.dataClientes.codCliente &&
+    if (dataExtrato[i]['cod_cliente'] ==
+            todosArguments.dataClientes.codCliente &&
         dataExtrato[i]['data'].day >= DateTime.now().day) {
       if (dataExtrato[i]['debito_credito'] == 'debito') {
         pagamentosPendentes.add(displayCard(
