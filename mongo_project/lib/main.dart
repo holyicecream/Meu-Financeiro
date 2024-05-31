@@ -18,26 +18,32 @@ import 'zDatabase/mongodb_clientes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  MongoDatabaseAreaConsumo.connect().then((value) {
-    print('1º foi');
-    MongoDatabaseBancosUsuario.connect().then((value) {
-      print('2º foi');
-      MongoDatabaseBancos.connect().then((value) {
-        print('3º foi');
-        MongoDatabaseClientes.connect().then((value) {
-          print('4º foi');
-          MongoDatabaseExtrato.connect().then((value) {
-            print('5º foi');
-            MongoDatabaseTipoTransacoes.connect().then((value) {
-              print('6º foi');
-              print('Iniciando app');
-              runApp(const MyApp());
-            });
-          });
-        });
-      });
-    });
-  });
+  // MongoDatabaseAreaConsumo.connect().then((value) {
+  //   print('1º foi');
+  //   MongoDatabaseBancosUsuario.connect().then((value) {
+  //     print('2º foi');
+  //     MongoDatabaseBancos.connect().then((value) {
+  //       print('3º foi');
+  //       MongoDatabaseClientes.connect().then((value) {
+  //         print('4º foi');
+  //         MongoDatabaseExtrato.connect().then((value) {
+  //           print('5º foi');
+  //           MongoDatabaseTipoTransacoes.connect().then((value) {
+  //             print('6º foi');
+  //             print('Iniciando app');
+  //             runApp(const MyApp());
+  //           });
+  //         });
+  //       });
+  //     });
+  //   });
+  // });
+  MongoDatabaseClientes.connect().then((value) => runApp(MyApp()));
+  MongoDatabaseAreaConsumo.connect();
+  MongoDatabaseBancos.connect();
+  MongoDatabaseBancosUsuario.connect();
+  MongoDatabaseExtrato.connect();
+  MongoDatabaseTipoTransacoes.connect();
 }
 
 class MyApp extends StatelessWidget {
@@ -49,7 +55,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/PrimeiroAcesso',
       routes: {
         '/PageTeste': (context) => PageTeste(),
-        '/PrimeiroAcesso': (context) => PrimeiroAcesso(),
+        '/PrimeiroAcesso': (context) => LoginCadastro(),
         '/EntrarCom...': (context) => LoginCadastro(),
         '/Login': (context) => Login(),
         '/RecuperacaoDeSenha': (context) => RecuperacaoDeSenha(),
