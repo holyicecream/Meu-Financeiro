@@ -81,8 +81,8 @@ void esqueceuASenhaOnTap(context) {
       arguments: todosArguments);
 }
 
-final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-void entrarOnTap(context) {
+//final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+void entrarOnTap(context, formKey) {
   if (formKey.currentState!.validate()) {
     bool check = true;
 

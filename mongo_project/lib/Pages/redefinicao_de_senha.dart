@@ -5,6 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/_backend/backend_redefinicao_de_senha.dart';
 
+import '../zDatabase/mongodb_clientes.dart';
+
 class RedefinicaoDeSenha extends StatefulWidget {
   const RedefinicaoDeSenha({super.key});
 
@@ -13,6 +15,7 @@ class RedefinicaoDeSenha extends StatefulWidget {
 }
 
 class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     inBuildRedefinicaoDeSenha(context);
@@ -72,7 +75,18 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        continuarOnTap(context);
+                        if (formKey.currentState!.validate()) {
+                          if (senha1 == senha2) {
+                            todosArguments.dataClientes.senha = senha2;
+
+                            MongoDatabaseClientes.updateSenha(
+                                todosArguments.dataClientes);
+                            Navigator.pushReplacementNamed(context, '/Login');
+                          } else {
+                            print(
+                                'ih senha quebrou, formulario foi sem validar');
+                          }
+                        }
                       },
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(

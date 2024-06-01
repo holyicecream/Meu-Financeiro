@@ -68,15 +68,14 @@ String? senha2Validator(String? value) {
   }
 }
 
-final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-void continuarOnTap(context) {
+//final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+void continuarOnTap(context, formKey) {
   if (formKey.currentState!.validate()) {
     if (senha1 == senha2) {
       todosArguments.dataClientes.senha = senha2;
-      if (formKey.currentState!.validate()) {
-        MongoDatabaseClientes.updateSenha(todosArguments.dataClientes);
-        Navigator.pushReplacementNamed(context, '/Login');
-      }
+
+      MongoDatabaseClientes.updateSenha(todosArguments.dataClientes);
+      Navigator.pushReplacementNamed(context, '/Login');
     } else {
       print('ih senha quebrou, formulario foi sem validar');
     }

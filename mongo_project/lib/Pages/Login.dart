@@ -13,6 +13,7 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     inBuildLogin(context);
@@ -106,7 +107,48 @@ class LoginState extends State<Login> {
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        entrarOnTap(context);
+                        if (formKey.currentState!.validate()) {
+                          bool check = true;
+
+                          for (var i = 0; i < dataClientes.length; i++) {
+                            if (dataClientes[i]['email'] ==
+                                    todosArguments.dataClientes.email &&
+                                dataClientes[i]['senha'] ==
+                                    todosArguments.dataClientes.senha) {
+                              check = false;
+                              todosArguments.dataClientes.codCliente =
+                                  dataClientes[i]['cod_cliente'];
+                              todosArguments.dataClientes.nomeCliente =
+                                  dataClientes[i]['nome'];
+                              Navigator.pushNamed(context, '/Main',
+                                  arguments: todosArguments);
+                              // Navigator.pushNamed(context, '/VinculoBancarioOuInserçãoManual', arguments: todosArguments);
+                            }
+                          }
+                          if (check) {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  actions: [
+                                    Center(
+                                        child: MaterialButton(
+                                      onPressed: () => Navigator.pop(context),
+                                      child: Text("Ok"),
+                                    ))
+                                  ],
+                                  // title: Center(child: Text('Error')),
+                                  content: Container(
+                                    alignment: Alignment.center,
+                                    width: 50,
+                                    height: 50,
+                                    child: Text("Email ou Senha inválidos."),
+                                  ),
+                                );
+                              },
+                            );
+                          }
+                        }
                       },
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
@@ -118,10 +160,15 @@ class LoginState extends State<Login> {
                           return Size(250, 50);
                         }),
                       ),
-                      child: Text("Entrar", style: TextStyle(color: Colors.white),),
+                      child: Text(
+                        "Entrar",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

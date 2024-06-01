@@ -32,6 +32,7 @@ void inBuildAlterarSenha(context) {
     }
   }
 }
+
 String? senhaAtual;
 String? senha1;
 String? senha2;
@@ -72,14 +73,14 @@ String? senha2Validator(String? value) {
   }
 }
 
-void continurOnTap(context) {
+void continurOnTap(context, formKey) {
   if (formKey.currentState!.validate()) {
     Navigator.pushReplacementNamed(context, '/RedefinicaoDeSenha');
   }
 }
 
-final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-void continuarOnTap(context) {
+//final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+void continuarOnTap(context, formKey) {
   if (formKey.currentState!.validate()) {
     if (senha1 == senha2 && senhaAtual == todosArguments.dataClientes.senha) {
       todosArguments.dataClientes.senha = senha2;

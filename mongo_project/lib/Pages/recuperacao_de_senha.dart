@@ -13,6 +13,7 @@ class RecuperacaoDeSenha extends StatefulWidget {
 }
 
 class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     inBuildRecuperacaoDeSenha(context);
@@ -141,7 +142,6 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                           fontSize: 16,
                           color: Colors.green.shade900,
                         ),
-                        
                       ),
                     ),
                   ),
@@ -161,7 +161,11 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                             }),
                           ),
                           onPressed: () {
-                            continuarOnTap(context);
+                            if (formKey.currentState!.validate()) {
+                              // Você requisitou a mudança de senha. Para realizar a mudança é necessário a confirmação via email, enviamos um código de 5 no email ${todosArguments.dataClient.email}
+                              Navigator.pushReplacementNamed(
+                                  context, '/RedefinicaoDeSenha');
+                            }
                           },
                           child: Text(
                             style: TextStyle(

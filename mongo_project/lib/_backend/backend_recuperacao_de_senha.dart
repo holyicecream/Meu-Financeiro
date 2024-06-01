@@ -37,7 +37,8 @@ void inBuildRecuperacaoDeSenha(context) {
     num3 = Random().nextInt(9);
     num4 = Random().nextInt(9);
     num5 = Random().nextInt(9);
-    print("${num1.toString()}, ${num2.toString()}, ${num3.toString()}, ${num4.toString()}, ${num5.toString()}");
+    print(
+        "${num1.toString()}, ${num2.toString()}, ${num3.toString()}, ${num4.toString()}, ${num5.toString()}");
   }
 }
 
@@ -106,8 +107,8 @@ void reenviarCodigo() {
   print('É não sei como fazer isso ainda');
 }
 
-final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-void continuarOnTap(context) {
+//final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+void continuarOnTap(context, formKey) {
   if (formKey.currentState!.validate()) {
     // Você requisitou a mudança de senha. Para realizar a mudança é necessário a confirmação via email, enviamos um código de 5 no email ${todosArguments.dataClient.email}
     Navigator.pushReplacementNamed(context, '/RedefinicaoDeSenha');

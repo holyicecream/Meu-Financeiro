@@ -88,8 +88,8 @@ String? senhaValidator(String? value) {
   }
 }
 
-final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-void cadastrarOnTap(context) {
+//final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+void cadastrarOnTap(context, formKey) {
   if (formKey.currentState!.validate()) {
     MongoDbModelClientes data = todosArguments.dataClientes;
     if (todosArguments.dataClientes.email != '' &&

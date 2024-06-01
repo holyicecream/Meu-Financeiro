@@ -111,18 +111,18 @@ String? senhaValidator(String? value) {
   }
 }
 
-final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-void adicionarOnTap(context) {
+//final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+void adicionarOnTap(context, formKey) {
   if (formKey.currentState!.validate()) {
     if (todosArguments.dataBancosUsuario.codBancoUsuario != null &&
-      todosArguments.dataBancosUsuario.codCliente != 0 &&
-      todosArguments.dataBancosUsuario.codBanco != 0 &&
-      todosArguments.dataBancosUsuario.agencia != '' &&
-      todosArguments.dataBancosUsuario.contaCorrente != '' &&
-      todosArguments.dataBancosUsuario.cpf != 0) {
-    MongoDatabaseBancosUsuario.insert(todosArguments.dataBancosUsuario);
-    Navigator.pushReplacementNamed(context, '/Main',
-        arguments: todosArguments);
-  } else {}
+        todosArguments.dataBancosUsuario.codCliente != 0 &&
+        todosArguments.dataBancosUsuario.codBanco != 0 &&
+        todosArguments.dataBancosUsuario.agencia != '' &&
+        todosArguments.dataBancosUsuario.contaCorrente != '' &&
+        todosArguments.dataBancosUsuario.cpf != 0) {
+      MongoDatabaseBancosUsuario.insert(todosArguments.dataBancosUsuario);
+      Navigator.pushReplacementNamed(context, '/Main',
+          arguments: todosArguments);
+    } else {}
   }
 }

@@ -46,8 +46,8 @@ String? salarioValidator(String? value) {
   }
 }
 
-final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-void comecarOnTap(context) {
+//final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+void comecarOnTap(context, formKey) {
   if (formKey.currentState!.validate()) {
     Navigator.pushReplacementNamed(context, '/Main');
   }

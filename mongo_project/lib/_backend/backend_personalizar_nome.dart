@@ -48,8 +48,8 @@ void nomeOnChange(value) {
   novoNome = value.toString();
 }
 
-final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-void salvarAlteracoesOnTap(context) {
+//final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+void salvarAlteracoesOnTap(context, formKey) {
   if (formKey.currentState!.validate()) {
     if (novoNome != '') {
       todosArguments.dataClientes.nomeCliente = novoNome;

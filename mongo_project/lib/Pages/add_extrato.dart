@@ -131,7 +131,9 @@ final GlobalKey<FormState> formKey = GlobalKey<FormState>();
                       ),
                       Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [Expanded(child: DropdownMenuExample(list))]),
+                          children: [
+                            Expanded(child: DropdownMenuExample(list))
+                          ]),
                       // SizedBox(
                       //     width: double.infinity, child: DropdownMenuExample(list2)),
                       SizedBox(

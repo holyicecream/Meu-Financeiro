@@ -5,6 +5,9 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/_backend/backend_cadastro.dart';
 
+import '../zDatabase/mongodb_clientes.dart';
+import '../zModels/model_clientes.dart';
+
 class Cadastro extends StatefulWidget {
   const Cadastro({super.key});
 
@@ -13,6 +16,7 @@ class Cadastro extends StatefulWidget {
 }
 
 class CadastroState extends State<Cadastro> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     inBuildCadastro(context);
@@ -88,7 +92,16 @@ class CadastroState extends State<Cadastro> {
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        cadastrarOnTap(context);
+                        if (formKey.currentState!.validate()) {
+                        MongoDbModelClientes data = todosArguments.dataClientes;
+                        if (todosArguments.dataClientes.email != '' &&
+                            todosArguments.dataClientes.senha != '' &&
+                            todosArguments.dataClientes.nomeCliente != '') {
+                          MongoDatabaseClientes.insert(data);
+                          Navigator.pushReplacementNamed(context, '/Login',
+                              arguments: todosArguments);
+                        } else {}
+                      }
                       },
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
