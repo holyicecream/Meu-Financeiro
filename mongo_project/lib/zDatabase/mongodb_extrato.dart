@@ -29,6 +29,11 @@ class MongoDatabaseExtrato {
       // return //print(e.toString());
     }
   }
+
+  static Future<void> update(MongoDbModelExtrato data, String datetime) async {
+    await collection.update(
+        where.eq("registro", data.registro), modify.set('data', DateTime.tryParse(datetime)));
+  }
 }
 
 // // class MongoDatabaseAgencia {

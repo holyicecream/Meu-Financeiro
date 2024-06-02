@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/zDatabase/mongodb_extrato.dart';
 
+import 'package:projeto_integrador/zDatabase/mongodb_extrato.dart';
 import '../zModels/model_area_consumo.dart';
 import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
@@ -43,8 +43,9 @@ void valorOnChange(value) {
 }
 
 void dataOnChange(value) {
-  value??=DateTime.now().toIso8601String();
-  print(value);
+  value??=DateTime.now();
+  print("data01 $value");
+  print("data02 ${value.toString()}");
   DateTime.tryParse(value);
   print(value);
 
@@ -122,6 +123,7 @@ void salvarOnTap(context, formKey) {
     todosArguments.dataExtrato.codBanco = todosArguments.dataBancos.codBanco;
     todosArguments.dataExtrato.codCliente =
         todosArguments.dataClientes.codCliente;
+        print(todosArguments.dataExtrato.toJson());
     MongoDatabaseExtrato.insert(todosArguments.dataExtrato)
         .then((value) => Navigator.pushReplacementNamed(context, '/Main'));
   }

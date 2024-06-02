@@ -129,7 +129,7 @@ class MainState extends State<Main> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/GerarExtrato');
+          Navigator.pushNamed(context, '/GerarExtrato', arguments: todosArguments);
         },
         backgroundColor: Colors.green,
         shape: CircleBorder(),

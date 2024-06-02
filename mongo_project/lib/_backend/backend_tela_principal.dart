@@ -58,12 +58,12 @@ Widget extrato = Container();
 int count = 0;
 // bool check = true;
 void inBuildTelaPrincipal(context) {
-  if(count > 2){
-    count = 0;
-  }
+  // if(count > 2){
+  //   count = 0;
+  // }
   count++;
   print("build $count");
-  if (count < 3) {
+  // if (count < 3) {
     try {
       todosArguments =
           ModalRoute.of(context)!.settings.arguments as TodosArguments;
@@ -77,14 +77,14 @@ void inBuildTelaPrincipal(context) {
     saldo = todosArguments.salario;
     // print(nome);
 
-    MongoDatabaseClientes.getData().then((value) {
-      for (var i = 0; i < value.length; i++) {
-        if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente) {
-          todosArguments.dataClientes.nomeCliente = value[i]['nome_cliente'];
-          print(todosArguments.dataClientes.toJson());
-        }
-      }
-    });
+    // MongoDatabaseClientes.getData().then((value) {
+    //   for (var i = 0; i < value.length; i++) {
+    //     if (value[i]['cod_cliente'] == todosArguments.dataClientes.codCliente) {
+    //       todosArguments.dataClientes.nomeCliente = value[i]['nome_cliente'];
+    //       print(todosArguments.dataClientes.toJson());
+    //     }
+    //   }
+    // });
 
     MongoDatabaseExtrato.getData().then(
       (value) {
@@ -118,7 +118,7 @@ void inBuildTelaPrincipal(context) {
         print("value $pagamentosPendentesValue");
       },
     );
-  }
+  // }
 }
 
 String? nomeConfia() {

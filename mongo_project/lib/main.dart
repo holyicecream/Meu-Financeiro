@@ -19,32 +19,32 @@ import 'zDatabase/mongodb_clientes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // MongoDatabaseAreaConsumo.connect().then((value) {
-  //   print('1º foi');
-  //   MongoDatabaseBancosUsuario.connect().then((value) {
-  //     print('2º foi');
-  //     MongoDatabaseBancos.connect().then((value) {
-  //       print('3º foi');
-  //       MongoDatabaseClientes.connect().then((value) {
-  //         print('4º foi');
-  //         MongoDatabaseExtrato.connect().then((value) {
-  //           print('5º foi');
-  //           MongoDatabaseTipoTransacoes.connect().then((value) {
-  //             print('6º foi');
-  //             print('Iniciando app');
-  //             runApp(const MyApp());
-  //           });
-  //         });
-  //       });
-  //     });
-  //   });
-  // });
-  MongoDatabaseClientes.connect().then((value) => runApp(MyApp()));
-  MongoDatabaseAreaConsumo.connect();
-  MongoDatabaseBancos.connect();
-  MongoDatabaseBancosUsuario.connect();
-  MongoDatabaseExtrato.connect();
-  MongoDatabaseTipoTransacoes.connect();
+  MongoDatabaseAreaConsumo.connect().then((value) {
+    print('1º foi');
+    MongoDatabaseBancosUsuario.connect().then((value) {
+      print('2º foi');
+      MongoDatabaseBancos.connect().then((value) {
+        print('3º foi');
+        MongoDatabaseClientes.connect().then((value) {
+          print('4º foi');
+          MongoDatabaseExtrato.connect().then((value) {
+            print('5º foi');
+            MongoDatabaseTipoTransacoes.connect().then((value) {
+              print('6º foi');
+              print('Iniciando app');
+              runApp(const MyApp());
+            });
+          });
+        });
+      });
+    });
+  });
+  // MongoDatabaseClientes.connect().then((value) => runApp(MyApp()));
+  // MongoDatabaseAreaConsumo.connect();
+  // MongoDatabaseBancos.connect();
+  // MongoDatabaseBancosUsuario.connect();
+  // MongoDatabaseExtrato.connect();
+  // MongoDatabaseTipoTransacoes.connect();
 }
 
 class MyApp extends StatelessWidget {

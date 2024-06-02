@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import '/_backend/backend_tela_principal.dart';
+import 'package:projeto_integrador/_backend/backend_primeiro_acesso.dart';
 
 class LoginCadastro extends StatefulWidget {
   const LoginCadastro({super.key});
@@ -14,7 +14,7 @@ class LoginCadastroState extends State<LoginCadastro> {
   int indexDoBottom = 0;
   @override
   Widget build(BuildContext context) {
-    inBuildTelaPrincipal(context);
+    inBuildPrimeiroAcesso(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(

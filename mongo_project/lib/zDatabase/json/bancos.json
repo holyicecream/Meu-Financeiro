@@ -208,5 +208,1559 @@
         },
         "cod_banco": 66,
         "banco": "066 - BANCO MORGAN STANLEY S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69e2"
+        },
+        "cod_banco": 70,
+        "banco": "070 - BANCO DE BRASILIA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69e3"
+        },
+        "cod_banco": 77,
+        "banco": "077 - BANCO DE INTER S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69e4"
+        },
+        "cod_banco": 104,
+        "banco": "104 - CAIXA ECONOMICA FEDERAL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69e5"
+        },
+        "cod_banco": 106,
+        "banco": "106 - BANCO ITABANCO S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69e6"
+        },
+        "cod_banco": 107,
+        "banco": "107 - BANCO BBM S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69e7"
+        },
+        "cod_banco": 109,
+        "banco": "109 - BANCO CREDIBANCO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69e8"
+        },
+        "cod_banco": 116,
+        "banco": "116 - BANCO B.N.L DO BRASIL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69e9"
+        },
+        "cod_banco": 129,
+        "banco": "129 - UBS BRASIL BANCO DE INVESTIMENTO S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69ea"
+        },
+        "cod_banco": 148,
+        "banco": "148 - MULTI BANCO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69eb"
+        },
+        "cod_banco": 151,
+        "banco": "151 - CAIXA ECONOMICA DO ESTADO DE SAO PAULO"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69ec"
+        },
+        "cod_banco": 153,
+        "banco": "153 - CAIXA ECONOMICA DO ESTADO DO R.G.SUL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69ed"
+        },
+        "cod_banco": 165,
+        "banco": "165 - BANCO NORCHEM S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69ee"
+        },
+        "cod_banco": 166,
+        "banco": "166 - BANCO INTER-ATLANTICO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69ef"
+        },
+        "cod_banco": 168,
+        "banco": "168 - BANCO C.C.F. BRASIL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69f0"
+        },
+        "cod_banco": 175,
+        "banco": "175 - CONTINENTAL BANCO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69f1"
+        },
+        "cod_banco": 184,
+        "banco": "184 - BBA - CREDITANSTALT S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69f2"
+        },
+        "cod_banco": 199,
+        "banco": "199 - BANCO FINANCIAL PORTUGUES"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69f3"
+        },
+        "cod_banco": 200,
+        "banco": "200 - BANCO FRICRISA AXELRUD S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69f4"
+        },
+        "cod_banco": 201,
+        "banco": "201 - BANCO AUGUSTA INDUSTRIA E COMERCIAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69f5"
+        },
+        "cod_banco": 204,
+        "banco": "204 - BANCO S.R.L S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69f6"
+        },
+        "cod_banco": 205,
+        "banco": "205 - BANCO SUL AMERICA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69f7"
+        },
+        "cod_banco": 206,
+        "banco": "206 - BANCO MARTINELLI S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69f8"
+        },
+        "cod_banco": 208,
+        "banco": "208 - BANCO PACTUAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69f9"
+        },
+        "cod_banco": 210,
+        "banco": "210 - DEUTSCH SUDAMERIKANICHE BANK AG"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69fa"
+        },
+        "cod_banco": 211,
+        "banco": "211 - BANCO SISTEMA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69fb"
+        },
+        "cod_banco": 212,
+        "banco": "212 - BANCO ORIGINAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69fc"
+        },
+        "cod_banco": 213,
+        "banco": "213 - BANCO ARBI S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69fd"
+        },
+        "cod_banco": 214,
+        "banco": "214 - BANCO DIBENS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69fe"
+        },
+        "cod_banco": 215,
+        "banco": "215 - BANCO AMERICA DO SUL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e69ff"
+        },
+        "cod_banco": 216,
+        "banco": "216 - BANCO REGIONAL MALCON S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a00"
+        },
+        "cod_banco": 217,
+        "banco": "217 - BANCO AGROINVEST S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a01"
+        },
+        "cod_banco": 218,
+        "banco": "218 - BBS - BANCO BONSUCESSO S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a02"
+        },
+        "cod_banco": 219,
+        "banco": "219 - BANCO DE CREDITO DE SAO PAULO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a03"
+        },
+        "cod_banco": 220,
+        "banco": "220 - BANCO CREFISUL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a04"
+        },
+        "cod_banco": 221,
+        "banco": "221 - BANCO GRAPHUS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a05"
+        },
+        "cod_banco": 222,
+        "banco": "222 - BANCO AGF BRASIL S. A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a06"
+        },
+        "cod_banco": 223,
+        "banco": "223 - BANCO INTERUNION S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a07"
+        },
+        "cod_banco": 224,
+        "banco": "224 - BANCO FIBRA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a08"
+        },
+        "cod_banco": 225,
+        "banco": "225 - BANCO BRASCAN S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a09"
+        },
+        "cod_banco": 228,
+        "banco": "228 - BANCO ICATU S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a0a"
+        },
+        "cod_banco": 229,
+        "banco": "229 - BANCO CRUZEIRO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a0b"
+        },
+        "cod_banco": 230,
+        "banco": "230 - BANCO BANDEIRANTES S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a0c"
+        },
+        "cod_banco": 231,
+        "banco": "231 - BANCO BOAVISTA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a0d"
+        },
+        "cod_banco": 232,
+        "banco": "232 - BANCO INTERPART S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a0e"
+        },
+        "cod_banco": 233,
+        "banco": "233 - BANCO MAPPIN S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a0f"
+        },
+        "cod_banco": 234,
+        "banco": "234 - BANCO LAVRA S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a10"
+        },
+        "cod_banco": 235,
+        "banco": "235 - BANCO LIBERAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a11"
+        },
+        "cod_banco": 236,
+        "banco": "236 - BANCO CAMBIAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a12"
+        },
+        "cod_banco": 237,
+        "banco": "237 - BANCO BRADESCO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a13"
+        },
+        "cod_banco": 239,
+        "banco": "239 - BANCO BANCRED S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a14"
+        },
+        "cod_banco": 240,
+        "banco": "240 - BANCO DE CREDITO REAL DE MINAS GERAIS S."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a15"
+        },
+        "cod_banco": 241,
+        "banco": "241 - BANCO CLASSICO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a16"
+        },
+        "cod_banco": 242,
+        "banco": "242 - BANCO EUROINVEST S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a17"
+        },
+        "cod_banco": 243,
+        "banco": "243 - BANCO STOCK S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a18"
+        },
+        "cod_banco": 244,
+        "banco": "244 - BANCO CIDADE S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a19"
+        },
+        "cod_banco": 245,
+        "banco": "245 - BANCO EMPRESARIAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a1a"
+        },
+        "cod_banco": 246,
+        "banco": "246 - BANCO ABC ROMA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a1b"
+        },
+        "cod_banco": 247,
+        "banco": "247 - BANCO OMEGA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a1c"
+        },
+        "cod_banco": 249,
+        "banco": "249 - BANCO INVESTCRED S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a1d"
+        },
+        "cod_banco": 250,
+        "banco": "250 - BANCO SCHAHIN CURY S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a1e"
+        },
+        "cod_banco": 251,
+        "banco": "251 - BANCO SAO JORGE S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a1f"
+        },
+        "cod_banco": 252,
+        "banco": "252 - BANCO FININVEST S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a20"
+        },
+        "cod_banco": 254,
+        "banco": "254 - BANCO PARANA BANCO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a21"
+        },
+        "cod_banco": 255,
+        "banco": "255 - MILBANCO S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a22"
+        },
+        "cod_banco": 256,
+        "banco": "256 - BANCO GULVINVEST S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a23"
+        },
+        "cod_banco": 258,
+        "banco": "258 - BANCO INDUSCRED S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a24"
+        },
+        "cod_banco": 260,
+        "banco": "260 - NU PAGAMENTOS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a25"
+        },
+        "cod_banco": 261,
+        "banco": "261 - BANCO VARIG S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a26"
+        },
+        "cod_banco": 262,
+        "banco": "262 - BANCO BOREAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a27"
+        },
+        "cod_banco": 263,
+        "banco": "263 - BANCO CACIQUE"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a28"
+        },
+        "cod_banco": 264,
+        "banco": "264 - BANCO PERFORMANCE S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a29"
+        },
+        "cod_banco": 265,
+        "banco": "265 - BANCO FATOR S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a2a"
+        },
+        "cod_banco": 266,
+        "banco": "266 - BANCO CEDULA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a2b"
+        },
+        "cod_banco": 267,
+        "banco": "267 - BANCO BBM-COM.C.IMOB.CFI S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a2c"
+        },
+        "cod_banco": 275,
+        "banco": "275 - BANCO REAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a2d"
+        },
+        "cod_banco": 277,
+        "banco": "277 - BANCO PLANIBANC S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a2e"
+        },
+        "cod_banco": 282,
+        "banco": "282 - BANCO BRASILEIRO COMERCIAL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a2f"
+        },
+        "cod_banco": 291,
+        "banco": "291 - BANCO DE CREDITO NACIONAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a30"
+        },
+        "cod_banco": 294,
+        "banco": "294 - BCR - BANCO DE CREDITO REAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a31"
+        },
+        "cod_banco": 295,
+        "banco": "295 - BANCO CREDIPLAN S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a32"
+        },
+        "cod_banco": 300,
+        "banco": "300 - BANCO DE LA NACION ARGENTINA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a33"
+        },
+        "cod_banco": 302,
+        "banco": "302 - BANCO DO PROGRESSO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a34"
+        },
+        "cod_banco": 303,
+        "banco": "303 - BANCO HNF S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a35"
+        },
+        "cod_banco": 304,
+        "banco": "304 - BANCO PONTUAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a36"
+        },
+        "cod_banco": 308,
+        "banco": "308 - BANCO COMERCIAL BANCESA S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a37"
+        },
+        "cod_banco": 318,
+        "banco": "318 - BANCO B.M.G. S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a38"
+        },
+        "cod_banco": 320,
+        "banco": "320 - BANCO INDUSTRIAL E COMERCIAL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a39"
+        },
+        "cod_banco": 341,
+        "banco": "341 - BANCO ITAU S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a3a"
+        },
+        "cod_banco": 346,
+        "banco": "346 - BANCO FRANCES E BRASILEIRO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a3b"
+        },
+        "cod_banco": 347,
+        "banco": "347 - BANCO SUDAMERIS BRASIL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a3c"
+        },
+        "cod_banco": 351,
+        "banco": "351 - BANCO BOZANO SIMONSEN S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a3d"
+        },
+        "cod_banco": 353,
+        "banco": "353 - BANCO GERAL DO COMERCIO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a3e"
+        },
+        "cod_banco": 356,
+        "banco": "356 - ABN AMRO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a3f"
+        },
+        "cod_banco": 366,
+        "banco": "366 - BANCO SOGERAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a40"
+        },
+        "cod_banco": 369,
+        "banco": "369 - PONTUAL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a41"
+        },
+        "cod_banco": 370,
+        "banco": "370 - BEAL - BANCO EUROPEU PARA AMERICA LATINA"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a42"
+        },
+        "cod_banco": 372,
+        "banco": "372 - BANCO ITAMARATI S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a43"
+        },
+        "cod_banco": 375,
+        "banco": "375 - BANCO FENICIA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a44"
+        },
+        "cod_banco": 376,
+        "banco": "376 - CHASE MANHATTAN BANK S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a45"
+        },
+        "cod_banco": 388,
+        "banco": "388 - BANCO MERCANTIL DE DESCONTOS S/A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a46"
+        },
+        "cod_banco": 389,
+        "banco": "389 - BANCO MERCANTIL DO BRASIL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a47"
+        },
+        "cod_banco": 392,
+        "banco": "392 - BANCO MERCANTIL DE SAO PAULO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a48"
+        },
+        "cod_banco": 394,
+        "banco": "394 - BANCO B.M.C. S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a49"
+        },
+        "cod_banco": 399,
+        "banco": "399 - HSBC BANK BRASIL S.A. – BANCO MÚLTIPLO"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a4a"
+        },
+        "cod_banco": 409,
+        "banco": "409 - UNIBANCO - UNIAO DOS BANCOS BRASILEIROS"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a4b"
+        },
+        "cod_banco": 412,
+        "banco": "412 - BANCO NACIONAL DA BAHIA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a4c"
+        },
+        "cod_banco": 415,
+        "banco": "415 - BANCO NACIONAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a4d"
+        },
+        "cod_banco": 420,
+        "banco": "420 - BANCO NACIONAL DO NORTE S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a4e"
+        },
+        "cod_banco": 422,
+        "banco": "422 - BANCO SAFRA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a4f"
+        },
+        "cod_banco": 424,
+        "banco": "424 - BANCO NOROESTE S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a50"
+        },
+        "cod_banco": 434,
+        "banco": "434 - BANCO FORTALEZA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a51"
+        },
+        "cod_banco": 453,
+        "banco": "453 - BANCO RURAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a52"
+        },
+        "cod_banco": 456,
+        "banco": "456 - BANCO TOKIO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a53"
+        },
+        "cod_banco": 464,
+        "banco": "464 - BANCO SUMITOMO BRASILEIRO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a54"
+        },
+        "cod_banco": 466,
+        "banco": "466 - BANCO MITSUBISHI BRASILEIRO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a55"
+        },
+        "cod_banco": 472,
+        "banco": "472 - LLOYDS BANK PLC"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a56"
+        },
+        "cod_banco": 473,
+        "banco": "473 - BANCO FINANCIAL PORTUGUES S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a57"
+        },
+        "cod_banco": 477,
+        "banco": "477 - CITIBANK N.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a58"
+        },
+        "cod_banco": 479,
+        "banco": "479 - BANCO DE BOSTON S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a59"
+        },
+        "cod_banco": 480,
+        "banco": "480 - BANCO PORTUGUES DO ATLANTICO-BRASIL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a5a"
+        },
+        "cod_banco": 483,
+        "banco": "483 - BANCO AGRIMISA S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a5b"
+        },
+        "cod_banco": 487,
+        "banco": "487 - DEUTSCHE BANK S.A - BANCO ALEMAO"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a5c"
+        },
+        "cod_banco": 488,
+        "banco": "488 - BANCO J. P. MORGAN S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a5d"
+        },
+        "cod_banco": 489,
+        "banco": "489 - BANESTO BANCO URUGAUAY S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a5e"
+        },
+        "cod_banco": 492,
+        "banco": "492 - INTERNATIONALE NEDERLANDEN BANK N.V."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a5f"
+        },
+        "cod_banco": 493,
+        "banco": "493 - BANCO UNION S.A.C.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a60"
+        },
+        "cod_banco": 494,
+        "banco": "494 - BANCO LA REP. ORIENTAL DEL URUGUAY"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a61"
+        },
+        "cod_banco": 495,
+        "banco": "495 - BANCO LA PROVINCIA DE BUENOS AIRES"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a62"
+        },
+        "cod_banco": 496,
+        "banco": "496 - BANCO EXTERIOR DE ESPANA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a63"
+        },
+        "cod_banco": 498,
+        "banco": "498 - CENTRO HISPANO BANCO"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a64"
+        },
+        "cod_banco": 499,
+        "banco": "499 - BANCO IOCHPE S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a65"
+        },
+        "cod_banco": 501,
+        "banco": "501 - BANCO BRASILEIRO IRAQUIANO S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a66"
+        },
+        "cod_banco": 502,
+        "banco": "502 - BANCO SANTANDER S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a67"
+        },
+        "cod_banco": 504,
+        "banco": "504 - BANCO MULTIPLIC S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a68"
+        },
+        "cod_banco": 505,
+        "banco": "505 - BANCO GARANTIA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a69"
+        },
+        "cod_banco": 600,
+        "banco": "600 - BANCO LUSO BRASILEIRO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a6a"
+        },
+        "cod_banco": 601,
+        "banco": "601 - BFC BANCO S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a6b"
+        },
+        "cod_banco": 602,
+        "banco": "602 - BANCO PATENTE S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a6c"
+        },
+        "cod_banco": 604,
+        "banco": "604 - BANCO INDUSTRIAL DO BRASIL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a6d"
+        },
+        "cod_banco": 607,
+        "banco": "607 - BANCO SANTOS NEVES S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a6e"
+        },
+        "cod_banco": 608,
+        "banco": "608 - BANCO OPEN S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a6f"
+        },
+        "cod_banco": 610,
+        "banco": "610 - BANCO V.R. S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a70"
+        },
+        "cod_banco": 611,
+        "banco": "611 - BANCO PAULISTA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a71"
+        },
+        "cod_banco": 612,
+        "banco": "612 - BANCO GUANABARA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a72"
+        },
+        "cod_banco": 613,
+        "banco": "613 - BANCO PECUNIA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a73"
+        },
+        "cod_banco": 616,
+        "banco": "616 - BANCO INTERPACIFICO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a74"
+        },
+        "cod_banco": 617,
+        "banco": "617 - BANCO INVESTOR S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a75"
+        },
+        "cod_banco": 618,
+        "banco": "618 - BANCO TENDENCIA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a76"
+        },
+        "cod_banco": 621,
+        "banco": "621 - BANCO APLICAP S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a77"
+        },
+        "cod_banco": 622,
+        "banco": "622 - BANCO DRACMA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a78"
+        },
+        "cod_banco": 623,
+        "banco": "623 - BANCO PANAMERICANO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a79"
+        },
+        "cod_banco": 624,
+        "banco": "624 - BANCO GENERAL MOTORS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a7a"
+        },
+        "cod_banco": 625,
+        "banco": "625 - BANCO ARAUCARIA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a7b"
+        },
+        "cod_banco": 626,
+        "banco": "626 - BANCO FICSA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a7c"
+        },
+        "cod_banco": 627,
+        "banco": "627 - BANCO DESTAK S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a7d"
+        },
+        "cod_banco": 628,
+        "banco": "628 - BANCO CRITERIUM S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a7e"
+        },
+        "cod_banco": 629,
+        "banco": "629 - BANCORP BANCO COML. E. DE INVESTMENTO"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a7f"
+        },
+        "cod_banco": 630,
+        "banco": "630 - BANCO INTERCAP S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a80"
+        },
+        "cod_banco": 633,
+        "banco": "633 - BANCO REDIMENTO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a81"
+        },
+        "cod_banco": 634,
+        "banco": "634 - BANCO TRIANGULO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a82"
+        },
+        "cod_banco": 635,
+        "banco": "635 - BANCO DO ESTADO DO AMAPA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a83"
+        },
+        "cod_banco": 637,
+        "banco": "637 - BANCO SOFISA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a84"
+        },
+        "cod_banco": 638,
+        "banco": "638 - BANCO PROSPER S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a85"
+        },
+        "cod_banco": 639,
+        "banco": "639 - BIG S.A. - BANCO IRMAOS GUIMARAES"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a86"
+        },
+        "cod_banco": 640,
+        "banco": "640 - BANCO DE CREDITO METROPOLITANO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a87"
+        },
+        "cod_banco": 641,
+        "banco": "641 - BANCO EXCEL ECONOMICO S/A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a88"
+        },
+        "cod_banco": 643,
+        "banco": "643 - BANCO SEGMENTO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a89"
+        },
+        "cod_banco": 645,
+        "banco": "645 - BANCO DO ESTADO DE RORAIMA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a8a"
+        },
+        "cod_banco": 647,
+        "banco": "647 - BANCO MARKA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a8b"
+        },
+        "cod_banco": 648,
+        "banco": "648 - BANCO ATLANTIS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a8c"
+        },
+        "cod_banco": 649,
+        "banco": "649 - BANCO DIMENSAO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a8d"
+        },
+        "cod_banco": 650,
+        "banco": "650 - BANCO PEBB S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a8e"
+        },
+        "cod_banco": 652,
+        "banco": "652 - ITAÚ UNIBANCO HOLDING S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a8f"
+        },
+        "cod_banco": 653,
+        "banco": "653 - BANCO INDUSVAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a90"
+        },
+        "cod_banco": 654,
+        "banco": "654 - BANCO A. J. RENNER S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a91"
+        },
+        "cod_banco": 655,
+        "banco": "655 - BANCO VOTORANTIM S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a92"
+        },
+        "cod_banco": 656,
+        "banco": "656 - BANCO MATRIX S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a93"
+        },
+        "cod_banco": 657,
+        "banco": "657 - BANCO TECNICORP S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a94"
+        },
+        "cod_banco": 658,
+        "banco": "658 - BANCO PORTO REAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a95"
+        },
+        "cod_banco": 702,
+        "banco": "702 - BANCO SANTOS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a96"
+        },
+        "cod_banco": 705,
+        "banco": "705 - BANCO INVESTCORP S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a97"
+        },
+        "cod_banco": 707,
+        "banco": "707 - BANCO DAYCOVAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a98"
+        },
+        "cod_banco": 711,
+        "banco": "711 - BANCO VETOR S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a99"
+        },
+        "cod_banco": 713,
+        "banco": "713 - BANCO CINDAM S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a9a"
+        },
+        "cod_banco": 715,
+        "banco": "715 - BANCO VEGA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a9b"
+        },
+        "cod_banco": 718,
+        "banco": "718 - BANCO OPERADOR S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a9c"
+        },
+        "cod_banco": 719,
+        "banco": "719 - BANCO PRIMUS S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a9d"
+        },
+        "cod_banco": 720,
+        "banco": "720 - BANCO MAXINVEST S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a9e"
+        },
+        "cod_banco": 721,
+        "banco": "721 - BANCO CREDIBEL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6a9f"
+        },
+        "cod_banco": 722,
+        "banco": "722 - BANCO INTERIOR DE SAO PAULO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aa0"
+        },
+        "cod_banco": 724,
+        "banco": "724 - BANCO PORTO SEGURO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aa1"
+        },
+        "cod_banco": 725,
+        "banco": "725 - BANCO FINABANCO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aa2"
+        },
+        "cod_banco": 726,
+        "banco": "726 - BANCO UNIVERSAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aa3"
+        },
+        "cod_banco": 728,
+        "banco": "728 - BANCO FITAL S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aa4"
+        },
+        "cod_banco": 729,
+        "banco": "729 - BANCO FONTE S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aa5"
+        },
+        "cod_banco": 730,
+        "banco": "730 - BANCO COMERCIAL PARAGUAYO S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aa6"
+        },
+        "cod_banco": 731,
+        "banco": "731 - BANCO GNPP S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aa7"
+        },
+        "cod_banco": 732,
+        "banco": "732 - BANCO PREMIER S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aa8"
+        },
+        "cod_banco": 733,
+        "banco": "733 - BANCO NACOES S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aa9"
+        },
+        "cod_banco": 734,
+        "banco": "734 - BANCO GERDAU S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aaa"
+        },
+        "cod_banco": 735,
+        "banco": "735 - BACO POTENCIAL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aab"
+        },
+        "cod_banco": 736,
+        "banco": "736 - BANCO UNITED S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aac"
+        },
+        "cod_banco": 737,
+        "banco": "737 - THECA"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aad"
+        },
+        "cod_banco": 738,
+        "banco": "738 - MARADA"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aae"
+        },
+        "cod_banco": 739,
+        "banco": "739 - BGN"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aaf"
+        },
+        "cod_banco": 740,
+        "banco": "740 - BCN BARCLAYS"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6ab0"
+        },
+        "cod_banco": 741,
+        "banco": "741 - BRP"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6ab1"
+        },
+        "cod_banco": 742,
+        "banco": "742 - EQUATORIAL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6ab2"
+        },
+        "cod_banco": 743,
+        "banco": "743 - BANCO EMBLEMA S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6ab3"
+        },
+        "cod_banco": 744,
+        "banco": "744 - THE FIRST NATIONAL BANK OF BOSTON"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6ab4"
+        },
+        "cod_banco": 745,
+        "banco": "745 - CITIBAN N.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6ab5"
+        },
+        "cod_banco": 746,
+        "banco": "746 - MODAL SA"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6ab6"
+        },
+        "cod_banco": 747,
+        "banco": "747 - RAIBOBANK DO BRASIL"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6ab7"
+        },
+        "cod_banco": 748,
+        "banco": "748 - SICREDI"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6ab8"
+        },
+        "cod_banco": 749,
+        "banco": "749 - BRMSANTIL SA"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6ab9"
+        },
+        "cod_banco": 750,
+        "banco": "750 - BANCO REPUBLIC NATIONAL OF NEW YORK (BRA"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6aba"
+        },
+        "cod_banco": 751,
+        "banco": "751 - DRESDNER BANK LATEINAMERIKA-BRASIL S/A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6abb"
+        },
+        "cod_banco": 752,
+        "banco": "752 - BANCO BANQUE NATIONALE DE PARIS BRASIL S"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6abc"
+        },
+        "cod_banco": 753,
+        "banco": "753 - BANCO COMERCIAL URUGUAI S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6abd"
+        },
+        "cod_banco": 755,
+        "banco": "755 - BANCO MERRILL LYNCH S.A"
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6abe"
+        },
+        "cod_banco": 756,
+        "banco": "756 - BANCO COOPERATIVO DO BRASIL S.A."
+    },
+    {
+        "_id": {
+            "$oid": "6619b028745934eb0f8e6abf"
+        },
+        "cod_banco": 757,
+        "banco": "757 - BANCO KEB DO BRASIL S.A."
     }
 ]

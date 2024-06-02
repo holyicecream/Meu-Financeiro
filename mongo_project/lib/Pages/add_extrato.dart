@@ -1,8 +1,19 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/_backend/backend_adicionar_pagamento_pendente.dart';
+// import 'package:projeto_integrador/_backend/backend_adicionar_pagamento_pendente.dart';
+
+// import '../zDatabase/mongodb_extrato.dart';
 // import 'package:projeto_integrador/_backend/backend_dados_da_conta_bancaria.dart';
+import '../zDatabase/mongodb_clientes.dart';
+import '../zDatabase/mongodb_extrato.dart';
+import '../zModels/model_area_consumo.dart';
+import '../zModels/model_bancos_usuario.dart';
+import '../zModels/model_bancos.dart';
+import '../zModels/model_clientes.dart';
+import '../zModels/model_extrato.dart';
+import '../zModels/model_tipo_transacao.dart';
+import '../zModels/todos_arguments.dart';
 
 class AddExtrato extends StatefulWidget {
   const AddExtrato({super.key});
@@ -33,13 +44,48 @@ const List<String> list = <String>[
 ];
 
 class AddExtratoState extends State<AddExtrato> {
-final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  TextEditingController dataController = TextEditingController();
 
+  TodosArguments todosArguments = TodosArguments(
+    dataAreaConsumo: MongoDbModelAreaConsumo(),
+    dataBancosUsuario: MongoDbModelBancosUsuario(),
+    dataBancos: MongoDbModelBancos(),
+    dataClientes: MongoDbModelClientes(),
+    dataExtrato: MongoDbModelExtrato(),
+    dataTransacao: MongoDbModelTipoTransacao(),
+  );
+
+  String data = '2024-1-1';
   String radioBtnGroup = "";
   int indexDoBottom = 0;
+  int count = 0;
+  List<Map<String, dynamic>> dataExtrato = [
+    {'': ''}
+  ];
   @override
   Widget build(BuildContext context) {
-    inBuildAdicionarPagamentoPendente(context);
+    // inBuildAdicionarPagamentoPendente(context);
+    count++;
+    print("build addExtrato $count");
+
+    try {
+      todosArguments =
+          ModalRoute.of(context)!.settings.arguments as TodosArguments;
+      print(todosArguments.dataClientes.toJson());
+      print(todosArguments.dataExtrato.toJson());
+    } catch (e) {
+      // print(e.toString());
+    }
+
+    MongoDatabaseExtrato.getData().then(
+      (value) {
+        dataExtrato = value;
+        todosArguments.dataExtrato.registro =
+            (value[value.length - 1]['registro'] + 1);
+      },
+    );
+
     return Scaffold(
       appBar: AppBar(
         bottom: PreferredSize(
@@ -66,9 +112,17 @@ final GlobalKey<FormState> formKey = GlobalKey<FormState>();
                   key: formKey,
                   child: Column(
                     children: [
-                      TextField(
+                      TextFormField(
+                        validator: (value) {
+                          value ??= '';
+                          if (value == '') {
+                            return 'Este campo não pode ser vazio.';
+                          } else {
+                            return null;
+                          }
+                        },
                         onChanged: (value) {
-                          nomeOnChange(value);
+                          todosArguments.dataExtrato.nomeDestinatario = value;
                         },
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -77,9 +131,20 @@ final GlobalKey<FormState> formKey = GlobalKey<FormState>();
                       SizedBox(
                         height: 20,
                       ),
-                      TextField(
+                      TextFormField(
+                        validator: (value) {
+                          value ??= '0';
+                          print(value);
+                          if (value == '0') {
+                            return 'Este campo não pode ser vazio.';
+                          } else {
+                            return null;
+                          }
+                        },
                         onChanged: (value) {
-                          valorOnChange(value);
+                          value ??= "0";
+                          todosArguments.dataExtrato.valor =
+                              double.tryParse(value);
                         },
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -95,7 +160,14 @@ final GlobalKey<FormState> formKey = GlobalKey<FormState>();
                             value: "Pago",
                             groupValue: radioBtnGroup,
                             onChanged: (value) {
-                              debitoCreditoOnChanged(value);
+                              value ??= 'debito';
+                              if (value == 'Pago') {
+                                todosArguments.dataExtrato.debitoCredito =
+                                    'debito';
+                              } else if (value == "Recebido") {
+                                todosArguments.dataExtrato.debitoCredito =
+                                    'credito';
+                              }
                               setState(() {
                                 radioBtnGroup = value!;
                               });
@@ -109,6 +181,14 @@ final GlobalKey<FormState> formKey = GlobalKey<FormState>();
                             value: "Recebido",
                             groupValue: radioBtnGroup,
                             onChanged: (value) {
+                              value ??= 'debito';
+                              if (value == 'Pago') {
+                                todosArguments.dataExtrato.debitoCredito =
+                                    'debito';
+                              } else if (value == "Recebido") {
+                                todosArguments.dataExtrato.debitoCredito =
+                                    'credito';
+                              }
                               setState(() {
                                 radioBtnGroup = value!;
                               });
@@ -120,11 +200,56 @@ final GlobalKey<FormState> formKey = GlobalKey<FormState>();
                       SizedBox(
                         height: 10,
                       ),
-                      TextField(
-                        onChanged: (value) {},
+                      TextFormField(
+                        controller: dataController,
+                        validator: (value) {
+                          print("value ${value}");
+                          print("value string ${value}");
+                          if ((value.toString()) == "null") {
+                            todosArguments.dataExtrato.data = DateTime.now();
+                          } else {
+                            data = DateTime.tryParse(value!)!.toIso8601String();
+
+                            todosArguments.dataExtrato.data = DateTime.now();
+                            print(todosArguments.dataExtrato.data.runtimeType);
+                            print(todosArguments.dataExtrato.data);
+                          }
+                          value ??= DateTime.now().toString();
+                          dataController.text = value.toString();
+                          // value ??= '';
+                          if (value == '') {
+                            return 'Este campo não pode ser vazio.';
+                          } else {
+                            return null;
+                          }
+                        },
+                        onTap: () {
+                          Future<void> selectDate() async {
+                            DateTime? picked = await showDatePicker(
+                              context: context,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(2000),
+                              lastDate: DateTime(2100),
+                            );
+
+                            if (picked != null) {
+                              setState(() {
+                                dataController.text =
+                                    picked.toString().split(" ")[0];
+                              });
+                            }
+                          }
+
+                          selectDate();
+                        },
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(),
+                            filled: true,
+                            prefixIcon: Icon(Icons.calendar_today),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            ),
                             labelText: "Data do pagamento"),
+                        readOnly: true,
                       ),
                       SizedBox(
                         height: 20,
@@ -141,9 +266,18 @@ final GlobalKey<FormState> formKey = GlobalKey<FormState>();
                       ),
                       SizedBox(
                         height: 120,
-                        child: TextField(
+                        child: TextFormField(
+                          validator: (value) {
+                            value ??= '';
+                            if (value == '') {
+                              return 'Este campo não pode ser vazio.';
+                            } else {
+                              return null;
+                            }
+                          },
                           onChanged: (value) {
-                            descricaoOnChange(value);
+                            todosArguments.dataExtrato.descricaoTransacao =
+                                value;
                           },
                           maxLines: null,
                           expands: true,
@@ -161,7 +295,18 @@ final GlobalKey<FormState> formKey = GlobalKey<FormState>();
                         height: 60,
                         child: ElevatedButton(
                           onPressed: () {
-                            salvarOnTap(context, formKey);
+                            if (formKey.currentState!.validate()) {
+                              todosArguments.dataExtrato.codBanco =
+                                  todosArguments.dataBancos.codBanco;
+                              todosArguments.dataExtrato.codCliente =
+                                  todosArguments.dataClientes.codCliente;
+                              print(todosArguments.dataExtrato.toJson());
+                              MongoDatabaseExtrato.insert(
+                                      todosArguments.dataExtrato)
+                                  .then((value) {
+                                    MongoDatabaseExtrato.update(todosArguments.dataExtrato, data).then((value) => Navigator.pushReplacementNamed(context, '/Main'));
+                              });
+                            }
                             // Navigator.pop(context, '/Main');
                           },
                           style: ElevatedButton.styleFrom(
@@ -197,6 +342,14 @@ class DropdownMenuExample extends StatefulWidget {
 }
 
 class _DropdownMenuExampleState extends State<DropdownMenuExample> {
+  TodosArguments todosArguments = TodosArguments(
+    dataAreaConsumo: MongoDbModelAreaConsumo(),
+    dataBancosUsuario: MongoDbModelBancosUsuario(),
+    dataBancos: MongoDbModelBancos(),
+    dataClientes: MongoDbModelClientes(),
+    dataExtrato: MongoDbModelExtrato(),
+    dataTransacao: MongoDbModelTipoTransacao(),
+  );
   String dropdownValue = list.first;
 
   @override
@@ -205,13 +358,6 @@ class _DropdownMenuExampleState extends State<DropdownMenuExample> {
       child: DropdownMenu<String>(
         initialSelection: list.first,
         onSelected: (String? value) {
-          //         'Compra no débito',
-          // 'Compra no crédito',
-          // 'Pix',
-          // 'Depósito por boleto',
-          // 'Transferência',
-          // 'Saque',
-          // 'Recarga'
           if (value == 'Compra no débito') {
             todosArguments.dataExtrato.codTransacao = 5;
           } else if (value == 'Pix') {
