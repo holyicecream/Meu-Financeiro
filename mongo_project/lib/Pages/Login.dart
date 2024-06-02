@@ -120,8 +120,9 @@ class LoginState extends State<Login> {
                                   dataClientes[i]['cod_cliente'];
                               todosArguments.dataClientes.nomeCliente =
                                   dataClientes[i]['nome'];
-                              Navigator.pushNamed(context, '/Main',
-                                  arguments: todosArguments);
+                                  print("login.dart linha 123 ver dps");
+                              Navigator.pushNamed(context, '/Main', arguments: todosArguments);
+                              // Navigator.pushNamed(context, '/DadosDaContaBancaria', arguments: todosArguments);
                               // Navigator.pushNamed(context, '/VinculoBancarioOuInserçãoManual', arguments: todosArguments);
                             }
                           }

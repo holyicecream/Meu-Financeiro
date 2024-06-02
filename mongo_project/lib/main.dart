@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/Pages/add_extrato.dart';
 import 'package:projeto_integrador/Pages/cadastro.dart';
+import 'package:projeto_integrador/Pages/dados_da_conta_bancaria.dart';
 import 'package:projeto_integrador/Pages/login_cadastro.dart';
 import 'package:projeto_integrador/Pages/login.dart';
 import 'package:projeto_integrador/Pages/jeantxt.dart';
@@ -65,7 +66,7 @@ class MyApp extends StatelessWidget {
         '/EntrarComContaJaExistente': (context) => PageTeste(),
         '/VinculoBancarioOuInserçãoManual': (context) => PageTeste(),
         '/SelecaoDeBanco': (context) => PageTeste(),
-        '/DadosDaContaBancaria': (context) => PageTeste(),
+        '/DadosDaContaBancaria': (context) => DadosDaContaBancaria(),
         '/InsercaoManualDosDadosBancarios': (context) => PageTeste(),
         '/PersonalizarNome': (context) => PageTeste(),
         '/AlterarSenha': (context) => PageTeste(),

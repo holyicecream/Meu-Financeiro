@@ -1,6 +1,6 @@
-import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 
+import 'package:fixnum/fixnum.dart';
 import '../zDatabase/mongodb_bancos_usuario.dart';
 import '../zModels/model_area_consumo.dart';
 import '../zModels/model_bancos_usuario.dart';

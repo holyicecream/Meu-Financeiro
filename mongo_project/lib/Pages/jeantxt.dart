@@ -56,7 +56,7 @@ class MainState extends State<Main> {
                       Row(
                         children: [
                           Text(
-                            '$saldo',
+                            '${saldo}',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
