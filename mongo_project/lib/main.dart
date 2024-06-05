@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/Pages/add_extrato.dart';
+import 'package:projeto_integrador/Pages/gerar_extrato.dart';
 import 'package:projeto_integrador/Pages/cadastro.dart';
 import 'package:projeto_integrador/Pages/dados_da_conta_bancaria.dart';
-import 'package:projeto_integrador/Pages/login_cadastro.dart';
-import 'package:projeto_integrador/Pages/login.dart';
-import 'package:projeto_integrador/Pages/jeantxt.dart';
 import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
+import 'package:projeto_integrador/Pages/login.dart';
+import 'package:projeto_integrador/Pages/tela_principal.dart';
 import 'Pages/page_teste.dart';
 import 'Pages/recuperacao_de_senha.dart';
 import 'Pages/redefinicao_de_senha.dart';
@@ -40,12 +40,6 @@ void main() async {
       });
     });
   });
-  // MongoDatabaseClientes.connect().then((value) => runApp(MyApp()));
-  // MongoDatabaseAreaConsumo.connect();
-  // MongoDatabaseBancos.connect();
-  // MongoDatabaseBancosUsuario.connect();
-  // MongoDatabaseExtrato.connect();
-  // MongoDatabaseTipoTransacoes.connect();
 }
 
 class MyApp extends StatelessWidget {
@@ -54,11 +48,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scrollBehavior: MaterialScrollBehavior().copyWith(
+        dragDevices: {
+          PointerDeviceKind.mouse,
+          PointerDeviceKind.touch,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.unknown
+        },
+      ),
       initialRoute: '/PrimeiroAcesso',
       routes: {
         '/PageTeste': (context) => PageTeste(),
-        '/PrimeiroAcesso': (context) => LoginCadastro(),
-        '/EntrarCom...': (context) => LoginCadastro(),
+        '/PrimeiroAcesso': (context) => PrimeiroAcesso(),
+        // '/EntrarCom...': (context) => PrimeiroAcesso(),
         '/Login': (context) => Login(),
         '/RecuperacaoDeSenha': (context) => RecuperacaoDeSenha(),
         '/RedefinicaoDeSenha': (context) => RedefinicaoDeSenha(),
@@ -77,7 +79,7 @@ class MyApp extends StatelessWidget {
         '/GraficoMensal': (context) => PageTeste(),
         '/EditarPagamentoPendente': (context) => PageTeste(),
         '/AdicionarPagamentoPendente': (context) => PageTeste(),
-        '/GerarExtrato': (context) => AddExtrato(),
+        '/GerarExtrato': (context) => GerarExtrato(),
         '/Alarme': (context) => PageTeste(),
         '/Extrato': (context) => PageTeste(),
       },
