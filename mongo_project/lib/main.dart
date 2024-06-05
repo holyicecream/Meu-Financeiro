@@ -11,6 +11,7 @@ import 'package:projeto_integrador/Pages/tela_principal.dart';
 import 'Pages/page_teste.dart';
 import 'Pages/recuperacao_de_senha.dart';
 import 'Pages/redefinicao_de_senha.dart';
+import 'Pages/selecao_de_banco.dart';
 import 'zDatabase/mongodb_area_consumo.dart';
 import 'zDatabase/mongodb_bancos.dart';
 import 'zDatabase/mongodb_bancos_usuario.dart';
@@ -67,7 +68,7 @@ class MyApp extends StatelessWidget {
         '/Cadastro': (context) => Cadastro(),
         '/EntrarComContaJaExistente': (context) => PageTeste(),
         '/VinculoBancarioOuInserçãoManual': (context) => PageTeste(),
-        '/SelecaoDeBanco': (context) => PageTeste(),
+        '/SelecaoDeBanco': (context) => SelecaoDeBanco(),
         '/DadosDaContaBancaria': (context) => DadosDaContaBancaria(),
         '/InsercaoManualDosDadosBancarios': (context) => PageTeste(),
         '/PersonalizarNome': (context) => PageTeste(),

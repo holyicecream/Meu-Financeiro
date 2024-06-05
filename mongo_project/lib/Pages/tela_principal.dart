@@ -49,6 +49,7 @@ class MainState extends State<Main> {
         }
       },
     );
+    print("banco atual ${todosArguments.dataBancos.toJson()}");
     print("cliente atual ${todosArguments.dataClientes.toJson()}");
     return Scaffold(
       appBar: AppBar(

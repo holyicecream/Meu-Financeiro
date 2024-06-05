@@ -16,7 +16,7 @@ class MongoDbModelBancosUsuario {
   int? codBancoUsuario;
   int? codCliente;
   int? codBanco;
-  String? agencia;
+  String? banco;
   String? contaCorrente;
   Int64? cpf;
 
@@ -24,7 +24,7 @@ class MongoDbModelBancosUsuario {
     this.codBancoUsuario,
     this.codCliente = 0,
     this.codBanco = 0,
-    this.agencia = '',
+    this.banco = '',
     this.contaCorrente = '',
     this.cpf,
   });
@@ -34,7 +34,7 @@ class MongoDbModelBancosUsuario {
         codBancoUsuario: json["cod_bancoUsuario"],
         codCliente: json["cod_cliente"],
         codBanco: json["cod_banco"],
-        agencia: json["agencia"],
+        banco: json["banco"],
         contaCorrente: json["conta_corrente"],
         cpf: json["cpf"],
       );
@@ -43,7 +43,7 @@ class MongoDbModelBancosUsuario {
         "cod_bancoUsuario": codBancoUsuario,
         "cod_cliente": codCliente,
         "cod_banco": codBanco,
-        "agencia": agencia,
+        "banco": banco,
         "conta_corrente": contaCorrente,
         "cpf": cpf,
       };

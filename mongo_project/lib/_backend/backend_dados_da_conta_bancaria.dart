@@ -59,7 +59,7 @@ void contaCorrenteOnChange(value) {
 }
 
 void agenciaOnChange(value) {
-  todosArguments.dataBancosUsuario.agencia = value;
+  todosArguments.dataBancosUsuario.banco = value;
 }
 
 void cpfOnChange(value) {
@@ -119,7 +119,7 @@ void adicionarOnTap(context, formKey) {
     if (todosArguments.dataBancosUsuario.codBancoUsuario != null &&
         todosArguments.dataBancosUsuario.codCliente != 0 &&
         todosArguments.dataBancosUsuario.codBanco != 0 &&
-        todosArguments.dataBancosUsuario.agencia != '' &&
+        todosArguments.dataBancosUsuario.banco != '' &&
         todosArguments.dataBancosUsuario.contaCorrente != '' &&
         todosArguments.dataBancosUsuario.cpf != 0) {
       MongoDatabaseBancosUsuario.insert(todosArguments.dataBancosUsuario);

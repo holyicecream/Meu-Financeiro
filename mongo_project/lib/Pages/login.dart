@@ -116,7 +116,7 @@ class LoginState extends State<Login> {
                           style: TextStyle(color: Colors.green.shade900),
                         ),
                         onTap: () {
-                          Navigator.pushNamed(context, '/RecuperacaoDeSenha',
+                          Navigator.pushReplacementNamed(context, '/RecuperacaoDeSenha',
                               arguments: todosArguments);
                         },
                       ),
@@ -163,7 +163,7 @@ class LoginState extends State<Login> {
                               todosArguments.dataClientes.nomeCliente =
                                   dataClientes[i]['nome_cliente'];
                               print("login.dart linha ~123 ver dps");
-                              Navigator.pushReplacementNamed(context, '/Main',
+                              Navigator.pushReplacementNamed(context, '/SelecaoDeBanco',
                                   arguments: todosArguments);
                               // Navigator.pushNamed(context, '/DadosDaContaBancaria', arguments: todosArguments);
                               // Navigator.pushNamed(context, '/VinculoBancarioOuInserçãoManual', arguments: todosArguments);

@@ -176,7 +176,7 @@ class DadosDaContaBancariaState extends State<DadosDaContaBancaria> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          todosArguments.dataBancosUsuario.agencia =
+                          todosArguments.dataBancosUsuario.banco =
                               agenciaController.text;
                           todosArguments.dataBancosUsuario.contaCorrente =
                               contaCorrenteController.text;
@@ -191,7 +191,7 @@ class DadosDaContaBancariaState extends State<DadosDaContaBancaria> {
                               todosArguments.dataBancosUsuario.codCliente !=
                                   0 &&
                               todosArguments.dataBancosUsuario.codBanco != 0 &&
-                              todosArguments.dataBancosUsuario.agencia != '' &&
+                              todosArguments.dataBancosUsuario.banco != '' &&
                               todosArguments.dataBancosUsuario.contaCorrente !=
                                   '' &&
                               todosArguments.dataBancosUsuario.cpf != 0) {
