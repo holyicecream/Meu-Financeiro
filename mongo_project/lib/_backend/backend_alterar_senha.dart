@@ -21,7 +21,7 @@ int count = 0;
 bool check = true;
 void inBuildAlterarSenha(context) {
   count++;
-  print("build $count");
+  print("build alterarSenha $count");
   if (check) {
     check = false;
     try {

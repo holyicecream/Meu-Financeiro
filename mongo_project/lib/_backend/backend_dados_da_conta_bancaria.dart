@@ -40,9 +40,11 @@ void inBuildDadosDaContaBancaria(context) {
 
   MongoDatabaseBancosUsuario.getData().then(
     (value) {
-      dataBancosUsuario = value;
-      todosArguments.dataBancosUsuario.codBancoUsuario =
-          (value[value.length - 1]['cod_bancoUsuario'] + 1);
+      if (value.isNotEmpty) {
+        dataBancosUsuario = value;
+        todosArguments.dataBancosUsuario.codBancoUsuario =
+            (value[value.length - 1]['cod_bancoUsuario'] + 1);
+      }
     },
   );
   todosArguments.dataBancosUsuario.codCliente =
