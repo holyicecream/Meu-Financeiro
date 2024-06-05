@@ -14,9 +14,6 @@ import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
 import '../zModels/todos_arguments.dart';
 
-import '../zDatabase/mongodb_clientes.dart';
-import '../zModels/model_clientes.dart';
-
 class DadosDaContaBancaria extends StatefulWidget {
   const DadosDaContaBancaria({super.key});
 
@@ -46,7 +43,7 @@ class DadosDaContaBancariaState extends State<DadosDaContaBancaria> {
   Widget build(BuildContext context) {
     inBuildDadosDaContaBancaria(context);
     count++;
-    print("build $count");
+    print("build dadosDaContaBancaria $count");
 
     try {
       todosArguments =
@@ -57,9 +54,11 @@ class DadosDaContaBancariaState extends State<DadosDaContaBancaria> {
 
     MongoDatabaseBancosUsuario.getData().then(
       (value) {
-        dataBancosUsuario = value;
-        todosArguments.dataBancosUsuario.codBancoUsuario =
-            (value[value.length - 1]['cod_bancoUsuario'] + 1);
+        if (value.isNotEmpty) {
+          dataBancosUsuario = value;
+          todosArguments.dataBancosUsuario.codBancoUsuario =
+              (value[value.length - 1]['cod_bancoUsuario'] + 1);
+        }
       },
     );
     todosArguments.dataBancosUsuario.codCliente =
@@ -177,32 +176,31 @@ class DadosDaContaBancariaState extends State<DadosDaContaBancaria> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          todosArguments.dataBancosUsuario.agencia = agenciaController.text;
-                          todosArguments.dataBancosUsuario.contaCorrente = contaCorrenteController.text;
-                          todosArguments.dataBancosUsuario.cpf = Int64.tryParseInt(cpfController.text);
-                          
-                            todosArguments.dataBancosUsuario.codBanco = 1;
-                            print('aq chega');
-                            print(todosArguments.dataBancosUsuario.toJson());
-                            if (todosArguments.dataBancosUsuario.codBancoUsuario !=
-                                    null &&
-                                todosArguments.dataBancosUsuario.codCliente !=
-                                    0 &&
-                                todosArguments.dataBancosUsuario.codBanco !=
-                                    0 &&
-                                todosArguments.dataBancosUsuario.agencia !=
-                                    '' &&
-                                todosArguments
-                                        .dataBancosUsuario.contaCorrente !=
-                                    '' &&
-                                todosArguments.dataBancosUsuario.cpf != 0) {
-                              print('aq chega tb');
-                              MongoDatabaseBancosUsuario.insert(
-                                  todosArguments.dataBancosUsuario);
-                              Navigator.pushReplacementNamed(context, '/Main',
-                                  arguments: todosArguments);
-                            } else {}
-                          
+                          todosArguments.dataBancosUsuario.agencia =
+                              agenciaController.text;
+                          todosArguments.dataBancosUsuario.contaCorrente =
+                              contaCorrenteController.text;
+                          todosArguments.dataBancosUsuario.cpf =
+                              Int64.tryParseInt(cpfController.text);
+
+                          todosArguments.dataBancosUsuario.codBanco = 1;
+                          print('aq chega');
+                          print(todosArguments.dataBancosUsuario.toJson());
+                          if (todosArguments.dataBancosUsuario.codBancoUsuario !=
+                                  null &&
+                              todosArguments.dataBancosUsuario.codCliente !=
+                                  0 &&
+                              todosArguments.dataBancosUsuario.codBanco != 0 &&
+                              todosArguments.dataBancosUsuario.agencia != '' &&
+                              todosArguments.dataBancosUsuario.contaCorrente !=
+                                  '' &&
+                              todosArguments.dataBancosUsuario.cpf != 0) {
+                            print('aq chega tb');
+                            MongoDatabaseBancosUsuario.insert(
+                                todosArguments.dataBancosUsuario);
+                            Navigator.pushReplacementNamed(context, '/Main',
+                                arguments: todosArguments);
+                          } else {}
                         }
                       },
                       style: ButtonStyle(

@@ -3,10 +3,14 @@
 //unselected color
 //icons: login, person, wc, assignment, delete, login_outlined, foward
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/_backend/backend_cadastro.dart';
-
 import '../zDatabase/mongodb_clientes.dart';
+import '../zModels/model_area_consumo.dart';
+import '../zModels/model_bancos_usuario.dart';
+import '../zModels/model_bancos.dart';
 import '../zModels/model_clientes.dart';
+import '../zModels/model_extrato.dart';
+import '../zModels/model_tipo_transacao.dart';
+import '../zModels/todos_arguments.dart';
 
 class Cadastro extends StatefulWidget {
   const Cadastro({super.key});
@@ -16,10 +20,42 @@ class Cadastro extends StatefulWidget {
 }
 
 class CadastroState extends State<Cadastro> {
+  TodosArguments todosArguments = TodosArguments(
+    dataAreaConsumo: MongoDbModelAreaConsumo(),
+    dataBancosUsuario: MongoDbModelBancosUsuario(),
+    dataBancos: MongoDbModelBancos(),
+    dataClientes: MongoDbModelClientes(),
+    dataExtrato: MongoDbModelExtrato(),
+    dataTransacao: MongoDbModelTipoTransacao(),
+  );
+  List<Map<String, dynamic>> dataClientes = [
+    {'': ''}
+  ];
+  TextEditingController nomeController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController senhaController = TextEditingController();
+  int count = 0;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    inBuildCadastro(context);
+    count++;
+    print("build cadastro $count");
+    try {
+      todosArguments =
+          ModalRoute.of(context)!.settings.arguments as TodosArguments;
+    } catch (e) {
+      // print(e.toString());
+    }
+    MongoDatabaseClientes.getData().then(
+      (value) {
+        if (value.isNotEmpty) {
+          dataClientes = value;
+          todosArguments.dataClientes.codCliente =
+              (value[value.length - 1]['cod_cliente'] + 1);
+        }
+      },
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -41,11 +77,14 @@ class CadastroState extends State<Cadastro> {
                     child: Column(
                       children: [
                         TextFormField(
+                          controller: nomeController,
                           validator: (value) {
-                            return nomeValidator(value);
-                          },
-                          onChanged: (value) {
-                            nomeOnChange(value);
+                            value ??= '';
+                            if (value == '') {
+                              return 'Este campo não pode ser vazio.';
+                            } else {
+                              return null;
+                            }
                           },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -56,11 +95,17 @@ class CadastroState extends State<Cadastro> {
                           height: 30,
                         ),
                         TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          controller: emailController,
                           validator: (value) {
-                            return emailValidator(value);
-                          },
-                          onChanged: (value) {
-                            emailOnChange(value);
+                            value ??= '';
+                            if (value == '') {
+                              return 'Este campo não pode ser vazio.';
+                            } else if (!value.contains('@')) {
+                              return 'Email inválido';
+                            } else {
+                              return null;
+                            }
                           },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -71,13 +116,18 @@ class CadastroState extends State<Cadastro> {
                           height: 30,
                         ),
                         TextFormField(
+                          controller: senhaController,
                           validator: (value) {
-                            return senhaValidator(value);
+                            value ??= '';
+                            if (value == '') {
+                              return 'Este campo não pode ser vazio.';
+                            } else if (value.length < 8) {
+                              return 'A senha deve conter no mínimo 8 caracteres.';
+                            } else {
+                              return null;
+                            }
                           },
                           obscureText: true,
-                          onChanged: (value) {
-                            senhaOnChange(value);
-                          },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Senha',
@@ -93,15 +143,17 @@ class CadastroState extends State<Cadastro> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                        MongoDbModelClientes data = todosArguments.dataClientes;
-                        if (todosArguments.dataClientes.email != '' &&
-                            todosArguments.dataClientes.senha != '' &&
-                            todosArguments.dataClientes.nomeCliente != '') {
-                          MongoDatabaseClientes.insert(data);
+                          todosArguments.dataClientes.nomeCliente =
+                              nomeController.text;
+                          todosArguments.dataClientes.email =
+                              emailController.text;
+                          todosArguments.dataClientes.senha =
+                              senhaController.text;
+                          MongoDatabaseClientes.insert(
+                              todosArguments.dataClientes);
                           Navigator.pushReplacementNamed(context, '/Login',
                               arguments: todosArguments);
-                        } else {}
-                      }
+                        }
                       },
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
@@ -113,10 +165,15 @@ class CadastroState extends State<Cadastro> {
                           return Size(250, 50);
                         }),
                       ),
-                      child: Text("Cadastrar", style: TextStyle(color: Colors.white),),
+                      child: Text(
+                        "Cadastrar",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -124,7 +181,8 @@ class CadastroState extends State<Cadastro> {
                       GestureDetector(
                         child: Text("Entrar."),
                         onTap: () {
-                          entrarOnTap(context);
+                          Navigator.pushReplacementNamed(context, '/Login',
+                              arguments: todosArguments);
                         },
                       )
                     ],

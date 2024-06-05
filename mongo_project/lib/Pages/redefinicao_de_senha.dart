@@ -15,6 +15,8 @@ class RedefinicaoDeSenha extends StatefulWidget {
 }
 
 class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
+  TextEditingController senha1Controller = TextEditingController();
+  TextEditingController senha2Controller = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -40,9 +42,7 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                     child: Column(
                       children: [
                         TextFormField(
-                          onChanged: (value) {
-                            senha1OnChange(value);
-                          },
+                          controller: senha1Controller,
                           validator: (value) {
                             return senha1Validator(value);
                           },
@@ -55,9 +55,7 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                           height: 30,
                         ),
                         TextFormField(
-                          onChanged: (value) {
-                            senha2OnChange(value);
-                          },
+                          controller: senha2Controller,
                           validator: (value) {
                             return senha2Validator(value);
                           },
@@ -76,16 +74,11 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          if (senha1 == senha2) {
-                            todosArguments.dataClientes.senha = senha2;
+                            todosArguments.dataClientes.senha = senha2Controller.text;
 
                             MongoDatabaseClientes.updateSenha(
                                 todosArguments.dataClientes);
-                            Navigator.pushReplacementNamed(context, '/Login');
-                          } else {
-                            print(
-                                'ih senha quebrou, formulario foi sem validar');
-                          }
+                            Navigator.pushReplacementNamed(context, '/Login', arguments: todosArguments);
                         }
                       },
                       style: ButtonStyle(

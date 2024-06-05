@@ -13,6 +13,11 @@ class RecuperacaoDeSenha extends StatefulWidget {
 }
 
 class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
+  TextEditingController primeiroController = TextEditingController();
+  TextEditingController segundoController = TextEditingController();
+  TextEditingController terceiroController = TextEditingController();
+  TextEditingController quartoController = TextEditingController();
+  TextEditingController quintoController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -48,10 +53,10 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                         width: 50,
                         child: Center(
                           child: TextFormField(
+                            controller: primeiroController,
                             keyboardType: TextInputType.number,
                             decoration:
                                 InputDecoration(border: OutlineInputBorder()),
-                            validator: (value) => primeiroValidator(value),
                           ),
                         ),
                       ),
@@ -63,10 +68,10 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                         width: 50,
                         child: Center(
                           child: TextFormField(
+                            controller: segundoController,
                             keyboardType: TextInputType.number,
                             decoration:
                                 InputDecoration(border: OutlineInputBorder()),
-                            validator: (value) => segundoValidator(value),
                           ),
                         ),
                       ),
@@ -78,10 +83,10 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                         width: 50,
                         child: Center(
                           child: TextFormField(
+                            controller: terceiroController,
                             keyboardType: TextInputType.number,
                             decoration:
                                 InputDecoration(border: OutlineInputBorder()),
-                            validator: (value) => terceiroValidator(value),
                           ),
                         ),
                       ),
@@ -93,10 +98,10 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                         width: 50,
                         child: Center(
                           child: TextFormField(
+                            controller: quartoController,
                             keyboardType: TextInputType.number,
                             decoration:
                                 InputDecoration(border: OutlineInputBorder()),
-                            validator: (value) => quartoValidator(value),
                           ),
                         ),
                       ),
@@ -108,10 +113,10 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                         width: 50,
                         child: Center(
                           child: TextFormField(
+                            controller: quintoController,
                             keyboardType: TextInputType.number,
                             decoration:
                                 InputDecoration(border: OutlineInputBorder()),
-                            validator: (value) => quintoValidator(value),
                           ),
                         ),
                       ),
@@ -125,12 +130,13 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                     // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
-                          child: Text(
-                        'Um código será enviado no seu e-mail cadastrado para a redefinição de senha. Caso o código não apareça, clique aqui: ',
-                        style: TextStyle(
-                            color: Colors.green.shade900, fontSize: 16),
-                        softWrap: true,
-                      )),
+                        child: Text(
+                          'Um código será enviado no seu e-mail cadastrado para a redefinição de senha. Caso o código não apareça, clique aqui: ',
+                          style: TextStyle(
+                              color: Colors.green.shade900, fontSize: 16),
+                          softWrap: true,
+                        ),
+                      ),
                     ],
                   ),
                   Center(
@@ -143,6 +149,12 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                           color: Colors.green.shade900,
                         ),
                       ),
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      "A VALIDAÇÃO NÃO ESTÁ FUNCIONANDO.\nAPENAS PREENCHA OS CAMPOS COM QUALQUER VALOR.",
+                      style: TextStyle(color: Colors.red),
                     ),
                   ),
                   SizedBox(
@@ -162,9 +174,39 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                           ),
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              // Você requisitou a mudança de senha. Para realizar a mudança é necessário a confirmação via email, enviamos um código de 5 no email ${todosArguments.dataClient.email}
-                              Navigator.pushReplacementNamed(
-                                  context, '/RedefinicaoDeSenha');
+                              //tirei o validador, é melhor um manual aq dentro
+                              if (primeiroController.text != '' &&
+                                  segundoController.text != '' &&
+                                  terceiroController.text != '' &&
+                                  quartoController.text != '' &&
+                                  quintoController.text != '') {
+                                // Você requisitou a mudança de senha. Para realizar a mudança é necessário a confirmação via email, enviamos um código de 5 no email ${todosArguments.dataClient.email}
+                                Navigator.pushReplacementNamed(
+                                    context, '/RedefinicaoDeSenha');
+                              } else {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      actions: [
+                                        Center(
+                                            child: MaterialButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                          child: Text("Ok"),
+                                        ))
+                                      ],
+                                      // title: Center(child: Text('Error')),
+                                      content: Container(
+                                        alignment: Alignment.center,
+                                        width: 50,
+                                        height: 50,
+                                        child: Text("Código incorreto."),
+                                      ),
+                                    );
+                                  },
+                                );
+                              }
                             }
                           },
                           child: Text(

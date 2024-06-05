@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, file_names
-//selected color
-//unselected color
-//icons: login, person, wc, assignment, delete, login_outlined, foward
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/_backend/backend_login.dart';
+import '../zDatabase/mongodb_clientes.dart';
+import '../zModels/model_area_consumo.dart';
+import '../zModels/model_bancos_usuario.dart';
+import '../zModels/model_bancos.dart';
+import '../zModels/model_clientes.dart';
+import '../zModels/model_extrato.dart';
+import '../zModels/model_tipo_transacao.dart';
+import '../zModels/todos_arguments.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -13,11 +17,39 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
+  TodosArguments todosArguments = TodosArguments(
+    dataAreaConsumo: MongoDbModelAreaConsumo(),
+    dataBancosUsuario: MongoDbModelBancosUsuario(),
+    dataBancos: MongoDbModelBancos(),
+    dataClientes: MongoDbModelClientes(),
+    dataExtrato: MongoDbModelExtrato(),
+    dataTransacao: MongoDbModelTipoTransacao(),
+  );
+  List<Map<String, dynamic>> dataClientes = [
+    {'': ''}
+  ];
+  TextEditingController emailController = TextEditingController();
+  TextEditingController senhaController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  int count = 0;
   @override
   Widget build(BuildContext context) {
-    inBuildLogin(context);
-    print(todosArguments.dataClientes.toJson());
+    count++;
+    print("build login $count");
+    // inBuildLogin(context);
+    try {
+      todosArguments =
+          ModalRoute.of(context)!.settings.arguments as TodosArguments;
+    } catch (e) {
+      // print(e.toString());
+    }
+    MongoDatabaseClientes.getData().then(
+      (value) {
+        if (value.isNotEmpty) {
+          dataClientes = value;
+        }
+      },
+    );
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -39,11 +71,14 @@ class LoginState extends State<Login> {
                     child: Column(
                       children: [
                         TextFormField(
+                          controller: emailController,
                           validator: (value) {
-                            return emailValidator(value);
-                          },
-                          onChanged: (value) {
-                            emailOnChange(value);
+                            value ??= '';
+                            if (value == '') {
+                              return 'Este campo não pode ser vazio.';
+                            } else {
+                              return null;
+                            }
                           },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -54,13 +89,16 @@ class LoginState extends State<Login> {
                           height: 30,
                         ),
                         TextFormField(
+                          controller: senhaController,
                           validator: (value) {
-                            return senhaValidator(value);
+                            value ??= '';
+                            if (value == '') {
+                              return 'Este campo não pode ser vazio.';
+                            } else {
+                              return null;
+                            }
                           },
                           obscureText: true,
-                          onChanged: (value) {
-                            senhaOnChange(value);
-                          },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Senha',
@@ -78,7 +116,8 @@ class LoginState extends State<Login> {
                           style: TextStyle(color: Colors.green.shade900),
                         ),
                         onTap: () {
-                          esqueceuASenhaOnTap(context);
+                          Navigator.pushNamed(context, '/RecuperacaoDeSenha',
+                              arguments: todosArguments);
                         },
                       ),
                       Text(''),
@@ -109,19 +148,23 @@ class LoginState extends State<Login> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           bool check = true;
-
                           for (var i = 0; i < dataClientes.length; i++) {
                             if (dataClientes[i]['email'] ==
-                                    todosArguments.dataClientes.email &&
+                                    emailController.text &&
                                 dataClientes[i]['senha'] ==
-                                    todosArguments.dataClientes.senha) {
+                                    senhaController.text) {
+                              todosArguments.dataClientes.email =
+                                  emailController.text;
+                              todosArguments.dataClientes.senha =
+                                  senhaController.text;
                               check = false;
                               todosArguments.dataClientes.codCliente =
                                   dataClientes[i]['cod_cliente'];
                               todosArguments.dataClientes.nomeCliente =
-                                  dataClientes[i]['nome'];
-                                  print("login.dart linha 123 ver dps");
-                              Navigator.pushNamed(context, '/Main', arguments: todosArguments);
+                                  dataClientes[i]['nome_cliente'];
+                              print("login.dart linha ~123 ver dps");
+                              Navigator.pushReplacementNamed(context, '/Main',
+                                  arguments: todosArguments);
                               // Navigator.pushNamed(context, '/DadosDaContaBancaria', arguments: todosArguments);
                               // Navigator.pushNamed(context, '/VinculoBancarioOuInserçãoManual', arguments: todosArguments);
                             }
@@ -177,7 +220,8 @@ class LoginState extends State<Login> {
                       GestureDetector(
                         child: Text("Cadastre-se."),
                         onTap: () {
-                          cadastreseOnTap(context);
+                          Navigator.pushReplacementNamed(context, '/Cadastro',
+                              arguments: todosArguments);
                         },
                       )
                     ],
