@@ -3,7 +3,15 @@
 //unselected color
 //icons: login, person, wc, assignment, delete, login_outlined, foward
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/_backend/backend_recuperacao_de_senha.dart';
+
+import 'dart:math';
+import '../zModels/model_area_consumo.dart';
+import '../zModels/model_bancos_usuario.dart';
+import '../zModels/model_bancos.dart';
+import '../zModels/model_clientes.dart';
+import '../zModels/model_extrato.dart';
+import '../zModels/model_tipo_transacao.dart';
+import '../zModels/todos_arguments.dart';
 
 class RecuperacaoDeSenha extends StatefulWidget {
   const RecuperacaoDeSenha({super.key});
@@ -13,15 +21,51 @@ class RecuperacaoDeSenha extends StatefulWidget {
 }
 
 class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
+  TodosArguments todosArguments = TodosArguments(
+    dataAreaConsumo: MongoDbModelAreaConsumo(),
+    dataBancosUsuario: MongoDbModelBancosUsuario(),
+    dataBancos: MongoDbModelBancos(),
+    dataClientes: MongoDbModelClientes(),
+    dataExtrato: MongoDbModelExtrato(),
+    dataTransacao: MongoDbModelTipoTransacao(),
+  );
+
   TextEditingController primeiroController = TextEditingController();
   TextEditingController segundoController = TextEditingController();
   TextEditingController terceiroController = TextEditingController();
   TextEditingController quartoController = TextEditingController();
   TextEditingController quintoController = TextEditingController();
+  int num1 = 0;
+  int num2 = 0;
+  int num3 = 0;
+  int num4 = 0;
+  int num5 = 0;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  int count = 0;
+
+  @override
+  void initState() {
+    num1 = Random().nextInt(9);
+    num2 = Random().nextInt(9);
+    num3 = Random().nextInt(9);
+    num4 = Random().nextInt(9);
+    num5 = Random().nextInt(9);
+    print(
+        "${num1.toString()}, ${num2.toString()}, ${num3.toString()}, ${num4.toString()}, ${num5.toString()}");
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    inBuildRecuperacaoDeSenha(context);
+    count++;
+    print("build recuperacaoDeSenha $count");
+    try {
+      todosArguments =
+          ModalRoute.of(context)!.settings.arguments as TodosArguments;
+    } catch (e) {
+      // print(e.toString());
+    }
+    // inBuildRecuperacaoDeSenha(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -153,7 +197,7 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                   ),
                   Center(
                     child: Text(
-                      "A VALIDAÇÃO NÃO ESTÁ FUNCIONANDO.\nAPENAS PREENCHA OS CAMPOS COM QUALQUER VALOR.",
+                      "O ENVIO POR EMAIL NÃO ESTÁ FUNCIONANDO.\nAPENAS PREENCHA OS CAMPOS COM QUALQUER VALOR.",
                       style: TextStyle(color: Colors.red),
                     ),
                   ),
@@ -164,57 +208,59 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateColor.resolveWith(
-                                (states) => Colors.green.shade900),
-                            minimumSize:
-                                MaterialStateProperty.resolveWith((states) {
-                              return Size(300, 50);
-                            }),
-                          ),
-                          onPressed: () {
-                            if (formKey.currentState!.validate()) {
-                              //tirei o validador, é melhor um manual aq dentro
-                              if (primeiroController.text != '' &&
-                                  segundoController.text != '' &&
-                                  terceiroController.text != '' &&
-                                  quartoController.text != '' &&
-                                  quintoController.text != '') {
-                                // Você requisitou a mudança de senha. Para realizar a mudança é necessário a confirmação via email, enviamos um código de 5 no email ${todosArguments.dataClient.email}
-                                Navigator.pushReplacementNamed(
-                                    context, '/RedefinicaoDeSenha');
-                              } else {
-                                showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      actions: [
-                                        Center(
-                                            child: MaterialButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateColor.resolveWith(
+                              (states) => Colors.green.shade900),
+                          minimumSize:
+                              MaterialStateProperty.resolveWith((states) {
+                            return Size(300, 50);
+                          }),
+                        ),
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            //tirei o validador, é melhor um manual aq dentro
+                            if (primeiroController.text != '' &&
+                                segundoController.text != '' &&
+                                terceiroController.text != '' &&
+                                quartoController.text != '' &&
+                                quintoController.text != '') {
+                              // Você requisitou a mudança de senha. Para realizar a mudança é necessário a confirmação via email, enviamos um código de 5 no email ${todosArguments.dataClient.email}
+                              Navigator.pushReplacementNamed(
+                                  context, '/RedefinicaoDeSenha');
+                            } else {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    actions: [
+                                      Center(
+                                        child: MaterialButton(
                                           onPressed: () =>
                                               Navigator.pop(context),
                                           child: Text("Ok"),
-                                        ))
-                                      ],
-                                      // title: Center(child: Text('Error')),
-                                      content: Container(
-                                        alignment: Alignment.center,
-                                        width: 50,
-                                        height: 50,
-                                        child: Text("Código incorreto."),
-                                      ),
-                                    );
-                                  },
-                                );
-                              }
+                                        ),
+                                      )
+                                    ],
+                                    // title: Center(child: Text('Error')),
+                                    content: Container(
+                                      alignment: Alignment.center,
+                                      width: 50,
+                                      height: 50,
+                                      child: Text("Código incorreto."),
+                                    ),
+                                  );
+                                },
+                              );
                             }
-                          },
-                          child: Text(
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                            'Continuar',
-                          )),
+                          }
+                        },
+                        child: Text(
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                          'Continuar',
+                        ),
+                      ),
                     ],
                   ),
                 ],

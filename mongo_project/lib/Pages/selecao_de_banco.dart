@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:projeto_integrador/zDatabase/mongodb_bancos.dart';
 import '../zModels/model_area_consumo.dart';
 import '../zModels/model_bancos_usuario.dart';
@@ -113,7 +112,7 @@ class SelecaoDeBancoState extends State<SelecaoDeBanco> {
                                   .toString()
                                   .split('-')[1]);
                             } catch (e) {
-                              print("ali olha ${e}");
+                              print("ali olha $e");
                               leadingText = Text('');
                               titleText = Text('');
                             }
