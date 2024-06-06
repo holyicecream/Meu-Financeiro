@@ -2,9 +2,10 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/Pages/gerar_extrato.dart';
+import 'package:projeto_integrador/Pages/alterar_senha.dart';
+import 'package:projeto_integrador/Pages/adicionar_pagamento_pendente.dart';
 import 'package:projeto_integrador/Pages/cadastro.dart';
-import 'package:projeto_integrador/Pages/dados_da_conta_bancaria.dart';
+import 'package:projeto_integrador/Pages/personalizar_nome.dart';
 import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
 import 'package:projeto_integrador/Pages/login.dart';
 import 'package:projeto_integrador/Pages/tela_principal.dart';
@@ -61,28 +62,28 @@ class MyApp extends StatelessWidget {
       routes: {
         '/PageTeste': (context) => PageTeste(),
         '/PrimeiroAcesso': (context) => PrimeiroAcesso(),
-        // '/EntrarCom...': (context) => PrimeiroAcesso(),
         '/Login': (context) => Login(),
         '/RecuperacaoDeSenha': (context) => RecuperacaoDeSenha(),
         '/RedefinicaoDeSenha': (context) => RedefinicaoDeSenha(),
         '/Cadastro': (context) => Cadastro(),
-        '/EntrarComContaJaExistente': (context) => PageTeste(),
-        '/VinculoBancarioOuInserçãoManual': (context) => PageTeste(),
         '/SelecaoDeBanco': (context) => SelecaoDeBanco(),
-        '/DadosDaContaBancaria': (context) => DadosDaContaBancaria(),
-        '/InsercaoManualDosDadosBancarios': (context) => PageTeste(),
-        '/PersonalizarNome': (context) => PageTeste(),
-        '/AlterarSenha': (context) => PageTeste(),
+        '/PersonalizarNome': (context) => PersonalizarNome(),
+        '/AlterarSenha': (context) => AlterarSenha(),
         '/AlterarContaBancaria': (context) => PageTeste(),
-        '/InsercaoManualDeNovaContaBancaria': (context) => PageTeste(),
         '/Main': (context) => Main(),
         '/GraficoDiario': (context) => PageTeste(),
         '/GraficoMensal': (context) => PageTeste(),
         '/EditarPagamentoPendente': (context) => PageTeste(),
-        '/AdicionarPagamentoPendente': (context) => PageTeste(),
-        '/GerarExtrato': (context) => GerarExtrato(),
+        '/AdicionarPagamentoPendente': (context) => AdicionarPagamentoPendente(),
         '/Alarme': (context) => PageTeste(),
         '/Extrato': (context) => PageTeste(),
+        // '/DadosDaContaBancaria': (context) => DadosDaContaBancaria(),
+        // '/EntrarCom...': (context) => PrimeiroAcesso(),
+        // '/EntrarComContaJaExistente': (context) => PageTeste(),
+        // '/VinculoBancarioOuInserçãoManual': (context) => PageTeste(),
+        // '/InsercaoManualDosDadosBancarios': (context) => PageTeste(),
+        // '/InsercaoManualDeNovaContaBancaria': (context) => PageTeste(),
+        // '/GerarExtrato': (context) => AdicionarPagamentoPendente(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
