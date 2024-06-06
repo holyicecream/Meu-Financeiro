@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
         '/SelecaoDeBanco': (context) => SelecaoDeBanco(),
         '/PersonalizarNome': (context) => PersonalizarNome(),
         '/AlterarSenha': (context) => AlterarSenha(),
-        '/AlterarContaBancaria': (context) => PageTeste(),
+        '/AlterarContaBancaria': (context) => SelecaoDeBanco(),
         '/Main': (context) => Main(),
         '/GraficoDiario': (context) => PageTeste(),
         '/GraficoMensal': (context) => PageTeste(),

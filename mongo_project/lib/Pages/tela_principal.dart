@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:projeto_integrador/zDatabase/mongodb_clientes.dart';
 
 import '../zDatabase/mongodb_extrato.dart';
@@ -53,6 +54,7 @@ class MainState extends State<Main> {
     print("cliente atual ${todosArguments.dataClientes.toJson()}");
     return Scaffold(
       endDrawer: Drawer(
+        width: (MediaQuery.of(context).size.width) / 1.5,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
@@ -60,6 +62,7 @@ class MainState extends State<Main> {
               SizedBox(
                 height: 30,
               ),
+              Text(todosArguments.dataBancosUsuario.codBanco.toString()),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -73,6 +76,7 @@ class MainState extends State<Main> {
                       arguments: todosArguments);
                 },
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.login),
                     SizedBox(
@@ -88,6 +92,7 @@ class MainState extends State<Main> {
                       arguments: todosArguments);
                 },
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.person),
                     SizedBox(
@@ -99,10 +104,11 @@ class MainState extends State<Main> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/Main',
+                  Navigator.pushReplacementNamed(context, '/AlterarContaBancaria',
                       arguments: todosArguments);
                 },
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.wc),
                     SizedBox(
@@ -114,10 +120,11 @@ class MainState extends State<Main> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/Main',
-                      arguments: todosArguments);
+                  SystemNavigator.pop();
+                  // SystemChannels.platform.invokeMethod('SystemNavigator.pop');
                 },
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.assignment),
                     SizedBox(
@@ -327,7 +334,7 @@ class MainState extends State<Main> {
                   children: [
                     GestureDetector(
                       onTap: () async {
-                        final result = await Navigator.pushNamed(
+                        final result = await Navigator.pushReplacementNamed(
                             context, '/AdicionarPagamentoPendente',
                             arguments: todosArguments);
                         if (!context.mounted) return;
@@ -407,9 +414,11 @@ class MainState extends State<Main> {
                                                             .start,
                                                     children: [
                                                       CircleAvatar(
-                                                        backgroundImage:
-                                                            NetworkImage(
-                                                                'https://i.pinimg.com/280x280_RS/2e/22/90/2e229065b0e9a509755d371e6050b4fe.jpg'),
+                                                        backgroundColor: Colors
+                                                            .grey.shade400,
+                                                        // backgroundImage:
+                                                        //     NetworkImage(
+                                                        //         'https://i.pinimg.com/280x280_RS/2e/22/90/2e229065b0e9a509755d371e6050b4fe.jpg'),
                                                       ),
                                                       Row(
                                                         children: [
@@ -458,9 +467,11 @@ class MainState extends State<Main> {
                                                             .start,
                                                     children: [
                                                       CircleAvatar(
-                                                        backgroundImage:
-                                                            NetworkImage(
-                                                                'https://i.pinimg.com/280x280_RS/2e/22/90/2e229065b0e9a509755d371e6050b4fe.jpg'),
+                                                        backgroundColor: Colors
+                                                            .grey.shade400,
+                                                        // backgroundImage:
+                                                        //     NetworkImage(
+                                                        //         'https://i.pinimg.com/280x280_RS/2e/22/90/2e229065b0e9a509755d371e6050b4fe.jpg'),
                                                       ),
                                                       Row(
                                                         children: [
@@ -522,20 +533,41 @@ class MainState extends State<Main> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "Extrato",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        width: (MediaQuery.of(context).size.width) / 4,
+                        child: Text(
+                          "Extrato",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Icon(Icons.share)),
-                    Text(
-                      "Mostrar gráfico",
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width / 4,
+                        child: Icon(
+                          Icons.share,
+                          color: Color.fromRGBO(34, 72, 20, 1),
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width / 3,
+                        child: Text(
+                          "Mostrar gráfico",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -716,7 +748,7 @@ class MainState extends State<Main> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/AdicionarPagamentoPendente',
+          Navigator.pushReplacementNamed(context, '/AdicionarPagamentoPendente',
               arguments: todosArguments);
         },
         backgroundColor: Colors.green,

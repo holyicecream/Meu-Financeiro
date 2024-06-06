@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../zModels/model_area_consumo.dart';
 import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
@@ -38,6 +39,15 @@ class PrimeiroAcessoState extends State<PrimeiroAcesso> {
       // print(e.toString());
     }
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(34, 72, 20, 1),
+        leading: GestureDetector(
+          onTap: () {
+            SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+          },
+          child: Icon(Icons.arrow_back),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -58,7 +68,8 @@ class PrimeiroAcessoState extends State<PrimeiroAcesso> {
                         height: 60,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/Login', arguments: todosArguments);
+                              Navigator.pushNamed(context, '/Login',
+                                  arguments: todosArguments);
                             },
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Color(0xFF7ED957),
@@ -79,7 +90,8 @@ class PrimeiroAcessoState extends State<PrimeiroAcesso> {
                         height: 60,
                         child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/Cadastro', arguments: todosArguments);
+                              Navigator.pushNamed(context, '/Cadastro',
+                                  arguments: todosArguments);
                             },
                             style: TextButton.styleFrom(
                                 shape: RoundedRectangleBorder(

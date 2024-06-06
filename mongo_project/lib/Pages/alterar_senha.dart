@@ -47,6 +47,13 @@ class AlterarSenhaState extends State<AlterarSenha> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushReplacementNamed(context, '/Main',
+                arguments: todosArguments);
+          },
+          child: Icon(Icons.arrow_back),
+        ),
         centerTitle: true,
         title: Text('Alterar senha'),
         backgroundColor: Colors.white,
@@ -72,6 +79,7 @@ class AlterarSenhaState extends State<AlterarSenha> {
                           ),
                         ),
                         TextFormField(
+                          obscureText: true,
                           controller: senhaAtualController,
                           validator: (value) {
                             value ??= '';
@@ -93,6 +101,7 @@ class AlterarSenhaState extends State<AlterarSenha> {
                           height: 30,
                         ),
                         TextFormField(
+                          obscureText: true,
                           controller: senha1Controller,
                           validator: (value) {
                             value ??= '';
@@ -116,6 +125,7 @@ class AlterarSenhaState extends State<AlterarSenha> {
                           height: 30,
                         ),
                         TextFormField(
+                          obscureText: true,
                           controller: senha2Controller,
                           validator: (value) {
                             value ??= '';

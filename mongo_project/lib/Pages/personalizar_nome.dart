@@ -46,6 +46,13 @@ class PersonalizarNomeState extends State<PersonalizarNome> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushReplacementNamed(context, '/Main',
+                arguments: todosArguments);
+          },
+          child: Icon(Icons.arrow_back),
+        ),
         centerTitle: true,
         title: Text('Seu nome'),
         backgroundColor: Colors.white,
@@ -70,7 +77,11 @@ class PersonalizarNomeState extends State<PersonalizarNome> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        SizedBox(
+                          height: 30,
+                        ),
                         TextFormField(
+                          obscureText: true,
                           controller: senhaAtualController,
                           validator: (value) {
                             value ??= '';
@@ -110,7 +121,7 @@ class PersonalizarNomeState extends State<PersonalizarNome> {
                     ),
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 30,
                   ),
                   Center(
                     child: ElevatedButton(
@@ -132,10 +143,15 @@ class PersonalizarNomeState extends State<PersonalizarNome> {
                             (states) => Colors.green),
                         minimumSize:
                             MaterialStateProperty.resolveWith((states) {
-                          return Size(200, 50);
+                          return Size(250, 50);
                         }),
                       ),
-                      child: Text("Salvar Alterações"),
+                      child: Text(
+                        "Salvar Alterações",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ],

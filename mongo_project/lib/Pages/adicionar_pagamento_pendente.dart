@@ -94,6 +94,13 @@ class AdicionarPagamentoPendenteState
 
     return Scaffold(
       appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushReplacementNamed(context, '/Main',
+                arguments: todosArguments);
+          },
+          child: Icon(Icons.arrow_back),
+        ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4.0),
           child: Container(
@@ -323,8 +330,8 @@ class AdicionarPagamentoPendenteState
                                   MongoDatabaseExtrato.update(
                                           todosArguments.dataExtrato,
                                           dataController.text)
-                                      .then((value) => Navigator.pop(
-                                          context, todosArguments));
+                                      .then((value) => Navigator.pushReplacementNamed(
+                                          context, '/Main', arguments: todosArguments));
                                 });
                               }
                               // Navigator.pop(context, '/Main');

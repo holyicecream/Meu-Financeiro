@@ -8,13 +8,6 @@
             "type": "dart"
         },
         {
-            "name": "Flutter (Windows main2)",
-            "program": "lib//zTeste/main2.dart",
-            "deviceId": "windows",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
             "name": "Flutter (Small Phone)",
             "program": "lib/main.dart",
             "deviceId": "emulator-5554",
@@ -22,8 +15,8 @@
             "type": "dart"
         },
         {
-            "name": "Flutter (Small Phone main2)",
-            "program": "lib//zTeste/main2.dart",
+            "name": "Flutter (Medium Phone API 28 06_06)",
+            "program": "lib/main.dart",
             "deviceId": "emulator-5554",
             "request": "launch",
             "type": "dart"
