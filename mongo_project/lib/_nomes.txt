@@ -1,0 +1,1 @@
+nomes dos arquivos, classes, entre outros baseado nos nomes das telas/database, seguindo o protótipo do projeto.
