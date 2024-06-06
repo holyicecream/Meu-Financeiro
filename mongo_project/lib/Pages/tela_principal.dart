@@ -61,6 +61,7 @@ class MainState extends State<Main> {
                 height: 30,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Icon(Icons.browse_gallery),
                   Icon(Icons.search),
@@ -327,7 +328,7 @@ class MainState extends State<Main> {
                     GestureDetector(
                       onTap: () async {
                         final result = await Navigator.pushNamed(
-                            context, '/GerarExtrato',
+                            context, '/AdicionarPagamentoPendente',
                             arguments: todosArguments);
                         if (!context.mounted) return;
                         print('ué');
@@ -542,7 +543,7 @@ class MainState extends State<Main> {
               Padding(
                 padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: SizedBox(
-                  height: 300,
+                  height: 250,
                   child: FutureBuilder(
                     future: MongoDatabaseExtrato.getData(),
                     builder: (context, AsyncSnapshot snapshot) {
@@ -562,7 +563,7 @@ class MainState extends State<Main> {
                                 return GestureDetector(
                                   onTap: () {
                                     // todosArguments.dataExtrato = data;
-                                    // Navigator.pushNamed(context, '/GerarExtrato', arguments: todosArguments);
+                                    // Navigator.pushNamed(context, '/AdicionarPagamentoPendente', arguments: todosArguments);
                                   },
                                   child: Row(
                                     children: [
@@ -624,7 +625,7 @@ class MainState extends State<Main> {
                                 return GestureDetector(
                                   onTap: () {
                                     // todosArguments.dataExtrato = data;
-                                    // Navigator.pushNamed(context, '/GerarExtrato', arguments: todosArguments);
+                                    // Navigator.pushNamed(context, '/AdicionarPagamentoPendente', arguments: todosArguments);
                                   },
                                   child: Row(
                                     children: [
@@ -715,7 +716,7 @@ class MainState extends State<Main> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/GerarExtrato',
+          Navigator.pushNamed(context, '/AdicionarPagamentoPendente',
               arguments: todosArguments);
         },
         backgroundColor: Colors.green,
