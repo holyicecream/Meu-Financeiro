@@ -104,7 +104,8 @@ class MainState extends State<Main> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/AlterarContaBancaria',
+                  Navigator.pushReplacementNamed(
+                      context, '/AlterarContaBancaria',
                       arguments: todosArguments);
                 },
                 child: Row(
@@ -370,8 +371,8 @@ class MainState extends State<Main> {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
                               return const Center(
-                                child: CircularProgressIndicator(),
-                              );
+                                  // child: CircularProgressIndicator(),
+                                  );
                             } else if (snapshot.hasData) {
                               return SizedBox(
                                 height: 125,
@@ -396,7 +397,13 @@ class MainState extends State<Main> {
                                         print(
                                             "CADEdia hoje ${int.parse("${DateTime.now().toString().split(' ')[0].toString().split('-')[0]}${DateTime.now().toString().split(' ')[0].toString().split('-')[1]}${DateTime.now().toString().split(' ')[0].toString().split('-')[2]}")}");
                                         return GestureDetector(
-                                          onTap: () {},
+                                          onTap: () {
+                                            todosArguments.dataExtrato = data;
+                                            Navigator.pushReplacementNamed(
+                                                context,
+                                                '/EditarPagamentoPendente',
+                                                arguments: todosArguments);
+                                          },
                                           child: Padding(
                                             padding: const EdgeInsets.fromLTRB(
                                                 5, 0, 0, 0),
@@ -447,8 +454,11 @@ class MainState extends State<Main> {
                                                   "${DateTime.now().toString().split(' ')[0].toString().split('-')[0]}${DateTime.now().toString().split(' ')[0].toString().split('-')[1]}${DateTime.now().toString().split(' ')[0].toString().split('-')[2]}")) {
                                         return GestureDetector(
                                           onTap: () {
-                                            // todosArguments.dataExtrato = data;
-                                            // Navigator.pushNamed(context, '/PageTeste', arguments: todosArguments);
+                                            todosArguments.dataExtrato = data;
+                                            Navigator.pushReplacementNamed(
+                                                context,
+                                                '/EditarPagamentoPendente',
+                                                arguments: todosArguments);
                                           },
                                           child: Padding(
                                             padding:
@@ -536,7 +546,10 @@ class MainState extends State<Main> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Extrato',
+                            arguments: todosArguments);
+                      },
                       child: SizedBox(
                         width: (MediaQuery.of(context).size.width) / 4,
                         child: Text(
@@ -581,21 +594,29 @@ class MainState extends State<Main> {
                     builder: (context, AsyncSnapshot snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return const Center(
-                          child: CircularProgressIndicator(),
-                        );
+                            // child: CircularProgressIndicator(),
+                            );
                       } else if (snapshot.hasData) {
+                        snapshot.data.reversed.toList();
+                        int itemCountOfc = 10;
+                        if (snapshot.data.length < 10) {
+                          itemCountOfc = snapshot.data.length;
+                        }
+
                         return ListView.builder(
                           scrollDirection: Axis.vertical,
-                          itemCount: snapshot.data.length,
+                          itemCount: itemCountOfc,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
+                            int reversedIndex = itemCountOfc - 1 - index;
                             Widget displayListView(MongoDbModelExtrato data,
                                 BuildContext context) {
                               if (data.debitoCredito == 'debito') {
                                 return GestureDetector(
                                   onTap: () {
-                                    // todosArguments.dataExtrato = data;
-                                    // Navigator.pushNamed(context, '/AdicionarPagamentoPendente', arguments: todosArguments);
+                                    todosArguments.dataExtrato = data;
+                                    Navigator.pushNamed(context, '/Extrato',
+                                        arguments: todosArguments);
                                   },
                                   child: Row(
                                     children: [
@@ -656,8 +677,9 @@ class MainState extends State<Main> {
                               } else {
                                 return GestureDetector(
                                   onTap: () {
-                                    // todosArguments.dataExtrato = data;
-                                    // Navigator.pushNamed(context, '/AdicionarPagamentoPendente', arguments: todosArguments);
+                                    todosArguments.dataExtrato = data;
+                                    Navigator.pushNamed(context, '/Extrato',
+                                        arguments: todosArguments);
                                   },
                                   child: Row(
                                     children: [
@@ -721,10 +743,10 @@ class MainState extends State<Main> {
                             // print("extrato codCli ${snapshot.data[index]['cod_cliente']}");
                             // print("atual codCli ${todosArguments.dataClientes.codCliente}");
                             if (todosArguments.dataClientes.codCliente ==
-                                snapshot.data[index]['cod_cliente']) {
+                                snapshot.data[reversedIndex]['cod_cliente']) {
                               return displayListView(
                                   MongoDbModelExtrato.fromJson(
-                                      dataExtrato[index]),
+                                      dataExtrato[reversedIndex]),
                                   context);
                             } else {
                               return Container();
