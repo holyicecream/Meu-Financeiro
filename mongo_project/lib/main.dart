@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:projeto_integrador/Pages/alterar_senha.dart';
 import 'package:projeto_integrador/Pages/adicionar_pagamento_pendente.dart';
 import 'package:projeto_integrador/Pages/cadastro.dart';
+import 'package:projeto_integrador/Pages/editar_pagamento_pendente.dart';
+import 'package:projeto_integrador/Pages/extrato.dart';
 import 'package:projeto_integrador/Pages/personalizar_nome.dart';
 import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
 import 'package:projeto_integrador/Pages/login.dart';
@@ -74,10 +76,10 @@ class MyApp extends StatelessWidget {
         '/Main': (context) => Main(),
         '/GraficoDiario': (context) => PageTeste(),
         '/GraficoMensal': (context) => PageTeste(),
-        '/EditarPagamentoPendente': (context) => PageTeste(),
+        '/EditarPagamentoPendente': (context) => EditarPagamentoPendente(),
         '/AdicionarPagamentoPendente': (context) => AdicionarPagamentoPendente(),
-        '/Alarme': (context) => PageTeste(),
-        '/Extrato': (context) => PageTeste(),
+        '/Extrato': (context) => Extrato(),
+        // '/Alarme': (context) => PageTeste(),
         // '/DadosDaContaBancaria': (context) => DadosDaContaBancaria(),
         // '/EntrarCom...': (context) => PrimeiroAcesso(),
         // '/EntrarComContaJaExistente': (context) => PageTeste(),
