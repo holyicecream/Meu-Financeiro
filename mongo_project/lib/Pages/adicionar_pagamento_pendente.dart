@@ -278,7 +278,50 @@ class AdicionarPagamentoPendenteState
                         SizedBox(
                           height: 20,
                         ),
-                        DropdownMenuExample(list),
+                        CustomDropdownMenu(
+                          items: [
+                            DropdownMenuItemData(label: 'Boleto', value: 1),
+                            DropdownMenuItemData(label: 'Deposito', value: 2),
+                            DropdownMenuItemData(label: 'Pix', value: 3),
+                            DropdownMenuItemData(label: 'Saque', value: 4),
+                            DropdownMenuItemData(
+                                label: 'Cartão débito', value: 5),
+                            DropdownMenuItemData(
+                                label: 'Cartão crédito', value: 6),
+                            DropdownMenuItemData(
+                                label: 'Transferência', value: 7),
+                            DropdownMenuItemData(label: 'Recarga', value: 8),
+                            DropdownMenuItemData(label: 'Outros', value: 9),
+                          ],
+                          initialValue: 1,
+                          onChanged: (value) {
+                            setState(() {
+                              todosArguments.dataExtrato.codTransacao = value;
+                            });
+                          },
+                        ),
+                        // SizedBox(
+                        //     width: double.infinity, child: DropdownMenuExample(list2)),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        CustomDropdownMenu(
+                          items: [
+                            DropdownMenuItemData(label: 'Educação', value: 1),
+                            DropdownMenuItemData(label: 'Saúde', value: 2),
+                            DropdownMenuItemData(label: 'Lazer', value: 3),
+                            DropdownMenuItemData(label: 'Transporte', value: 5),
+                            DropdownMenuItemData(label: 'Moradia', value: 6),
+                            DropdownMenuItemData(label: 'Alimentos', value: 7),
+                            DropdownMenuItemData(label: 'Outros', value: 4),
+                          ],
+                          initialValue: 1,
+                          onChanged: (value) {
+                            setState(() {
+                              todosArguments.dataExtrato.codAreaConsumo = value;
+                            });
+                          },
+                        ),
                         // SizedBox(
                         //     width: double.infinity, child: DropdownMenuExample(list2)),
                         SizedBox(
@@ -319,7 +362,6 @@ class AdicionarPagamentoPendenteState
                           child: ElevatedButton(
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                
                                 todosArguments.dataExtrato.codBanco =
                                     todosArguments.dataBancos.codBanco;
                                 todosArguments.dataExtrato.codCliente =
@@ -331,8 +373,10 @@ class AdicionarPagamentoPendenteState
                                   MongoDatabaseExtrato.update(
                                           todosArguments.dataExtrato,
                                           dataController.text)
-                                      .then((value) => Navigator.pushReplacementNamed(
-                                          context, '/Main', arguments: todosArguments));
+                                      .then((value) =>
+                                          Navigator.pushReplacementNamed(
+                                              context, '/Main',
+                                              arguments: todosArguments));
                                 });
                               }
                               // Navigator.pop(context, '/Main');
@@ -363,55 +407,55 @@ class AdicionarPagamentoPendenteState
   }
 }
 
-class DropdownMenuExample extends StatefulWidget {
-  const DropdownMenuExample(List<String> list, {super.key});
+class CustomDropdownMenu extends StatefulWidget {
+  final List<DropdownMenuItemData> items;
+  final Function(dynamic) onChanged;
+  final dynamic initialValue;
+
+  const CustomDropdownMenu({
+    required this.items,
+    required this.onChanged,
+    this.initialValue,
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<DropdownMenuExample> createState() => _DropdownMenuExampleState();
+  State<CustomDropdownMenu> createState() => _CustomDropdownMenuState();
 }
 
-class _DropdownMenuExampleState extends State<DropdownMenuExample> {
-  TodosArguments todosArguments = TodosArguments(
-    dataAreaConsumo: MongoDbModelAreaConsumo(),
-    dataBancosUsuario: MongoDbModelBancosUsuario(),
-    dataBancos: MongoDbModelBancos(),
-    dataClientes: MongoDbModelClientes(),
-    dataExtrato: MongoDbModelExtrato(),
-    dataTransacao: MongoDbModelTipoTransacao(),
-  );
-  String dropdownValue = list.first;
+class _CustomDropdownMenuState extends State<CustomDropdownMenu> {
+  late dynamic selectedValue;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedValue = widget.initialValue ?? widget.items.first.value;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: DropdownMenu<String>(
-        initialSelection: list.first,
-        onSelected: (String? value) {
-          if (value == 'Compra no débito') {
-            todosArguments.dataExtrato.codTransacao = 5;
-          } else if (value == 'Pix') {
-            todosArguments.dataExtrato.codTransacao = 3;
-          } else if (value == 'Depósito por boleto') {
-            todosArguments.dataExtrato.codTransacao = 1;
-          } else if (value == 'Transferência') {
-            todosArguments.dataExtrato.codTransacao = 7;
-          } else if (value == 'Saque') {
-            todosArguments.dataExtrato.codTransacao = 4;
-          } else if (value == 'Recarga') {
-            todosArguments.dataExtrato.codTransacao = 8;
-          } else {
-            todosArguments.dataExtrato.codTransacao = 9;
-          }
-          // This is called when the user selects an item.
-          setState(() {
-            dropdownValue = value!;
-          });
-        },
-        dropdownMenuEntries:
-            list.map<DropdownMenuEntry<String>>((String value) {
-          return DropdownMenuEntry<String>(value: value, label: value);
-        }).toList(),
-      ),
+    return DropdownButton<dynamic>(
+      value: selectedValue,
+      onChanged: (dynamic newValue) {
+        setState(() {
+          selectedValue = newValue;
+        });
+        widget.onChanged(newValue);
+      },
+      items: widget.items
+          .map<DropdownMenuItem<dynamic>>((DropdownMenuItemData item) {
+        return DropdownMenuItem<dynamic>(
+          value: item.value,
+          child: Text(item.label),
+        );
+      }).toList(),
     );
   }
+}
+
+class DropdownMenuItemData {
+  final String label;
+  final dynamic value;
+
+  DropdownMenuItemData({required this.label, required this.value});
 }

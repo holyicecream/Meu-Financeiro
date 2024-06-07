@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
         },
       ),
       initialRoute: '/PrimeiroAcesso',
-      initialRoute: '/GraficoDiario',
+      //initialRoute: '/GraficoDiario',
       routes: {
         '/PageTeste': (context) => PageTeste(),
         '/PrimeiroAcesso': (context) => PrimeiroAcesso(),
