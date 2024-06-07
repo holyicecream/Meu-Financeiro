@@ -19,26 +19,6 @@ class AdicionarPagamentoPendente extends StatefulWidget {
       AdicionarPagamentoPendenteState();
 }
 
-const List<String> list2 = <String>[
-  'Outros',
-  'Lazer',
-  'Alimentação',
-  'Moradia',
-  'Educação',
-  'Transporte',
-  'Saúde'
-];
-const List<String> list = <String>[
-  'Compra no débito',
-  'Compra no crédito',
-  'Pix',
-  'Depósito por boleto',
-  'Transferência',
-  'Saque',
-  'Recarga',
-  'Outros'
-];
-
 class AdicionarPagamentoPendenteState
     extends State<AdicionarPagamentoPendente> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
