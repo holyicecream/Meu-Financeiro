@@ -33,13 +33,13 @@ class SelecaoDeBancoState extends State<SelecaoDeBanco> {
 
   @override
   void initState() {
+    super.initState();
     MongoDatabaseBancos.getData().then(
       (value) {
         print('primeiro build?');
         dataBancos = value;
       },
     );
-    super.initState();
   }
 
   @override

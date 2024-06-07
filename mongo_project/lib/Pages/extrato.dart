@@ -33,13 +33,13 @@ class ExtratoState extends State<Extrato> {
 
   @override
   void initState() {
+    super.initState();
     MongoDatabaseExtrato.getData().then(
       (value) {
         print('primeiro build?');
         dataExtrato = value;
       },
     );
-    super.initState();
   }
 
   @override

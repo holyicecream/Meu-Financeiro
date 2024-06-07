@@ -572,7 +572,9 @@ class MainState extends State<Main> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, "/GraficoDiario", arguments: todosArguments);
+                      },
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width / 3,
                         child: Text(
