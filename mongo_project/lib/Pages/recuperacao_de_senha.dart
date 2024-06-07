@@ -45,6 +45,7 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
 
   @override
   void initState() {
+    super.initState();
     num1 = Random().nextInt(9);
     num2 = Random().nextInt(9);
     num3 = Random().nextInt(9);
@@ -52,7 +53,6 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
     num5 = Random().nextInt(9);
     print(
         "${num1.toString()}, ${num2.toString()}, ${num3.toString()}, ${num4.toString()}, ${num5.toString()}");
-    super.initState();
   }
 
   @override
@@ -69,6 +69,13 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushReplacementNamed(context, '/Login',
+                arguments: todosArguments);
+          },
+          child: Icon(Icons.arrow_back),
+        ),
         centerTitle: true,
         title: Text('Esqueci a senha'),
         backgroundColor: Colors.white,
@@ -82,9 +89,11 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Código",
-                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                  Center(
+                    child: Text(
+                      "Código",
+                      style: TextStyle(fontSize: 20, color: Colors.grey),
+                    ),
                   ),
                   SizedBox(
                     height: 10,
@@ -174,11 +183,13 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                     // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
-                        child: Text(
-                          'Um código será enviado no seu e-mail cadastrado para a redefinição de senha. Caso o código não apareça, clique aqui: ',
-                          style: TextStyle(
-                              color: Colors.green.shade900, fontSize: 16),
-                          softWrap: true,
+                        child: Center(
+                          child: Text(
+                            'Um código será enviado no seu e-mail cadastrado para a redefinição de senha. Caso o código não apareça, clique aqui: ',
+                            style: TextStyle(
+                                color: Colors.green.shade900, fontSize: 16),
+                            softWrap: true,
+                          ),
                         ),
                       ),
                     ],
@@ -226,7 +237,8 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                                 quintoController.text != '') {
                               // Você requisitou a mudança de senha. Para realizar a mudança é necessário a confirmação via email, enviamos um código de 5 no email ${todosArguments.dataClient.email}
                               Navigator.pushReplacementNamed(
-                                  context, '/RedefinicaoDeSenha', arguments:  todosArguments);
+                                  context, '/RedefinicaoDeSenha',
+                                  arguments: todosArguments);
                             } else {
                               showDialog(
                                 context: context,
