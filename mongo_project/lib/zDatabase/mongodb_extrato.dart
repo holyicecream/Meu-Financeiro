@@ -31,8 +31,26 @@ class MongoDatabaseExtrato {
   }
 
   static Future<void> update(MongoDbModelExtrato data, String datetime) async {
+    await collection.update(where.eq("registro", data.registro),
+        modify.set('data', DateTime.tryParse(datetime)));
+  }
+
+  static Future<void> updatePagamento(
+      MongoDbModelExtrato data, String datetime) async {
+    await collection.update(where.eq("registro", data.registro),
+        modify.set('data', DateTime.tryParse(datetime)));
+
     await collection.update(
-        where.eq("registro", data.registro), modify.set('data', DateTime.tryParse(datetime)));
+        where.eq("registro", data.registro), modify.set('valor', data.valor));
+
+    await collection.update(where.eq("registro", data.registro),
+        modify.set('debito_credito', data.debitoCredito));
+
+    await collection.update(where.eq("registro", data.registro),
+        modify.set('descricao_transacao', data.descricaoTransacao));
+
+    await collection.update(where.eq("registro", data.registro),
+        modify.set('nome_destinatario', data.nomeDestinatario));
   }
 }
 
