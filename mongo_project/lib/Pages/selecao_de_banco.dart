@@ -45,7 +45,7 @@ class SelecaoDeBancoState extends State<SelecaoDeBanco> {
   @override
   Widget build(BuildContext context) {
     count++;
-    print("build primeiroAcesso $count");
+    print("build selecaoDeBanco $count");
     try {
       todosArguments =
           ModalRoute.of(context)!.settings.arguments as TodosArguments;
@@ -122,10 +122,14 @@ class SelecaoDeBancoState extends State<SelecaoDeBanco> {
                                 child: ListTile(
                                   iconColor: Colors.black,
                                   onTap: () {
-                                    todosArguments.dataBancos.codBanco = dataBancosSearch[index]['cod_banco'];
-                                    todosArguments.dataBancos.banco = dataBancosSearch[index]['banco'];
-                                    todosArguments.dataExtrato.codBanco = dataBancosSearch[index]['cod_banco'];
-                                    todosArguments.dataBancosUsuario.codBanco = dataBancosSearch[index]['cod_banco'];
+                                    todosArguments.dataBancos.codBanco =
+                                        dataBancosSearch[index]['cod_banco'];
+                                    todosArguments.dataBancos.banco =
+                                        dataBancosSearch[index]['banco'];
+                                    todosArguments.dataExtrato.codBanco =
+                                        dataBancosSearch[index]['cod_banco'];
+                                    todosArguments.dataBancosUsuario.codBanco =
+                                        dataBancosSearch[index]['cod_banco'];
                                     Navigator.pushReplacementNamed(
                                         context, '/Main',
                                         arguments: todosArguments);

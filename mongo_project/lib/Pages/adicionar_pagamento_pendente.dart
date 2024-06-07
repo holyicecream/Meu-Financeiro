@@ -64,7 +64,7 @@ class AdicionarPagamentoPendenteState
     print("dataExtrato ${todosArguments.dataExtrato.toJson()}");
 
     count++;
-    print("build addExtrato $count");
+    print("build adicionarPagamentoPendente $count");
 
     try {
       todosArguments =
@@ -319,6 +319,7 @@ class AdicionarPagamentoPendenteState
                           child: ElevatedButton(
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
+                                
                                 todosArguments.dataExtrato.codBanco =
                                     todosArguments.dataBancos.codBanco;
                                 todosArguments.dataExtrato.codCliente =
