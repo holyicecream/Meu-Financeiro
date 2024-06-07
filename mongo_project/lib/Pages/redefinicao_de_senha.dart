@@ -64,6 +64,7 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                     child: Column(
                       children: [
                         TextFormField(
+                          obscureText: true,
                           controller: senha1Controller,
                           validator: (value) {
                             value ??= '';
@@ -87,6 +88,7 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                           height: 30,
                         ),
                         TextFormField(
+                          obscureText: true,
                           controller: senha2Controller,
                           validator: (value) {
                             value ??= '';
@@ -116,8 +118,9 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                         if (formKey.currentState!.validate()) {
                           todosArguments.dataClientes.senha =
                               senha2Controller.text;
-
-                          MongoDatabaseClientes.updateSenha(
+                              print(todosArguments.dataClientes.email);
+                              print(todosArguments.dataClientes.senha);
+                          MongoDatabaseClientes.updateSenhaByEmail(
                               todosArguments.dataClientes);
                           Navigator.pushReplacementNamed(context, '/Login',
                               arguments: todosArguments);
@@ -133,7 +136,7 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                           return Size(200, 50);
                         }),
                       ),
-                      child: Text("Salvar Alterações"),
+                      child: Text("Salvar Alterações", style: TextStyle(color: Colors.white,),),
                     ),
                   ),
                 ],

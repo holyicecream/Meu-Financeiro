@@ -226,7 +226,7 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                                 quintoController.text != '') {
                               // Você requisitou a mudança de senha. Para realizar a mudança é necessário a confirmação via email, enviamos um código de 5 no email ${todosArguments.dataClient.email}
                               Navigator.pushReplacementNamed(
-                                  context, '/RedefinicaoDeSenha');
+                                  context, '/RedefinicaoDeSenha', arguments:  todosArguments);
                             } else {
                               showDialog(
                                 context: context,

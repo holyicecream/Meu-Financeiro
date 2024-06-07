@@ -46,4 +46,8 @@ class MongoDatabaseClientes {
     await collection.update(where.eq("cod_cliente", data.codCliente),
         modify.set('senha', data.senha));
   }
+  static Future<void> updateSenhaByEmail(MongoDbModelClientes data) async {
+    await collection.update(where.eq("email", data.email),
+        modify.set('senha', data.senha));
+  }
 }

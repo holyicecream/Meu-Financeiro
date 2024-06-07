@@ -116,6 +116,7 @@ class LoginState extends State<Login> {
                           style: TextStyle(color: Colors.green.shade900),
                         ),
                         onTap: () {
+                          todosArguments.dataClientes.email = emailController.text;
                           Navigator.pushReplacementNamed(context, '/RecuperacaoDeSenha',
                               arguments: todosArguments);
                         },
