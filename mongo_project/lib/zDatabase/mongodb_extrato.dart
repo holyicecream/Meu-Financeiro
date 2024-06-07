@@ -16,6 +16,12 @@ class MongoDatabaseExtrato {
     final arrData = await collection.find().toList();
     return arrData;
   }
+  
+  static Future<List<Map<String, dynamic>>> getDataByCodCli(int cod) async {
+    collection = await db.collection(collectionExtrato);
+    final arrData = await collection.find({'cod_cliente':cod}).toList();
+    return arrData;
+  }
 
   static Future<void> insert(MongoDbModelExtrato data) async {
     try {
