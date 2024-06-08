@@ -38,7 +38,7 @@ dependencies:
   mongo_dart: ^0.10.2
   fixnum: ^1.1.0
   fl_chart: ^0.68.0
-  image_field: ^0.0.10
+  
 
 dev_dependencies:
   flutter_test:
@@ -64,7 +64,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - assets/home-image.png
+      - assets/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
