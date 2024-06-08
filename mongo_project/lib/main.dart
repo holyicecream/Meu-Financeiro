@@ -8,6 +8,7 @@ import 'package:projeto_integrador/Pages/cadastro.dart';
 import 'package:projeto_integrador/Pages/editar_pagamento_pendente.dart';
 import 'package:projeto_integrador/Pages/extrato.dart';
 import 'package:projeto_integrador/Pages/grafico_diario.dart';
+import 'package:projeto_integrador/Pages/grafico_mensal.dart';
 import 'package:projeto_integrador/Pages/personalizar_nome.dart';
 import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
 import 'package:projeto_integrador/Pages/login.dart';
@@ -63,7 +64,6 @@ class MyApp extends StatelessWidget {
         },
       ),
       initialRoute: '/PrimeiroAcesso',
-      //initialRoute: '/GraficoDiario',
       routes: {
         '/PageTeste': (context) => PageTeste(),
         '/PrimeiroAcesso': (context) => PrimeiroAcesso(),
@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
         '/AlterarContaBancaria': (context) => SelecaoDeBanco(),
         '/Main': (context) => Main(),
         '/GraficoDiario': (context) => GraficoDiario(),
-        '/GraficoMensal': (context) => PageTeste(),
+        '/GraficoMensal': (context) => GraficoMensal(),
         '/EditarPagamentoPendente': (context) => EditarPagamentoPendente(),
         '/AdicionarPagamentoPendente': (context) =>
             AdicionarPagamentoPendente(),
