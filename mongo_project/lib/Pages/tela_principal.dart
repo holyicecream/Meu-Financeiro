@@ -47,7 +47,9 @@ class MainState extends State<Main> {
     } catch (e) {
       // print(e.toString());
     }
-    MongoDatabaseExtrato.getData().then(
+    MongoDatabaseExtrato.getDataByCodCli(
+            todosArguments.dataClientes.codCliente ?? 0)
+        .then(
       (value) {
         if (value.isNotEmpty) {
           dataExtrato = value;
@@ -244,7 +246,8 @@ class MainState extends State<Main> {
                       Row(
                         children: [
                           FutureBuilder(
-                            future: MongoDatabaseExtrato.getData(),
+                            future: MongoDatabaseExtrato.getDataByCodCli(
+                                todosArguments.dataClientes.codCliente ?? 0),
                             builder: (context, AsyncSnapshot snapshot) {
                               double saldo = 0.0;
                               Widget widgetSaldo = Text(
@@ -336,7 +339,8 @@ class MainState extends State<Main> {
                       ),
                     ),
                     FutureBuilder(
-                      future: MongoDatabaseExtrato.getData(),
+                      future: MongoDatabaseExtrato.getDataByCodCli(
+                          todosArguments.dataClientes.codCliente ?? 0),
                       builder: (context, AsyncSnapshot snapshot) {
                         double pagamentosPendentesValue = 0.0;
                         Widget widgetPagamentosPendentesValue = Text(
@@ -402,20 +406,10 @@ class MainState extends State<Main> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     GestureDetector(
-                      onTap: () async {
-                        final result = await Navigator.pushReplacementNamed(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(
                             context, '/AdicionarPagamentoPendente',
                             arguments: todosArguments);
-                        if (!context.mounted) return;
-                        print('ué');
-                        try {
-                          print("\n\n\n\n\n\n\nAAAAAAAAAAAAAAAAAAAAAA$result");
-                          todosArguments = result as TodosArguments;
-                        } catch (e) {
-                          print("\n\n\n\n\n\n\nBBBBBBBBBBBBBBBBBBBBBB$result");
-                          print(e);
-                        }
-                        print("ih deu pop ${result.toString()}");
                       },
                       child: SizedBox(
                         width: 125,
@@ -435,7 +429,8 @@ class MainState extends State<Main> {
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: FutureBuilder(
-                          future: MongoDatabaseExtrato.getData(),
+                          future: MongoDatabaseExtrato.getDataByCodCli(
+                              todosArguments.dataClientes.codCliente ?? 0),
                           builder: (context, AsyncSnapshot snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
@@ -452,19 +447,10 @@ class MainState extends State<Main> {
                                   itemBuilder: (context, index) {
                                     Widget displayCard(MongoDbModelExtrato data,
                                         int day, BuildContext context) {
-                                      // print("aa ${data.data}");
-                                      // print(DateTime.now());
-                                      print("dia dia $day");
-                                      print(
-                                          "dia hoje ${DateTime.now().toString().split(' ')[0].toString().split('-')[0]}${DateTime.now().toString().split(' ')[0].toString().split('-')[1]}${DateTime.now().toString().split(' ')[0].toString().split('-')[2]}");
-                                      print(data.toJson());
                                       if (data.debitoCredito == 'debito' &&
                                           day >=
                                               int.parse(
                                                   "${DateTime.now().toString().split(' ')[0].toString().split('-')[0]}${DateTime.now().toString().split(' ')[0].toString().split('-')[1]}${DateTime.now().toString().split(' ')[0].toString().split('-')[2]}")) {
-                                        print("CADEdia dia $day");
-                                        print(
-                                            "CADEdia hoje ${int.parse("${DateTime.now().toString().split(' ')[0].toString().split('-')[0]}${DateTime.now().toString().split(' ')[0].toString().split('-')[1]}${DateTime.now().toString().split(' ')[0].toString().split('-')[2]}")}");
                                         return GestureDetector(
                                           onTap: () {
                                             todosArguments.dataExtrato = data;
@@ -663,7 +649,8 @@ class MainState extends State<Main> {
                 child: SizedBox(
                   height: 250,
                   child: FutureBuilder(
-                    future: MongoDatabaseExtrato.getData(),
+                    future: MongoDatabaseExtrato.getDataByCodCli(
+                        todosArguments.dataClientes.codCliente ?? 0),
                     builder: (context, AsyncSnapshot snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return const Center(
