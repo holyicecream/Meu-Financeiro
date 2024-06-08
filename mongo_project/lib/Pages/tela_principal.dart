@@ -461,10 +461,7 @@ class MainState extends State<Main> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      CircleAvatar(
-                                                        backgroundColor: Colors
-                                                            .grey.shade400,
-                                                      ),
+                                                    getCircleAvatar(todosArguments.dataAreaConsumo.codAreaConsumo),
                                                       Row(
                                                         children: [
                                                           const Icon(
@@ -523,56 +520,28 @@ class MainState extends State<Main> {
                                               width: 125,
                                               child: Card(
                                                 child: Center(
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            10.0),
-                                                    child: Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        CircleAvatar(
-                                                          backgroundColor:
-                                                              Colors.grey
-                                                                  .shade400,
-                                                        ),
-                                                        Row(
-                                                          children: [
-                                                            const Icon(
-                                                              Icons
-                                                                  .arrow_upward,
-                                                              color:
-                                                                  Colors.green,
-                                                            ),
-                                                            Text(
-                                                              data.valor
-                                                                  .toString(),
-                                                              style: TextStyle(
-                                                                  fontSize: 20,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  color: Colors
-                                                                      .green
-                                                                      .shade900),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Text(
-                                                          data.nomeDestinatario
-                                                              .toString(),
-                                                          style: const TextStyle(
-                                                              fontSize: 14,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ],
-                                                    ),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      getCircleAvatar(todosArguments.dataAreaConsumo.codAreaConsumo),
+                                                      Row(
+                                                        children: [
+                                                          const Icon(
+                                                            Icons.arrow_upward,
+                                                            color: Colors.green,
+                                                          ),
+                                                          Text(data.valor
+                                                              .toString()),
+                                                        ],
+                                                      ),
+                                                      Text(data.nomeDestinatario
+                                                          .toString()),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
@@ -853,5 +822,47 @@ class MainState extends State<Main> {
         ),
       ),
     );
+  }
+}
+
+Widget getCircleAvatar(int? codAreaConsumo) {
+  switch (codAreaConsumo) {
+    case 1:
+      return CircleAvatar(
+        backgroundColor: Colors.grey.shade400,
+        backgroundImage: const AssetImage('assets/school.png'),
+      );
+    case 2:
+      return CircleAvatar(
+        backgroundColor: Colors.grey.shade400,
+        backgroundImage: const AssetImage('assets/health.png'),
+      );
+    case 3:
+      return CircleAvatar(
+        backgroundColor: Colors.grey.shade400,
+        backgroundImage: const AssetImage('assets/lazer.png'),
+      );
+    case 4:
+      return CircleAvatar(
+        backgroundColor: Colors.grey.shade400,
+        backgroundImage: const AssetImage('assets/outros.png'),
+      );
+    case 5:
+      return CircleAvatar(
+        backgroundColor: Colors.grey.shade400,
+        backgroundImage: const AssetImage('assets/transporte.png'),
+      );
+    case 6:
+      return CircleAvatar(
+        backgroundColor: Colors.grey.shade400,
+        backgroundImage: const AssetImage('assets/moradia.png'),
+      );
+    case 7:
+      return CircleAvatar(
+        backgroundColor: Colors.grey.shade400,
+        backgroundImage: const AssetImage('assets/food.png'),
+      );
+    default:
+      return Container(); // Retorna um container vazio se nenhum caso corresponder
   }
 }

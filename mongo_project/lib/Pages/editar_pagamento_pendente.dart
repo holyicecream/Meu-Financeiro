@@ -17,26 +17,6 @@ class EditarPagamentoPendente extends StatefulWidget {
       EditarPagamentoPendenteState();
 }
 
-const List<String> list2 = <String>[
-  'Outros',
-  'Lazer',
-  'Alimentação',
-  'Moradia',
-  'Educação',
-  'Transporte',
-  'Saúde'
-];
-const List<String> list = <String>[
-  'Compra no débito',
-  'Compra no crédito',
-  'Pix',
-  'Depósito por boleto',
-  'Transferência',
-  'Saque',
-  'Recarga',
-  'Outros'
-];
-
 class EditarPagamentoPendenteState extends State<EditarPagamentoPendente> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController nomeController = TextEditingController();
@@ -245,8 +225,7 @@ class EditarPagamentoPendenteState extends State<EditarPagamentoPendente> {
                                   dataController.text =
                                       picked.toString().split(" ")[0];
                                 });
-                              } else {
-                              }
+                              } else {}
                             }
 
                             selectDate();
@@ -263,7 +242,48 @@ class EditarPagamentoPendenteState extends State<EditarPagamentoPendente> {
                         const SizedBox(
                           height: 20,
                         ),
-                        const DropdownMenuExample(list),
+                        CustomDropdownMenu(
+                          items: [
+                            DropdownMenuItemData(label: 'Boleto', value: 1),
+                            DropdownMenuItemData(label: 'Deposito', value: 2),
+                            DropdownMenuItemData(label: 'Pix', value: 3),
+                            DropdownMenuItemData(label: 'Saque', value: 4),
+                            DropdownMenuItemData(
+                                label: 'Cartão débito', value: 5),
+                            DropdownMenuItemData(
+                                label: 'Cartão crédito', value: 6),
+                            DropdownMenuItemData(
+                                label: 'Transferência', value: 7),
+                            DropdownMenuItemData(label: 'Recarga', value: 8),
+                            DropdownMenuItemData(label: 'Outros', value: 9),
+                          ],
+                          initialValue: 1,
+                          onChanged: (value) {
+                            setState(() {
+                              todosArguments.dataExtrato.codTransacao = value;
+                            });
+                          },
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        CustomDropdownMenu(
+                          items: [
+                            DropdownMenuItemData(label: 'Educação', value: 1),
+                            DropdownMenuItemData(label: 'Saúde', value: 2),
+                            DropdownMenuItemData(label: 'Lazer', value: 3),
+                            DropdownMenuItemData(label: 'Transporte', value: 5),
+                            DropdownMenuItemData(label: 'Moradia', value: 6),
+                            DropdownMenuItemData(label: 'Alimentos', value: 7),
+                            DropdownMenuItemData(label: 'Outros', value: 4),
+                          ],
+                          initialValue: 1,
+                          onChanged: (value) {
+                            setState(() {
+                              todosArguments.dataExtrato.codAreaConsumo = value;
+                            });
+                          },
+                        ),
                         const SizedBox(
                           height: 20,
                         ),
@@ -340,54 +360,59 @@ class EditarPagamentoPendenteState extends State<EditarPagamentoPendente> {
   }
 }
 
-class DropdownMenuExample extends StatefulWidget {
-  const DropdownMenuExample(List<String> list, {super.key});
+class CustomDropdownMenu extends StatefulWidget {
+  final List<DropdownMenuItemData> items;
+  final Function(dynamic) onChanged;
+  final dynamic initialValue;
+
+  const CustomDropdownMenu({
+    required this.items,
+    required this.onChanged,
+    this.initialValue,
+    super.key,
+  });
 
   @override
-  State<DropdownMenuExample> createState() => _DropdownMenuExampleState();
+  State<CustomDropdownMenu> createState() => _CustomDropdownMenuState();
 }
 
-class _DropdownMenuExampleState extends State<DropdownMenuExample> {
-  TodosArguments todosArguments = TodosArguments(
-    dataAreaConsumo: MongoDbModelAreaConsumo(),
-    dataBancosUsuario: MongoDbModelBancosUsuario(),
-    dataBancos: MongoDbModelBancos(),
-    dataClientes: MongoDbModelClientes(),
-    dataExtrato: MongoDbModelExtrato(),
-    dataTransacao: MongoDbModelTipoTransacao(),
-  );
-  String dropdownValue = list.first;
+class _CustomDropdownMenuState extends State<CustomDropdownMenu> {
+  late dynamic selectedValue;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedValue = widget.initialValue ?? widget.items.first.value;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: DropdownMenu<String>(
-        initialSelection: list.first,
-        onSelected: (String? value) {
-          if (value == 'Compra no débito') {
-            todosArguments.dataExtrato.codTransacao = 5;
-          } else if (value == 'Pix') {
-            todosArguments.dataExtrato.codTransacao = 3;
-          } else if (value == 'Depósito por boleto') {
-            todosArguments.dataExtrato.codTransacao = 1;
-          } else if (value == 'Transferência') {
-            todosArguments.dataExtrato.codTransacao = 7;
-          } else if (value == 'Saque') {
-            todosArguments.dataExtrato.codTransacao = 4;
-          } else if (value == 'Recarga') {
-            todosArguments.dataExtrato.codTransacao = 8;
-          } else {
-            todosArguments.dataExtrato.codTransacao = 9;
-          }
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10, 0, 15, 0),
+      child: DropdownButton<dynamic>(
+        isExpanded: true,
+        value: selectedValue,
+        onChanged: (dynamic newValue) {
           setState(() {
-            dropdownValue = value!;
+            selectedValue = newValue;
           });
+          widget.onChanged(newValue);
         },
-        dropdownMenuEntries:
-            list.map<DropdownMenuEntry<String>>((String value) {
-          return DropdownMenuEntry<String>(value: value, label: value);
+        items: widget.items
+            .map<DropdownMenuItem<dynamic>>((DropdownMenuItemData item) {
+          return DropdownMenuItem<dynamic>(
+            value: item.value,
+            child: Text(item.label),
+          );
         }).toList(),
       ),
     );
   }
+}
+
+class DropdownMenuItemData {
+  final String label;
+  final dynamic value;
+
+  DropdownMenuItemData({required this.label, required this.value});
 }
