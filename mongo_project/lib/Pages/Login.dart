@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, file_names
+, file_names
 import 'package:flutter/material.dart';
 import '../zDatabase/mongodb_clientes.dart';
 import '../zModels/model_area_consumo.dart';

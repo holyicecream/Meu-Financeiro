@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 //selected color
 //unselected color
 //icons: login, person, wc, assignment, delete, login_outlined, foward
@@ -49,9 +48,7 @@ class PageTesteState extends State<PageTeste> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            
-          });
+          setState(() {});
         },
         child: const Icon(Icons.delete),
       ),

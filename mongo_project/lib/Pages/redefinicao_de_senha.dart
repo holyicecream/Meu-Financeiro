@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 //selected color
 //unselected color
 //icons: login, person, wc, assignment, delete, login_outlined, foward
@@ -118,8 +117,8 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                         if (formKey.currentState!.validate()) {
                           todosArguments.dataClientes.senha =
                               senha2Controller.text;
-                              print(todosArguments.dataClientes.email);
-                              print(todosArguments.dataClientes.senha);
+                          print(todosArguments.dataClientes.email);
+                          print(todosArguments.dataClientes.senha);
                           MongoDatabaseClientes.updateSenhaByEmail(
                               todosArguments.dataClientes);
                           Navigator.pushReplacementNamed(context, '/Login',
@@ -136,7 +135,12 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                           return Size(200, 50);
                         }),
                       ),
-                      child: Text("Salvar Alterações", style: TextStyle(color: Colors.white,),),
+                      child: Text(
+                        "Salvar Alterações",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ],
