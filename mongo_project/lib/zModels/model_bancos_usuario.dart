@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final mongoDbModelBancosUsuario = mongoDbModelBancosUsuarioFromJson(jsonString);
-
 import 'dart:convert';
 
 import 'package:fixnum/fixnum.dart';

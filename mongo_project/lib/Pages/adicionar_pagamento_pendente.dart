@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../zDatabase/mongodb_extrato.dart';
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
@@ -46,9 +46,8 @@ class AdicionarPagamentoPendenteState
 
   @override
   Widget build(BuildContext context) {
-    print("dataExtrato ${todosArguments.dataExtrato.toJson()}");
-
     count++;
+    // ignore: avoid_print
     print("build adicionarPagamentoPendente $count");
 
     try {
@@ -62,8 +61,6 @@ class AdicionarPagamentoPendenteState
         todosArguments.dataExtrato.debitoCredito = 'debito';
         radioBtnGroup = "Pago";
       }
-      print(todosArguments.dataClientes.toJson());
-      print(todosArguments.dataExtrato.toJson());
     } catch (e) {
       // print(e.toString());
     }
@@ -85,7 +82,7 @@ class AdicionarPagamentoPendenteState
             Navigator.pushReplacementNamed(context, '/Main',
                 arguments: todosArguments);
           },
-          child: Icon(Icons.arrow_back),
+          child: const Icon(Icons.arrow_back),
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4.0),
@@ -128,11 +125,11 @@ class AdicionarPagamentoPendenteState
                           onChanged: (value) {
                             todosArguments.dataExtrato.nomeDestinatario = value;
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               labelText: "Nome da pessoa/instituição"),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
@@ -142,7 +139,6 @@ class AdicionarPagamentoPendenteState
                             if (value == '') {
                               value = '0';
                             }
-                            print(value);
                             if (value == '0') {
                               return 'Este campo não pode ser vazio.';
                             } else {
@@ -150,15 +146,14 @@ class AdicionarPagamentoPendenteState
                             }
                           },
                           onChanged: (value) {
-                            // value ??= "0";
                             todosArguments.dataExtrato.valor =
                                 double.tryParse(value);
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               labelText: "Valor pago/recebido"),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
@@ -181,8 +176,8 @@ class AdicionarPagamentoPendenteState
                                 });
                               },
                             ),
-                            Text("Valor pago"),
-                            SizedBox(
+                            const Text("Valor pago"),
+                            const SizedBox(
                               width: 10,
                             ),
                             Radio(
@@ -202,32 +197,22 @@ class AdicionarPagamentoPendenteState
                                 });
                               },
                             ),
-                            Text("Valor recebido"),
+                            const Text("Valor recebido"),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         TextFormField(
                           controller: dataController,
                           validator: (value) {
                             if ((value.toString()) == "null") {
-                              // todosArguments.dataExtrato.data = DateTime.now();
                               return 'Este campo não pode ser vazio.';
                             } else if (value == '') {
                               return 'Este campo não pode ser vazio.';
                             } else {
                               return null;
-                              // value ??= '2024-1-1';
-                              // data = DateTime.tryParse(value)!.toIso8601String();
-
-                              // todosArguments.dataExtrato.data = DateTime.now();
-                              // // print(todosArguments.dataExtrato.data.runtimeType);
-                              // // print(todosArguments.dataExtrato.data);
                             }
-                            // value ??= DateTime.now().toString();
-                            // dataController.text = value.toString();
-                            // value ??= '';
                           },
                           onTap: () {
                             Future<void> selectDate() async {
@@ -240,19 +225,15 @@ class AdicionarPagamentoPendenteState
 
                               if (picked != null) {
                                 setState(() {
-                                  print(picked.toString());
-                                  print("ué ta indo");
                                   dataController.text =
                                       picked.toString().split(" ")[0];
                                 });
-                              } else {
-                                print("falhou ali óh");
-                              }
+                              } else {}
                             }
 
                             selectDate();
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               filled: true,
                               prefixIcon: Icon(Icons.calendar_today),
                               border: OutlineInputBorder(
@@ -261,7 +242,7 @@ class AdicionarPagamentoPendenteState
                               labelText: "Data do pagamento"),
                           readOnly: true,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         CustomDropdownMenu(
@@ -286,9 +267,7 @@ class AdicionarPagamentoPendenteState
                             });
                           },
                         ),
-                        // SizedBox(
-                        //     width: double.infinity, child: DropdownMenuExample(list2)),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         CustomDropdownMenu(
@@ -308,9 +287,7 @@ class AdicionarPagamentoPendenteState
                             });
                           },
                         ),
-                        // SizedBox(
-                        //     width: double.infinity, child: DropdownMenuExample(list2)),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         SizedBox(
@@ -322,7 +299,6 @@ class AdicionarPagamentoPendenteState
                               if (value == '') {
                                 descricaoController.text = '';
                                 return null;
-                                // return 'Este campo não pode ser vazio.';
                               } else {
                                 return null;
                               }
@@ -334,12 +310,12 @@ class AdicionarPagamentoPendenteState
                             maxLines: null,
                             expands: true,
                             keyboardType: TextInputType.multiline,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: "Descrição"),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         SizedBox(
@@ -352,7 +328,6 @@ class AdicionarPagamentoPendenteState
                                     todosArguments.dataBancos.codBanco;
                                 todosArguments.dataExtrato.codCliente =
                                     todosArguments.dataClientes.codCliente;
-                                print(todosArguments.dataExtrato.toJson());
                                 MongoDatabaseExtrato.insert(
                                         todosArguments.dataExtrato)
                                     .then((value) {
@@ -365,13 +340,12 @@ class AdicionarPagamentoPendenteState
                                               arguments: todosArguments));
                                 });
                               }
-                              // Navigator.pop(context, '/Main');
                             },
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF7ED957),
+                                backgroundColor: const Color(0xFF7ED957),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8))),
-                            child: Text(
+                            child: const Text(
                               "Adicionar",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,

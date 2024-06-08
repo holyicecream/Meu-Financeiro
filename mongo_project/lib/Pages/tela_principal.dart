@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projeto_integrador/zDatabase/mongodb_clientes.dart';
 
 import '../zDatabase/mongodb_extrato.dart';
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
 import '../zModels/todos_arguments.dart';
+import '/zDatabase/mongodb_clientes.dart';
 
 class Main extends StatefulWidget {
   const Main({super.key});
@@ -35,6 +35,7 @@ class MainState extends State<Main> {
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build telaPrincipal $count");
     try {
       todosArguments =
@@ -51,8 +52,6 @@ class MainState extends State<Main> {
         }
       },
     );
-    print("banco atual ${todosArguments.dataBancos.toJson()}");
-    print("cliente atual ${todosArguments.dataClientes.toJson()}");
     return Scaffold(
       endDrawer: Drawer(
         width: (MediaQuery.of(context).size.width) / 1.5,
@@ -60,16 +59,16 @@ class MainState extends State<Main> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [],
               ),
               Container(
                 height: 50,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     border: Border(
                   bottom: BorderSide(width: 1.0, color: Color(0xFF7ED957)),
                 )),
@@ -78,7 +77,7 @@ class MainState extends State<Main> {
                     Navigator.pushReplacementNamed(context, '/PersonalizarNome',
                         arguments: todosArguments);
                   },
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
@@ -99,7 +98,7 @@ class MainState extends State<Main> {
               ),
               Container(
                 height: 50,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     border: Border(
                   bottom: BorderSide(width: 1.0, color: Color(0xFF7ED957)),
                 )),
@@ -108,7 +107,7 @@ class MainState extends State<Main> {
                     Navigator.pushReplacementNamed(context, '/AlterarSenha',
                         arguments: todosArguments);
                   },
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
@@ -126,7 +125,7 @@ class MainState extends State<Main> {
               ),
               Container(
                 height: 50,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     border: Border(
                   bottom: BorderSide(width: 1.0, color: Color(0xFF7ED957)),
                 )),
@@ -136,7 +135,7 @@ class MainState extends State<Main> {
                         context, '/AlterarContaBancaria',
                         arguments: todosArguments);
                   },
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text('Conta bancária',
@@ -155,9 +154,8 @@ class MainState extends State<Main> {
                 child: TextButton(
                   onPressed: () {
                     SystemNavigator.pop();
-                    // SystemChannels.platform.invokeMethod('SystemNavigator.pop');
                   },
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text('Sair do app',
@@ -200,13 +198,13 @@ class MainState extends State<Main> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 40,
                       ),
                       FutureBuilder(
                         future: MongoDatabaseClientes.getData(),
                         builder: (context, AsyncSnapshot snapshot) {
-                          Widget widgetNome = Text(
+                          Widget widgetNome = const Text(
                             "Olá, Sem Nome",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -216,14 +214,12 @@ class MainState extends State<Main> {
                           );
                           if (snapshot.hasData) {
                             if (snapshot.data.length >= 1) {
-                              // print("nome ${snapshot.data}");
                               for (var element in snapshot.data) {
                                 if (element['cod_cliente'] ==
                                     todosArguments.dataClientes.codCliente) {
                                   widgetNome = Text(
-                                    // "Olá, ${element['nome_cliente'].toString().split(' ')[0].toString()}",
                                     "Olá, ${element['nome_cliente']}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
                                       color: Colors.white,
@@ -247,7 +243,7 @@ class MainState extends State<Main> {
                               double saldo = 0.0;
                               Widget widgetSaldo = Text(
                                 '$saldo',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                   color: Colors.white,
@@ -255,8 +251,6 @@ class MainState extends State<Main> {
                               );
                               if (snapshot.hasData) {
                                 if (snapshot.data.length >= 1) {
-                                  // print("saldo ${snapshot.data}");
-                                  // int.parse("${element['data'].toString().split(' ')[0].toString().split('-')[0]}${element['data'].toString().split(' ')[0].toString().split('-')[1]}${element['data'].toString().split(' ')[0].toString().split('-')[2]}");
                                   for (var element in snapshot.data) {
                                     if (element['cod_cliente'] ==
                                             todosArguments
@@ -283,14 +277,14 @@ class MainState extends State<Main> {
                                 if (escondesaldo == false) {
                                   widgetSaldo = Text(
                                     'R\$ $saldo',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20,
                                       color: Colors.white,
                                     ),
                                   );
                                 } else {
-                                  widgetSaldo = Text(
+                                  widgetSaldo = const Text(
                                     '******',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -311,7 +305,7 @@ class MainState extends State<Main> {
                                   escondesaldo = !escondesaldo;
                                 });
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.remove_red_eye_rounded,
                                 color: Colors.white,
                               ))
@@ -326,7 +320,7 @@ class MainState extends State<Main> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Pagamentos pendentes",
                       style: TextStyle(
                         fontSize: 18,
@@ -340,14 +334,13 @@ class MainState extends State<Main> {
                         double pagamentosPendentesValue = 0.0;
                         Widget widgetPagamentosPendentesValue = Text(
                           "R\$ ${pagamentosPendentesValue.toString()}",
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 12,
                               color: Colors.grey,
                               fontWeight: FontWeight.bold),
                         );
                         if (snapshot.hasData) {
                           if (snapshot.data.length >= 1) {
-                            // print("pagamento ${snapshot.data}");
                             for (var element in snapshot.data) {
                               if (element['cod_cliente'] ==
                                       todosArguments.dataClientes.codCliente &&
@@ -371,13 +364,13 @@ class MainState extends State<Main> {
                           if (escondesaldo == false) {
                             widgetPagamentosPendentesValue = Text(
                               "R\$ ${pagamentosPendentesValue.toString()}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 12,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold),
                             );
                           } else {
-                            widgetPagamentosPendentesValue = Text(
+                            widgetPagamentosPendentesValue = const Text(
                               "******",
                               style: TextStyle(
                                   fontSize: 12,
@@ -396,7 +389,7 @@ class MainState extends State<Main> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -406,7 +399,7 @@ class MainState extends State<Main> {
                             context, '/AdicionarPagamentoPendente',
                             arguments: todosArguments);
                       },
-                      child: SizedBox(
+                      child: const SizedBox(
                         width: 125,
                         height: 125,
                         child: Card(
@@ -429,9 +422,7 @@ class MainState extends State<Main> {
                           builder: (context, AsyncSnapshot snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
-                              return const Center(
-                                  // child: CircularProgressIndicator(),
-                                  );
+                              return const Center();
                             } else if (snapshot.hasData) {
                               return SizedBox(
                                 height: 125,
@@ -473,13 +464,10 @@ class MainState extends State<Main> {
                                                       CircleAvatar(
                                                         backgroundColor: Colors
                                                             .grey.shade400,
-                                                        // backgroundImage:
-                                                        //     NetworkImage(
-                                                        //         'https://i.pinimg.com/280x280_RS/2e/22/90/2e229065b0e9a509755d371e6050b4fe.jpg'),
                                                       ),
                                                       Row(
                                                         children: [
-                                                          Icon(
+                                                          const Icon(
                                                             Icons
                                                                 .arrow_downward_sharp,
                                                             color: Colors.red,
@@ -501,7 +489,7 @@ class MainState extends State<Main> {
                                                       Text(
                                                         data.nomeDestinatario
                                                             .toString(),
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                             fontSize: 14,
                                                             fontWeight:
                                                                 FontWeight
@@ -528,8 +516,8 @@ class MainState extends State<Main> {
                                                 arguments: todosArguments);
                                           },
                                           child: Padding(
-                                            padding:
-                                                EdgeInsets.fromLTRB(5, 0, 0, 0),
+                                            padding: const EdgeInsets.fromLTRB(
+                                                5, 0, 0, 0),
                                             child: SizedBox(
                                               height: 125,
                                               width: 125,
@@ -551,13 +539,10 @@ class MainState extends State<Main> {
                                                           backgroundColor:
                                                               Colors.grey
                                                                   .shade400,
-                                                          // backgroundImage:
-                                                          //     NetworkImage(
-                                                          //         'https://i.pinimg.com/280x280_RS/2e/22/90/2e229065b0e9a509755d371e6050b4fe.jpg'),
                                                         ),
                                                         Row(
                                                           children: [
-                                                            Icon(
+                                                            const Icon(
                                                               Icons
                                                                   .arrow_upward,
                                                               color:
@@ -580,7 +565,7 @@ class MainState extends State<Main> {
                                                         Text(
                                                           data.nomeDestinatario
                                                               .toString(),
-                                                          style: TextStyle(
+                                                          style: const TextStyle(
                                                               fontSize: 14,
                                                               fontWeight:
                                                                   FontWeight
@@ -602,12 +587,6 @@ class MainState extends State<Main> {
                                     if (todosArguments
                                             .dataClientes.codCliente ==
                                         snapshot.data[index]['cod_cliente']) {
-                                      // print(
-                                      //     "${snapshot.data[index]['data'].toString().split(' ')}");
-                                      // print(
-                                      //     "${snapshot.data[index]['data'].toString().split(' ')[0]}");
-                                      // print(
-                                      //     "pqp se isso funcionar ${snapshot.data[index]['data'].toString().split(' ')[0].toString().split('-')[2].toString()}");
                                       return displayCard(
                                           MongoDbModelExtrato.fromJson(
                                               snapshot.data[index]),
@@ -621,9 +600,9 @@ class MainState extends State<Main> {
                                 ),
                               );
                             } else if (snapshot.hasError) {
-                              return Text("ih quebrou dando erro");
+                              return const Text("ih quebrou dando erro");
                             } else {
-                              return Text("Ih quebrou no else");
+                              return const Text("Ih quebrou no else");
                             }
                           },
                         ),
@@ -644,7 +623,7 @@ class MainState extends State<Main> {
                       },
                       child: SizedBox(
                         width: (MediaQuery.of(context).size.width) / 4,
-                        child: Text(
+                        child: const Text(
                           "Extrato",
                           style: TextStyle(
                             fontSize: 18,
@@ -657,7 +636,7 @@ class MainState extends State<Main> {
                       onTap: () {},
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width / 4,
-                        child: Icon(
+                        child: const Icon(
                           Icons.share,
                           color: Color.fromRGBO(34, 72, 20, 1),
                         ),
@@ -671,7 +650,7 @@ class MainState extends State<Main> {
                       },
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width / 3,
-                        child: Text(
+                        child: const Text(
                           "Mostrar gráfico",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
@@ -682,7 +661,7 @@ class MainState extends State<Main> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: SizedBox(
                   height: 250,
                   child: FutureBuilder(
@@ -690,9 +669,7 @@ class MainState extends State<Main> {
                         todosArguments.dataClientes.codCliente ?? 0),
                     builder: (context, AsyncSnapshot snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(
-                            // child: CircularProgressIndicator(),
-                            );
+                        return const Center();
                       } else if (snapshot.hasData) {
                         snapshot.data.reversed.toList();
                         int itemCountOfc = 10;
@@ -735,7 +712,7 @@ class MainState extends State<Main> {
                                                     Text(
                                                       data.nomeDestinatario
                                                           .toString(),
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                         fontSize: 20,
                                                       ),
                                                     ),
@@ -748,12 +725,12 @@ class MainState extends State<Main> {
                                                     mainAxisAlignment:
                                                         MainAxisAlignment.end,
                                                     children: [
-                                                      Icon(
+                                                      const Icon(
                                                         Icons
                                                             .arrow_downward_sharp,
                                                         color: Colors.red,
                                                       ),
-                                                      SizedBox(
+                                                      const SizedBox(
                                                         width: 10,
                                                       ),
                                                       Text("RS\$${data.valor}"),
@@ -765,7 +742,7 @@ class MainState extends State<Main> {
                                           ),
                                         ),
                                       ),
-                                      Icon(
+                                      const Icon(
                                         Icons.arrow_downward_rounded,
                                       ),
                                     ],
@@ -798,7 +775,7 @@ class MainState extends State<Main> {
                                                     Text(
                                                       data.nomeDestinatario
                                                           .toString(),
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                         fontSize: 20,
                                                       ),
                                                     ),
@@ -811,12 +788,12 @@ class MainState extends State<Main> {
                                                     mainAxisAlignment:
                                                         MainAxisAlignment.end,
                                                     children: [
-                                                      Icon(
+                                                      const Icon(
                                                         Icons
                                                             .arrow_upward_sharp,
                                                         color: Colors.green,
                                                       ),
-                                                      SizedBox(
+                                                      const SizedBox(
                                                         width: 10,
                                                       ),
                                                       Text("RS\$${data.valor}"),
@@ -828,7 +805,7 @@ class MainState extends State<Main> {
                                           ),
                                         ),
                                       ),
-                                      Icon(
+                                      const Icon(
                                         Icons.arrow_downward_outlined,
                                       ),
                                     ],
@@ -837,8 +814,6 @@ class MainState extends State<Main> {
                               }
                             }
 
-                            // print("extrato codCli ${snapshot.data[index]['cod_cliente']}");
-                            // print("atual codCli ${todosArguments.dataClientes.codCliente}");
                             if (todosArguments.dataClientes.codCliente ==
                                 snapshot.data[reversedIndex]['cod_cliente']) {
                               return displayListView(
@@ -851,11 +826,11 @@ class MainState extends State<Main> {
                           },
                         );
                       } else if (snapshot.hasError) {
-                        return Center(
+                        return const Center(
                           child: Text("ih quebrou dando erro"),
                         );
                       } else {
-                        return Center(child: Text("Ih quebrou no else"));
+                        return const Center(child: Text("Ih quebrou no else"));
                       }
                     },
                   ),
@@ -871,7 +846,7 @@ class MainState extends State<Main> {
               arguments: todosArguments);
         },
         backgroundColor: Colors.green,
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
         child: const Icon(
           Icons.add,
           color: Colors.white,

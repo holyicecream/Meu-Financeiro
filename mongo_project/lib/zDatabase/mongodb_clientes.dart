@@ -1,4 +1,5 @@
 import 'package:mongo_dart/mongo_dart.dart';
+
 import '../zModels/model_clientes.dart';
 import 'conexao/const_database.dart';
 
@@ -21,7 +22,6 @@ class MongoDatabaseClientes {
       String email, String senha) async {
     collection = await db.collection(collectionClientes);
     final arrData = await collection.find().toList();
-    print(arrData[0]['cod_cliente']);
     return arrData;
   }
 
@@ -29,12 +29,9 @@ class MongoDatabaseClientes {
     try {
       final result = await collection.insertOne(data.toJson());
       if (result.isSucces) {
-        // return //print('result');
-      } else {
-        // return //print('not result');
-      }
+      } else {}
     } catch (e) {
-      // return //print(e.toString());
+      //print(e.toString());
     }
   }
 
@@ -42,12 +39,14 @@ class MongoDatabaseClientes {
     await collection.update(where.eq("cod_cliente", data.codCliente),
         modify.set('nome_cliente', data.nomeCliente));
   }
+
   static Future<void> updateSenha(MongoDbModelClientes data) async {
     await collection.update(where.eq("cod_cliente", data.codCliente),
         modify.set('senha', data.senha));
   }
+
   static Future<void> updateSenhaByEmail(MongoDbModelClientes data) async {
-    await collection.update(where.eq("email", data.email),
-        modify.set('senha', data.senha));
+    await collection.update(
+        where.eq("email", data.email), modify.set('senha', data.senha));
   }
 }

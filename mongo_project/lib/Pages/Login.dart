@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../zDatabase/mongodb_clientes.dart';
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
@@ -34,8 +35,8 @@ class LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build login $count");
-    // inBuildLogin(context);
     try {
       todosArguments =
           ModalRoute.of(context)!.settings.arguments as TodosArguments;
@@ -53,20 +54,20 @@ class LoginState extends State<Login> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Entrar'),
+        title: const Text('Entrar'),
         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Form(
               key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
                         TextFormField(
@@ -79,12 +80,12 @@ class LoginState extends State<Login> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'E-mail',
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -98,7 +99,7 @@ class LoginState extends State<Login> {
                             }
                           },
                           obscureText: true,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Senha',
                           ),
@@ -115,19 +116,21 @@ class LoginState extends State<Login> {
                           style: TextStyle(color: Colors.green.shade900),
                         ),
                         onTap: () {
-                          todosArguments.dataClientes.email = emailController.text;
-                          Navigator.pushReplacementNamed(context, '/RecuperacaoDeSenha',
+                          todosArguments.dataClientes.email =
+                              emailController.text;
+                          Navigator.pushReplacementNamed(
+                              context, '/RecuperacaoDeSenha',
                               arguments: todosArguments);
                         },
                       ),
-                      Text(''),
-                      Text(''),
+                      const Text(''),
+                      const Text(''),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SizedBox(
@@ -140,7 +143,7 @@ class LoginState extends State<Login> {
                       Text("Continuar conectado?"),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Center(
@@ -162,11 +165,9 @@ class LoginState extends State<Login> {
                                   dataClientes[i]['cod_cliente'];
                               todosArguments.dataClientes.nomeCliente =
                                   dataClientes[i]['nome_cliente'];
-                              print("login.dart linha ~123 ver dps");
-                              Navigator.pushReplacementNamed(context, '/SelecaoDeBanco',
+                              Navigator.pushReplacementNamed(
+                                  context, '/SelecaoDeBanco',
                                   arguments: todosArguments);
-                              // Navigator.pushNamed(context, '/DadosDaContaBancaria', arguments: todosArguments);
-                              // Navigator.pushNamed(context, '/VinculoBancarioOuInserçãoManual', arguments: todosArguments);
                             }
                           }
                           if (check) {
@@ -178,15 +179,15 @@ class LoginState extends State<Login> {
                                     Center(
                                         child: MaterialButton(
                                       onPressed: () => Navigator.pop(context),
-                                      child: Text("Ok"),
+                                      child: const Text("Ok"),
                                     ))
                                   ],
-                                  // title: Center(child: Text('Error')),
                                   content: Container(
                                     alignment: Alignment.center,
                                     width: 50,
                                     height: 50,
-                                    child: Text("Email ou Senha inválidos."),
+                                    child:
+                                        const Text("Email ou Senha inválidos."),
                                   ),
                                 );
                               },
@@ -201,24 +202,24 @@ class LoginState extends State<Login> {
                             (states) => Colors.green.shade900),
                         minimumSize:
                             MaterialStateProperty.resolveWith((states) {
-                          return Size(250, 50);
+                          return const Size(250, 50);
                         }),
                       ),
-                      child: Text(
+                      child: const Text(
                         "Entrar",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Ainda não possui cadastro?  "),
+                      const Text("Ainda não possui cadastro?  "),
                       GestureDetector(
-                        child: Text("Cadastre-se."),
+                        child: const Text("Cadastre-se."),
                         onTap: () {
                           Navigator.pushReplacementNamed(context, '/Cadastro',
                               arguments: todosArguments);

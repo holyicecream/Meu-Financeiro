@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/zDatabase/mongodb_extrato.dart';
+
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
 import '../zModels/todos_arguments.dart';
+import '/zDatabase/mongodb_extrato.dart';
 
 class Extrato extends StatefulWidget {
   const Extrato({super.key});
@@ -34,7 +35,6 @@ class ExtratoState extends State<Extrato> {
     super.initState();
     MongoDatabaseExtrato.getData().then(
       (value) {
-        print('primeiro build?');
         dataExtrato = value;
       },
     );
@@ -43,6 +43,7 @@ class ExtratoState extends State<Extrato> {
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build extrato $count");
     try {
       todosArguments =
@@ -65,9 +66,8 @@ class ExtratoState extends State<Extrato> {
         child: SingleChildScrollView(
           child: Center(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: SizedBox(
-                // height: 250,
                 child: FutureBuilder(
                   future: MongoDatabaseExtrato.getData(),
                   builder: (context, AsyncSnapshot snapshot) {
@@ -86,10 +86,7 @@ class ExtratoState extends State<Extrato> {
                               MongoDbModelExtrato data, BuildContext context) {
                             if (data.debitoCredito == 'debito') {
                               return GestureDetector(
-                                onTap: () {
-                                  // todosArguments.dataExtrato = data;
-                                  // Navigator.pushNamed(context, '/AdicionarPagamentoPendente', arguments: todosArguments);
-                                },
+                                onTap: () {},
                                 child: Row(
                                   children: [
                                     Expanded(
@@ -109,7 +106,7 @@ class ExtratoState extends State<Extrato> {
                                                   Text(
                                                     data.nomeDestinatario
                                                         .toString(),
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                       fontSize: 20,
                                                     ),
                                                   ),
@@ -122,12 +119,12 @@ class ExtratoState extends State<Extrato> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.end,
                                                   children: [
-                                                    Icon(
+                                                    const Icon(
                                                       Icons
                                                           .arrow_downward_sharp,
                                                       color: Colors.red,
                                                     ),
-                                                    SizedBox(
+                                                    const SizedBox(
                                                       width: 10,
                                                     ),
                                                     Text("RS\$${data.valor}"),
@@ -139,7 +136,7 @@ class ExtratoState extends State<Extrato> {
                                         ),
                                       ),
                                     ),
-                                    Icon(
+                                    const Icon(
                                       Icons.arrow_downward_rounded,
                                     ),
                                   ],
@@ -147,10 +144,7 @@ class ExtratoState extends State<Extrato> {
                               );
                             } else {
                               return GestureDetector(
-                                onTap: () {
-                                  // todosArguments.dataExtrato = data;
-                                  // Navigator.pushNamed(context, '/AdicionarPagamentoPendente', arguments: todosArguments);
-                                },
+                                onTap: () {},
                                 child: Row(
                                   children: [
                                     Expanded(
@@ -170,7 +164,7 @@ class ExtratoState extends State<Extrato> {
                                                   Text(
                                                     data.nomeDestinatario
                                                         .toString(),
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                       fontSize: 20,
                                                     ),
                                                   ),
@@ -183,11 +177,11 @@ class ExtratoState extends State<Extrato> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.end,
                                                   children: [
-                                                    Icon(
+                                                    const Icon(
                                                       Icons.arrow_upward_sharp,
                                                       color: Colors.green,
                                                     ),
-                                                    SizedBox(
+                                                    const SizedBox(
                                                       width: 10,
                                                     ),
                                                     Text("RS\$${data.valor}"),
@@ -199,7 +193,7 @@ class ExtratoState extends State<Extrato> {
                                         ),
                                       ),
                                     ),
-                                    Icon(
+                                    const Icon(
                                       Icons.arrow_downward_outlined,
                                     ),
                                   ],
@@ -208,8 +202,6 @@ class ExtratoState extends State<Extrato> {
                             }
                           }
 
-                          // print("extrato codCli ${snapshot.data[index]['cod_cliente']}");
-                          // print("atual codCli ${todosArguments.dataClientes.codCliente}");
                           if (todosArguments.dataClientes.codCliente ==
                               snapshot.data[reversedIndex]['cod_cliente']) {
                             return displayListView(
@@ -222,11 +214,11 @@ class ExtratoState extends State<Extrato> {
                         },
                       );
                     } else if (snapshot.hasError) {
-                      return Center(
+                      return const Center(
                         child: Text("ih quebrou dando erro"),
                       );
                     } else {
-                      return Center(child: Text("Ih quebrou no else"));
+                      return const Center(child: Text("Ih quebrou no else"));
                     }
                   },
                 ),

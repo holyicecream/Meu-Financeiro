@@ -1,13 +1,14 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/zDatabase/mongodb_extrato.dart';
+
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
 import '../zModels/todos_arguments.dart';
+import '/zDatabase/mongodb_extrato.dart';
 
 class GraficoDiario extends StatefulWidget {
   const GraficoDiario({super.key});
@@ -38,6 +39,7 @@ class GraficoDiarioState extends State<GraficoDiario> {
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build graficoDiario $count");
     try {
       todosArguments =
@@ -53,7 +55,7 @@ class GraficoDiarioState extends State<GraficoDiario> {
             Navigator.pushReplacementNamed(context, '/Main',
                 arguments: todosArguments);
           },
-          child: Icon(Icons.arrow_back),
+          child: const Icon(Icons.arrow_back),
         ),
         centerTitle: true,
         backgroundColor: Colors.green,
@@ -68,7 +70,6 @@ class GraficoDiarioState extends State<GraficoDiario> {
           child: SingleChildScrollView(
             child: FutureBuilder(
               future: MongoDatabaseExtrato.getDataByCodCli(
-                  // todosArguments.dataClientes.codCliente ??= 4,
                   todosArguments.dataClientes.codCliente ??= 0),
               builder: (context, AsyncSnapshot snapshot) {
                 double intervalValue = 0;
@@ -92,7 +93,6 @@ class GraficoDiarioState extends State<GraficoDiario> {
                 List<double> finalValuesCredito = [];
                 List<Map<String, dynamic>> dataCredito = [];
 
-                // List<Map<String, dynamic>> sortedFlSpot = [];
                 if (snapshot.hasData) {
                   int xDataDebito = 0;
                   dynamic yDataDebito;
@@ -201,19 +201,19 @@ class GraficoDiarioState extends State<GraficoDiario> {
                   }
                   lineDataArray[0] = LineChartBarData(
                     show: lineData01,
-                    dotData: FlDotData(show: false),
+                    dotData: const FlDotData(show: false),
                     spots: dataSpotDebito,
                     color: Colors.red,
                   );
                   lineDataArray[1] = LineChartBarData(
                     show: lineData02,
-                    dotData: FlDotData(show: false),
+                    dotData: const FlDotData(show: false),
                     spots: dataSpotCredito,
                     color: Colors.green,
                   );
                   lineDataArray[2] = LineChartBarData(
                     show: lineData03,
-                    dotData: FlDotData(show: false),
+                    dotData: const FlDotData(show: false),
                     spots: [
                       FlSpot(1, media),
                       FlSpot(30, media),
@@ -224,17 +224,17 @@ class GraficoDiarioState extends State<GraficoDiario> {
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
                       children: [
-                        Center(
+                        const Center(
                           child: Text(
                             "Planejamento do mês",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 20),
                           ),
                         ),
-                        Center(
+                        const Center(
                           child: Text("(inclui pagamentos pendentes)"),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Row(
@@ -246,14 +246,14 @@ class GraficoDiarioState extends State<GraficoDiario> {
                                     (states) => Colors.white),
                                 shape: MaterialStateProperty.all(
                                   RoundedRectangleBorder(
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                         color: Colors.green, width: 2),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                               ),
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 "Mostrar gráfico",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -279,7 +279,7 @@ class GraficoDiarioState extends State<GraficoDiario> {
                                     context, "/GraficoMensal",
                                     arguments: todosArguments);
                               },
-                              child: Text(
+                              child: const Text(
                                 "Mostrar tabela",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -289,7 +289,7 @@ class GraficoDiarioState extends State<GraficoDiario> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Row(
@@ -305,11 +305,11 @@ class GraficoDiarioState extends State<GraficoDiario> {
                                 children: [
                                   Container(
                                       width: 8, height: 5, color: Colors.red),
-                                  Text(" Gastos"),
+                                  const Text(" Gastos"),
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 15,
                             ),
                             GestureDetector(
@@ -322,11 +322,11 @@ class GraficoDiarioState extends State<GraficoDiario> {
                                 children: [
                                   Container(
                                       width: 8, height: 5, color: Colors.green),
-                                  Text(" Ganhos"),
+                                  const Text(" Ganhos"),
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 15,
                             ),
                             GestureDetector(
@@ -339,13 +339,13 @@ class GraficoDiarioState extends State<GraficoDiario> {
                                 children: [
                                   Container(
                                       width: 8, height: 5, color: Colors.blue),
-                                  Text(" Média de gasto por dia"),
+                                  const Text(" Média de gasto por dia"),
                                 ],
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         SizedBox(
@@ -361,26 +361,12 @@ class GraficoDiarioState extends State<GraficoDiario> {
                               minX: 1,
                               maxX: 30,
                               minY: 0,
-                              // maxY: 400,
                               lineBarsData: lineDataArray,
-                              // [
-                              //   LineChartBarData(
-                              //       dotData: FlDotData(show: false),
-                              //       spots: dataSpotDebito,
-                              //       color: Colors.red),
-                              //   LineChartBarData(
-                              //     spots: [
-                              //       FlSpot(1, media),
-                              //       FlSpot(30, media),
-                              //     ],
-                              //     color: Colors.blue,
-                              //   ),
-                              // ],
                               titlesData: FlTitlesData(
-                                rightTitles: AxisTitles(
+                                rightTitles: const AxisTitles(
                                   sideTitles: SideTitles(showTitles: false),
                                 ),
-                                topTitles: AxisTitles(
+                                topTitles: const AxisTitles(
                                   sideTitles: SideTitles(showTitles: false),
                                 ),
                                 leftTitles: AxisTitles(
@@ -389,7 +375,7 @@ class GraficoDiarioState extends State<GraficoDiario> {
                                       interval: intervalValue,
                                       reservedSize: 40),
                                 ),
-                                bottomTitles: AxisTitles(
+                                bottomTitles: const AxisTitles(
                                   axisNameWidget: Text("Dias do Mês"),
                                   sideTitles: SideTitles(
                                       showTitles: true,
@@ -400,45 +386,45 @@ class GraficoDiarioState extends State<GraficoDiario> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                          padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 "Gastos gerais: R\$$totalDebito",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
                               ),
                               Text(
                                 "Valor máximo: R\$$maximo",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
                               ),
                               Text(
                                 "Valor mínimo: R\$$minimo",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
                               ),
                               Text(
                                 "Média de gastos por dia: R\$$media",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
                               ),
                               Text(
                                 "Saldo final: R\$$saldo",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),

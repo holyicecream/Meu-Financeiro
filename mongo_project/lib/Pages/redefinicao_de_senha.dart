@@ -1,12 +1,9 @@
-//selected color
-//unselected color
-//icons: login, person, wc, assignment, delete, login_outlined, foward
 import 'package:flutter/material.dart';
-// import 'package:projeto_integrador/_backend/backend_redefinicao_de_senha.dart';
+
 import '../zDatabase/mongodb_clientes.dart';
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
@@ -35,6 +32,7 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build redefinicaoDeSenha $count");
     try {
       todosArguments =
@@ -46,20 +44,20 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Alterar senha'),
+        title: const Text('Alterar senha'),
         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Form(
               key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
                         TextFormField(
@@ -78,12 +76,12 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Senha nova',
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -100,7 +98,7 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Confirmar senha nova',
                           ),
@@ -108,7 +106,7 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Center(
@@ -117,8 +115,6 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                         if (formKey.currentState!.validate()) {
                           todosArguments.dataClientes.senha =
                               senha2Controller.text;
-                          print(todosArguments.dataClientes.email);
-                          print(todosArguments.dataClientes.senha);
                           MongoDatabaseClientes.updateSenhaByEmail(
                               todosArguments.dataClientes);
                           Navigator.pushReplacementNamed(context, '/Login',
@@ -132,10 +128,10 @@ class RedefinicaoDeSenhaState extends State<RedefinicaoDeSenha> {
                             (states) => Colors.green),
                         minimumSize:
                             MaterialStateProperty.resolveWith((states) {
-                          return Size(200, 50);
+                          return const Size(200, 50);
                         }),
                       ),
-                      child: Text(
+                      child: const Text(
                         "Salvar Alterações",
                         style: TextStyle(
                           color: Colors.white,

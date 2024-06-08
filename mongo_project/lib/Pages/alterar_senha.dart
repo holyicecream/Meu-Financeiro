@@ -1,12 +1,9 @@
-//selected color
-//unselected color
-//icons: login, person, wc, assignment, delete, login_outlined, foward
 import 'package:flutter/material.dart';
-// import 'package:projeto_integrador/_backend/backend_redefinicao_de_senha.dart';
+
 import '../zDatabase/mongodb_clientes.dart';
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
@@ -36,6 +33,7 @@ class AlterarSenhaState extends State<AlterarSenha> {
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build alterarSenha $count");
     try {
       todosArguments =
@@ -51,26 +49,26 @@ class AlterarSenhaState extends State<AlterarSenha> {
             Navigator.pushReplacementNamed(context, '/Main',
                 arguments: todosArguments);
           },
-          child: Icon(Icons.arrow_back),
+          child: const Icon(Icons.arrow_back),
         ),
         centerTitle: true,
-        title: Text('Alterar senha'),
+        title: const Text('Alterar senha'),
         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Form(
               key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           "A senha atual será alterada.",
                           style: TextStyle(
                             fontSize: 20,
@@ -91,12 +89,12 @@ class AlterarSenhaState extends State<AlterarSenha> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Senha atual',
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -115,12 +113,12 @@ class AlterarSenhaState extends State<AlterarSenha> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Senha nova',
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -137,7 +135,7 @@ class AlterarSenhaState extends State<AlterarSenha> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Confirmar senha nova',
                           ),
@@ -145,7 +143,7 @@ class AlterarSenhaState extends State<AlterarSenha> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Center(
@@ -168,10 +166,10 @@ class AlterarSenhaState extends State<AlterarSenha> {
                             (states) => Colors.green),
                         minimumSize:
                             MaterialStateProperty.resolveWith((states) {
-                          return Size(200, 50);
+                          return const Size(200, 50);
                         }),
                       ),
-                      child: Text("Salvar Alterações"),
+                      child: const Text("Salvar Alterações"),
                     ),
                   ),
                 ],

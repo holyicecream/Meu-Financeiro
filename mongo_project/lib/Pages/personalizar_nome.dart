@@ -1,12 +1,9 @@
-//selected color
-//unselected color
-//icons: login, person, wc, assignment, delete, login_outlined, foward
 import 'package:flutter/material.dart';
-// import 'package:projeto_integrador/_backend/backend_redefinicao_de_senha.dart';
+
 import '../zDatabase/mongodb_clientes.dart';
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
@@ -35,6 +32,7 @@ class PersonalizarNomeState extends State<PersonalizarNome> {
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build personalizarNome $count");
     try {
       todosArguments =
@@ -50,33 +48,33 @@ class PersonalizarNomeState extends State<PersonalizarNome> {
             Navigator.pushReplacementNamed(context, '/Main',
                 arguments: todosArguments);
           },
-          child: Icon(Icons.arrow_back),
+          child: const Icon(Icons.arrow_back),
         ),
         centerTitle: true,
-        title: Text('Seu nome'),
+        title: const Text('Seu nome'),
         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Form(
               key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           "Como você quer ser chamado?",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -93,12 +91,12 @@ class PersonalizarNomeState extends State<PersonalizarNome> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Senha atual',
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -111,7 +109,7 @@ class PersonalizarNomeState extends State<PersonalizarNome> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Nome de preferência',
                           ),
@@ -119,7 +117,7 @@ class PersonalizarNomeState extends State<PersonalizarNome> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Center(
@@ -142,10 +140,10 @@ class PersonalizarNomeState extends State<PersonalizarNome> {
                             (states) => Colors.green),
                         minimumSize:
                             MaterialStateProperty.resolveWith((states) {
-                          return Size(250, 50);
+                          return const Size(250, 50);
                         }),
                       ),
-                      child: Text(
+                      child: const Text(
                         "Salvar Alterações",
                         style: TextStyle(
                           color: Colors.white,

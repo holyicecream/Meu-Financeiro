@@ -1,26 +1,28 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/Pages/alterar_senha.dart';
-import 'package:projeto_integrador/Pages/adicionar_pagamento_pendente.dart';
-import 'package:projeto_integrador/Pages/cadastro.dart';
-import 'package:projeto_integrador/Pages/editar_pagamento_pendente.dart';
-import 'package:projeto_integrador/Pages/extrato.dart';
-import 'package:projeto_integrador/Pages/grafico_diario.dart';
-import 'package:projeto_integrador/Pages/grafico_mensal.dart';
-import 'package:projeto_integrador/Pages/personalizar_nome.dart';
-import 'package:projeto_integrador/Pages/primeiro_acesso.dart';
-import 'package:projeto_integrador/Pages/login.dart';
-import 'package:projeto_integrador/Pages/tela_principal.dart';
-import 'Pages/page_teste.dart';
+
+import '/Pages/adicionar_pagamento_pendente.dart';
+import '/Pages/alterar_senha.dart';
+import '/Pages/cadastro.dart';
+import '/Pages/editar_pagamento_pendente.dart';
+import '/Pages/extrato.dart';
+import '/Pages/grafico_diario.dart';
+import '/Pages/grafico_mensal.dart';
+import '/Pages/login.dart';
+import '/Pages/personalizar_nome.dart';
+import '/Pages/primeiro_acesso.dart';
+import '/Pages/tela_principal.dart';
 import 'Pages/recuperacao_de_senha.dart';
 import 'Pages/redefinicao_de_senha.dart';
 import 'Pages/selecao_de_banco.dart';
 import 'zDatabase/mongodb_area_consumo.dart';
 import 'zDatabase/mongodb_bancos.dart';
 import 'zDatabase/mongodb_bancos_usuario.dart';
+import 'zDatabase/mongodb_clientes.dart';
 import 'zDatabase/mongodb_extrato.dart';
 import 'zDatabase/mongodb_tipo_transacoes.dart';
-import 'zDatabase/mongodb_clientes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      scrollBehavior: MaterialScrollBehavior().copyWith(
+      scrollBehavior: const MaterialScrollBehavior().copyWith(
         dragDevices: {
           PointerDeviceKind.mouse,
           PointerDeviceKind.stylus,
@@ -63,38 +65,29 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/PrimeiroAcesso',
       routes: {
-        '/PageTeste': (context) => PageTeste(),
-        '/PrimeiroAcesso': (context) => PrimeiroAcesso(),
-        '/Login': (context) => Login(),
-        '/RecuperacaoDeSenha': (context) => RecuperacaoDeSenha(),
-        '/RedefinicaoDeSenha': (context) => RedefinicaoDeSenha(),
-        '/Cadastro': (context) => Cadastro(),
-        '/SelecaoDeBanco': (context) => SelecaoDeBanco(),
-        '/PersonalizarNome': (context) => PersonalizarNome(),
-        '/AlterarSenha': (context) => AlterarSenha(),
-        '/AlterarContaBancaria': (context) => SelecaoDeBanco(),
-        '/Main': (context) => Main(),
-        '/GraficoDiario': (context) => GraficoDiario(),
-        '/GraficoMensal': (context) => GraficoMensal(),
-        '/EditarPagamentoPendente': (context) => EditarPagamentoPendente(),
+        '/PrimeiroAcesso': (context) => const PrimeiroAcesso(),
+        '/Login': (context) => const Login(),
+        '/RecuperacaoDeSenha': (context) => const RecuperacaoDeSenha(),
+        '/RedefinicaoDeSenha': (context) => const RedefinicaoDeSenha(),
+        '/Cadastro': (context) => const Cadastro(),
+        '/SelecaoDeBanco': (context) => const SelecaoDeBanco(),
+        '/PersonalizarNome': (context) => const PersonalizarNome(),
+        '/AlterarSenha': (context) => const AlterarSenha(),
+        '/AlterarContaBancaria': (context) => const SelecaoDeBanco(),
+        '/Main': (context) => const Main(),
+        '/GraficoDiario': (context) => const GraficoDiario(),
+        '/GraficoMensal': (context) => const GraficoMensal(),
+        '/EditarPagamentoPendente': (context) =>
+            const EditarPagamentoPendente(),
         '/AdicionarPagamentoPendente': (context) =>
-            AdicionarPagamentoPendente(),
-        '/Extrato': (context) => Extrato(),
-        // '/Alarme': (context) => PageTeste(),
-        // '/DadosDaContaBancaria': (context) => DadosDaContaBancaria(),
-        // '/EntrarCom...': (context) => PrimeiroAcesso(),
-        // '/EntrarComContaJaExistente': (context) => PageTeste(),
-        // '/VinculoBancarioOuInserçãoManual': (context) => PageTeste(),
-        // '/InsercaoManualDosDadosBancarios': (context) => PageTeste(),
-        // '/InsercaoManualDeNovaContaBancaria': (context) => PageTeste(),
-        // '/GerarExtrato': (context) => AdicionarPagamentoPendente(),
+            const AdicionarPagamentoPendente(),
+        '/Extrato': (context) => const Extrato(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      // home: const LoginPage(),
     );
   }
 }
@@ -112,9 +105,9 @@ class LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('ta foda'),
+        title: const Text('ta foda'),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[],

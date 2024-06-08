@@ -1,9 +1,4 @@
-// To parse this JSON data, do
-//
-//     final clientes = clientesFromJson(jsonString);
-
 import 'dart:convert';
-// import 'package:fixnum/fixnum.dart';
 
 MongoDbModelClientes clientesFromJson(String str) =>
     MongoDbModelClientes.fromJson(json.decode(str));

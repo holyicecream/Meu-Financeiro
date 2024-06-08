@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final areaConsumo = areaConsumoFromJson(jsonString);
-
 import 'dart:convert';
 
 MongoDbModelAreaConsumo areaConsumoFromJson(String str) =>

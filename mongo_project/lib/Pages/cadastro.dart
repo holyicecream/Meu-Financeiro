@@ -1,11 +1,9 @@
-//selected color
-//unselected color
-//icons: login, person, wc, assignment, delete, login_outlined, foward
 import 'package:flutter/material.dart';
+
 import '../zDatabase/mongodb_clientes.dart';
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
@@ -38,6 +36,7 @@ class CadastroState extends State<Cadastro> {
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build cadastro $count");
     try {
       todosArguments =
@@ -59,20 +58,20 @@ class CadastroState extends State<Cadastro> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Cadastro'),
+        title: const Text('Cadastro'),
         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Form(
               key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
                         TextFormField(
@@ -85,12 +84,12 @@ class CadastroState extends State<Cadastro> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Nome',
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -106,12 +105,12 @@ class CadastroState extends State<Cadastro> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'E-mail',
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -127,7 +126,7 @@ class CadastroState extends State<Cadastro> {
                             }
                           },
                           obscureText: true,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Senha',
                           ),
@@ -135,7 +134,7 @@ class CadastroState extends State<Cadastro> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 35,
                   ),
                   Center(
@@ -161,24 +160,24 @@ class CadastroState extends State<Cadastro> {
                             (states) => Colors.green.shade900),
                         minimumSize:
                             MaterialStateProperty.resolveWith((states) {
-                          return Size(250, 50);
+                          return const Size(250, 50);
                         }),
                       ),
-                      child: Text(
+                      child: const Text(
                         "Cadastrar",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Já tem uma conta?  "),
+                      const Text("Já tem uma conta?  "),
                       GestureDetector(
-                        child: Text("Entrar."),
+                        child: const Text("Entrar."),
                         onTap: () {
                           Navigator.pushReplacementNamed(context, '/Login',
                               arguments: todosArguments);

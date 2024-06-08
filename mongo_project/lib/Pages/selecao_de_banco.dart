@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/zDatabase/mongodb_bancos.dart';
+
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
 import '../zModels/todos_arguments.dart';
+import '/zDatabase/mongodb_bancos.dart';
 
 class SelecaoDeBanco extends StatefulWidget {
   const SelecaoDeBanco({super.key});
@@ -34,7 +35,6 @@ class SelecaoDeBancoState extends State<SelecaoDeBanco> {
     super.initState();
     MongoDatabaseBancos.getData().then(
       (value) {
-        print('primeiro build?');
         dataBancos = value;
       },
     );
@@ -43,6 +43,7 @@ class SelecaoDeBancoState extends State<SelecaoDeBanco> {
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build selecaoDeBanco $count");
     try {
       todosArguments =
@@ -83,7 +84,7 @@ class SelecaoDeBancoState extends State<SelecaoDeBanco> {
                       }
                       setState(() {});
                     },
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Busque por instituição',
                       suffixIcon: Icon(Icons.search),
@@ -113,7 +114,6 @@ class SelecaoDeBancoState extends State<SelecaoDeBanco> {
                                   .toString()
                                   .split('-')[1]);
                             } catch (e) {
-                              print("ali olha $e");
                               leadingText = const Text('');
                               titleText = const Text('');
                             }

@@ -1,12 +1,10 @@
-//selected color
-//unselected color
-//icons: login, person, wc, assignment, delete, login_outlined, foward
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-import 'dart:math';
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
@@ -50,13 +48,15 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
     num3 = Random().nextInt(9);
     num4 = Random().nextInt(9);
     num5 = Random().nextInt(9);
+    // ignore: avoid_print
     print(
-        "${num1.toString()}, ${num2.toString()}, ${num3.toString()}, ${num4.toString()}, ${num5.toString()}");
+        "código: ${num1.toString()}, ${num2.toString()}, ${num3.toString()}, ${num4.toString()}, ${num5.toString()}");
   }
 
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build recuperacaoDeSenha $count");
     try {
       todosArguments =
@@ -64,7 +64,6 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
     } catch (e) {
       // print(e.toString());
     }
-    // inBuildRecuperacaoDeSenha(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -73,28 +72,28 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
             Navigator.pushReplacementNamed(context, '/Login',
                 arguments: todosArguments);
           },
-          child: Icon(Icons.arrow_back),
+          child: const Icon(Icons.arrow_back),
         ),
         centerTitle: true,
-        title: Text('Esqueci a senha'),
+        title: const Text('Esqueci a senha'),
         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Form(
               key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
+                  const Center(
                     child: Text(
                       "Código",
                       style: TextStyle(fontSize: 20, color: Colors.grey),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -107,12 +106,12 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                           child: TextFormField(
                             controller: primeiroController,
                             keyboardType: TextInputType.number,
-                            decoration:
-                                InputDecoration(border: OutlineInputBorder()),
+                            decoration: const InputDecoration(
+                                border: OutlineInputBorder()),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       SizedBox(
@@ -122,12 +121,12 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                           child: TextFormField(
                             controller: segundoController,
                             keyboardType: TextInputType.number,
-                            decoration:
-                                InputDecoration(border: OutlineInputBorder()),
+                            decoration: const InputDecoration(
+                                border: OutlineInputBorder()),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       SizedBox(
@@ -137,12 +136,12 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                           child: TextFormField(
                             controller: terceiroController,
                             keyboardType: TextInputType.number,
-                            decoration:
-                                InputDecoration(border: OutlineInputBorder()),
+                            decoration: const InputDecoration(
+                                border: OutlineInputBorder()),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       SizedBox(
@@ -152,12 +151,12 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                           child: TextFormField(
                             controller: quartoController,
                             keyboardType: TextInputType.number,
-                            decoration:
-                                InputDecoration(border: OutlineInputBorder()),
+                            decoration: const InputDecoration(
+                                border: OutlineInputBorder()),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       SizedBox(
@@ -167,19 +166,18 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                           child: TextFormField(
                             controller: quintoController,
                             keyboardType: TextInputType.number,
-                            decoration:
-                                InputDecoration(border: OutlineInputBorder()),
+                            decoration: const InputDecoration(
+                                border: OutlineInputBorder()),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
                         child: Center(
@@ -205,13 +203,13 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                       ),
                     ),
                   ),
-                  Center(
+                  const Center(
                     child: Text(
                       "O ENVIO POR EMAIL NÃO ESTÁ FUNCIONANDO.\nAPENAS PREENCHA OS CAMPOS COM QUALQUER VALOR.",
                       style: TextStyle(color: Colors.red),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 60,
                   ),
                   Row(
@@ -223,18 +221,16 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                               (states) => Colors.green.shade900),
                           minimumSize:
                               MaterialStateProperty.resolveWith((states) {
-                            return Size(300, 50);
+                            return const Size(300, 50);
                           }),
                         ),
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
-                            //tirei o validador, é melhor um manual aq dentro
                             if (primeiroController.text != '' &&
                                 segundoController.text != '' &&
                                 terceiroController.text != '' &&
                                 quartoController.text != '' &&
                                 quintoController.text != '') {
-                              // Você requisitou a mudança de senha. Para realizar a mudança é necessário a confirmação via email, enviamos um código de 5 no email ${todosArguments.dataClient.email}
                               Navigator.pushReplacementNamed(
                                   context, '/RedefinicaoDeSenha',
                                   arguments: todosArguments);
@@ -248,16 +244,15 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                                         child: MaterialButton(
                                           onPressed: () =>
                                               Navigator.pop(context),
-                                          child: Text("Ok"),
+                                          child: const Text("Ok"),
                                         ),
                                       )
                                     ],
-                                    // title: Center(child: Text('Error')),
                                     content: Container(
                                       alignment: Alignment.center,
                                       width: 50,
                                       height: 50,
-                                      child: Text("Código incorreto."),
+                                      child: const Text("Código incorreto."),
                                     ),
                                   );
                                 },
@@ -265,7 +260,7 @@ class RecuperacaoDeSenhaState extends State<RecuperacaoDeSenha> {
                             }
                           }
                         },
-                        child: Text(
+                        child: const Text(
                           style: TextStyle(
                             color: Colors.white,
                           ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/zDatabase/mongodb_extrato.dart';
+
 import '../zModels/model_area_consumo.dart';
-import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_bancos.dart';
+import '../zModels/model_bancos_usuario.dart';
 import '../zModels/model_clientes.dart';
 import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
 import '../zModels/todos_arguments.dart';
+import '/zDatabase/mongodb_extrato.dart';
 
 class GraficoMensal extends StatefulWidget {
   const GraficoMensal({super.key});
@@ -29,6 +30,7 @@ class GraficoMensalState extends State<GraficoMensal> {
   @override
   Widget build(BuildContext context) {
     count++;
+    // ignore: avoid_print
     print("build graficoMensal $count");
     try {
       todosArguments =
@@ -44,7 +46,7 @@ class GraficoMensalState extends State<GraficoMensal> {
             Navigator.pushReplacementNamed(context, '/Main',
                 arguments: todosArguments);
           },
-          child: Icon(Icons.arrow_back),
+          child: const Icon(Icons.arrow_back),
         ),
         centerTitle: true,
         backgroundColor: Colors.green,
@@ -59,7 +61,6 @@ class GraficoMensalState extends State<GraficoMensal> {
           child: SingleChildScrollView(
             child: FutureBuilder(
               future: MongoDatabaseExtrato.getDataByCodCli(
-                  // todosArguments.dataClientes.codCliente ??= 4,
                   todosArguments.dataClientes.codCliente ??= 0),
               builder: (context, AsyncSnapshot snapshot) {
                 double media = 0;
@@ -84,7 +85,6 @@ class GraficoMensalState extends State<GraficoMensal> {
                 List<Map<String, dynamic>> dataCredito = [];
                 List<Map<String, dynamic>> dataCreditoPagamentosPendentes = [];
 
-                // List<Map<String, dynamic>> sortedFlSpot = [];
                 if (snapshot.hasData) {
                   int xDataDebito = 0;
                   dynamic yDataDebito;
@@ -196,17 +196,17 @@ class GraficoMensalState extends State<GraficoMensal> {
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
                       children: [
-                        Center(
+                        const Center(
                           child: Text(
                             "Dados atuais",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 20),
                           ),
                         ),
-                        Center(
+                        const Center(
                           child: Text("(não inclui pagamentos pendentes)"),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Row(
@@ -227,7 +227,7 @@ class GraficoMensalState extends State<GraficoMensal> {
                                     context, "/GraficoDiario",
                                     arguments: todosArguments);
                               },
-                              child: Text(
+                              child: const Text(
                                 "Mostrar gráfico",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -244,14 +244,14 @@ class GraficoMensalState extends State<GraficoMensal> {
                                     (states) => Colors.white),
                                 shape: MaterialStateProperty.all(
                                   RoundedRectangleBorder(
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                         color: Colors.green, width: 2),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                               ),
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 "Mostrar tabela",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -261,14 +261,14 @@ class GraficoMensalState extends State<GraficoMensal> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                          padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -276,7 +276,7 @@ class GraficoMensalState extends State<GraficoMensal> {
                                 defaultVerticalAlignment:
                                     TableCellVerticalAlignment.middle,
                                 border: TableBorder.all(width: 2),
-                                children: [
+                                children: const [
                                   TableRow(
                                     decoration:
                                         BoxDecoration(color: Colors.green),
@@ -284,7 +284,7 @@ class GraficoMensalState extends State<GraficoMensal> {
                                       TableCell(
                                         child: Center(
                                           child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Text(
                                               style: TextStyle(
                                                   fontSize: 18,
@@ -306,9 +306,9 @@ class GraficoMensalState extends State<GraficoMensal> {
                                 children: [
                                   TableRow(
                                     children: [
-                                      TableCell(
+                                      const TableCell(
                                         child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
+                                          padding: EdgeInsets.all(5.0),
                                           child: Text(
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -321,7 +321,7 @@ class GraficoMensalState extends State<GraficoMensal> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(5.0),
                                           child: Text(
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.green),
@@ -333,9 +333,9 @@ class GraficoMensalState extends State<GraficoMensal> {
                                   ),
                                   TableRow(
                                     children: [
-                                      TableCell(
+                                      const TableCell(
                                         child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
+                                          padding: EdgeInsets.all(5.0),
                                           child: Text(
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -348,7 +348,7 @@ class GraficoMensalState extends State<GraficoMensal> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(5.0),
                                           child: Text(
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.red),
@@ -360,9 +360,9 @@ class GraficoMensalState extends State<GraficoMensal> {
                                   ),
                                   TableRow(
                                     children: [
-                                      TableCell(
+                                      const TableCell(
                                         child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
+                                          padding: EdgeInsets.all(5.0),
                                           child: Text(
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -375,7 +375,7 @@ class GraficoMensalState extends State<GraficoMensal> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(5.0),
                                           child: Text(
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold),
                                             "R\$$saldo.",
@@ -386,9 +386,9 @@ class GraficoMensalState extends State<GraficoMensal> {
                                   ),
                                   TableRow(
                                     children: [
-                                      TableCell(
+                                      const TableCell(
                                         child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
+                                          padding: EdgeInsets.all(5.0),
                                           child: Text(
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -401,7 +401,7 @@ class GraficoMensalState extends State<GraficoMensal> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(5.0),
                                           child: Text(
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold),
                                             "R\$$saldoPagamentoPendente.",
@@ -412,12 +412,13 @@ class GraficoMensalState extends State<GraficoMensal> {
                                   ),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 80,
                               ),
                               Center(
                                 child: Padding(
-                                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -425,35 +426,35 @@ class GraficoMensalState extends State<GraficoMensal> {
                                     children: [
                                       Text(
                                         "Gastos gerais: R\$$totalDebito",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20,
                                         ),
                                       ),
                                       Text(
                                         "Valor máximo: R\$$maximo",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20,
                                         ),
                                       ),
                                       Text(
                                         "Valor mínimo: R\$$minimo",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20,
                                         ),
                                       ),
                                       Text(
                                         "Média de gastos por dia: R\$$media",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20,
                                         ),
                                       ),
                                       Text(
                                         "Saldo atual: R\$$saldo",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20,
                                         ),

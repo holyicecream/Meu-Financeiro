@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final mongoDbModelBancosTransacao = mongoDbModelBancosTransacaoFromJson(jsonString);
-
 import 'dart:convert';
 
 MongoDbModelTipoTransacao mongoDbModelBancosTransacaoFromJson(String str) =>
