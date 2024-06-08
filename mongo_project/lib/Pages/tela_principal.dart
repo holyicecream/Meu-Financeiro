@@ -152,7 +152,7 @@ class MainState extends State<Main> {
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 50,
                 child: TextButton(
                   onPressed: () {
@@ -456,14 +456,14 @@ class MainState extends State<Main> {
                                                 '/EditarPagamentoPendente',
                                                 arguments: todosArguments);
                                           },
-                                          child: Padding(
-                                            padding: const EdgeInsets.fromLTRB(
-                                                10, 10, 10, 10),
-                                            child: SizedBox(
-                                              height: 125,
-                                              width: 125,
-                                              child: Card(
-                                                child: Center(
+                                          child: SizedBox(
+                                            height: 125,
+                                            width: 125,
+                                            child: Card(
+                                              child: Center(
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(
+                                                      10.0),
                                                   child: Column(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
@@ -486,12 +486,29 @@ class MainState extends State<Main> {
                                                                 .arrow_downward_sharp,
                                                             color: Colors.red,
                                                           ),
-                                                          Text(data.valor
-                                                              .toString()),
+                                                          Text(
+                                                            data.valor
+                                                                .toString(),
+                                                            style: TextStyle(
+                                                                fontSize: 20,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                color: Colors
+                                                                    .green
+                                                                    .shade900),
+                                                          ),
                                                         ],
                                                       ),
-                                                      Text(data.nomeDestinatario
-                                                          .toString()),
+                                                      Text(
+                                                        data.nomeDestinatario
+                                                            .toString(),
+                                                        style: TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
                                                     ],
                                                   ),
                                                 ),
@@ -520,34 +537,59 @@ class MainState extends State<Main> {
                                               width: 125,
                                               child: Card(
                                                 child: Center(
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      CircleAvatar(
-                                                        backgroundColor: Colors
-                                                            .grey.shade400,
-                                                        // backgroundImage:
-                                                        //     NetworkImage(
-                                                        //         'https://i.pinimg.com/280x280_RS/2e/22/90/2e229065b0e9a509755d371e6050b4fe.jpg'),
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          Icon(
-                                                            Icons.arrow_upward,
-                                                            color: Colors.green,
-                                                          ),
-                                                          Text(data.valor
-                                                              .toString()),
-                                                        ],
-                                                      ),
-                                                      Text(data.nomeDestinatario
-                                                          .toString()),
-                                                    ],
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            10.0),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        CircleAvatar(
+                                                          backgroundColor:
+                                                              Colors.grey
+                                                                  .shade400,
+                                                          // backgroundImage:
+                                                          //     NetworkImage(
+                                                          //         'https://i.pinimg.com/280x280_RS/2e/22/90/2e229065b0e9a509755d371e6050b4fe.jpg'),
+                                                        ),
+                                                        Row(
+                                                          children: [
+                                                            Icon(
+                                                              Icons
+                                                                  .arrow_upward,
+                                                              color:
+                                                                  Colors.green,
+                                                            ),
+                                                            Text(
+                                                              data.valor
+                                                                  .toString(),
+                                                              style: TextStyle(
+                                                                  fontSize: 20,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  color: Colors
+                                                                      .green
+                                                                      .shade900),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Text(
+                                                          data.nomeDestinatario
+                                                              .toString(),
+                                                          style: TextStyle(
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
