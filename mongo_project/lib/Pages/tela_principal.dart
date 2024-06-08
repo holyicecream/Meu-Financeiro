@@ -13,6 +13,9 @@ import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
 import '../zModels/todos_arguments.dart';
 
+import 'package:image_field/image_field.dart';
+import 'package:image_picker/image_picker.dart';
+
 class Main extends StatefulWidget {
   const Main({super.key});
 
@@ -63,77 +66,112 @@ class MainState extends State<Main> {
               SizedBox(
                 height: 30,
               ),
-              Text(todosArguments.dataBancosUsuario.codBanco.toString()),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Icon(Icons.browse_gallery),
-                  Icon(Icons.search),
-                ],
+                children: [],
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/PersonalizarNome',
-                      arguments: todosArguments);
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.login),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text('Seu nome'),
-                  ],
+              Container(
+                height: 50,
+                decoration: BoxDecoration(
+                    border: Border(
+                  bottom: BorderSide(width: 1.0, color: Color(0xFF7ED957)),
+                )),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/PersonalizarNome',
+                        arguments: todosArguments);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Seu nome',
+                        style:
+                            TextStyle(color: Color(0xFF292929), fontSize: 16),
+                      ),
+                      SizedBox(
+                        width: 90,
+                      ),
+                      Icon(
+                        Icons.login,
+                        color: Color(0xFF224912),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/AlterarSenha',
-                      arguments: todosArguments);
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.person),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text('Alterar senha'),
-                  ],
+              Container(
+                height: 50,
+                decoration: BoxDecoration(
+                    border: Border(
+                  bottom: BorderSide(width: 1.0, color: Color(0xFF7ED957)),
+                )),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/AlterarSenha',
+                        arguments: todosArguments);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Alterar senha',
+                        style:
+                            TextStyle(color: Color(0xFF292929), fontSize: 16),
+                      ),
+                      SizedBox(
+                        width: 70,
+                      ),
+                      Icon(Icons.person, color: Color(0xFF224912)),
+                    ],
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(
-                      context, '/AlterarContaBancaria',
-                      arguments: todosArguments);
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.wc),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text('Conta bancária'),
-                  ],
+              Container(
+                height: 50,
+                decoration: BoxDecoration(
+                    border: Border(
+                  bottom: BorderSide(width: 1.0, color: Color(0xFF7ED957)),
+                )),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, '/AlterarContaBancaria',
+                        arguments: todosArguments);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text('Conta bancária',
+                          style: TextStyle(
+                              color: Color(0xFF292929), fontSize: 16)),
+                      SizedBox(
+                        width: 55,
+                      ),
+                      Icon(Icons.wc, color: Color(0xFF224912)),
+                    ],
+                  ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  SystemNavigator.pop();
-                  // SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.assignment),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text('Sair do app'),
-                  ],
+              Container(
+                height: 50,
+                child: TextButton(
+                  onPressed: () {
+                    SystemNavigator.pop();
+                    // SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text('Sair do app',
+                          style: TextStyle(
+                              color: Color(0xFF7ED957), fontSize: 16)),
+                      SizedBox(
+                        width: 85,
+                      ),
+                      Icon(Icons.logout, color: Color(0xFF7ED957)),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -175,7 +213,7 @@ class MainState extends State<Main> {
                             "Olá, Sem Nome",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                              fontSize: 16,
                               color: Colors.white,
                             ),
                           );
@@ -270,10 +308,15 @@ class MainState extends State<Main> {
                             },
                           ),
                           TextButton(
-                              onPressed: () {setState(() {
-                                escondesaldo = !escondesaldo;
-                              });},
-                              child: Icon(Icons.remove_red_eye_rounded))
+                              onPressed: () {
+                                setState(() {
+                                  escondesaldo = !escondesaldo;
+                                });
+                              },
+                              child: Icon(
+                                Icons.remove_red_eye_rounded,
+                                color: Colors.white,
+                              ))
                         ],
                       )
                     ],
@@ -326,24 +369,24 @@ class MainState extends State<Main> {
                               }
                             }
                           }
-                          if(escondesaldo == false){
-widgetPagamentosPendentesValue = Text(
-                            "R\$ ${pagamentosPendentesValue.toString()}",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold),
-                          );
-                          }else{
+                          if (escondesaldo == false) {
                             widgetPagamentosPendentesValue = Text(
-                            "******",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold),
-                          );
+                              "R\$ ${pagamentosPendentesValue.toString()}",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold),
+                            );
+                          } else {
+                            widgetPagamentosPendentesValue = Text(
+                              "******",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold),
+                            );
                           }
-                          
+
                           return widgetPagamentosPendentesValue;
                         } else {
                           return widgetPagamentosPendentesValue;
@@ -356,7 +399,7 @@ widgetPagamentosPendentesValue = Text(
               Padding(
                 padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     GestureDetector(
                       onTap: () async {
@@ -381,6 +424,7 @@ widgetPagamentosPendentesValue = Text(
                           child: Center(
                             child: Icon(
                               Icons.add,
+                              color: Color(0xFF224912),
                               size: 50,
                             ),
                           ),
@@ -431,7 +475,7 @@ widgetPagamentosPendentesValue = Text(
                                           },
                                           child: Padding(
                                             padding: const EdgeInsets.fromLTRB(
-                                                5, 0, 0, 0),
+                                                10, 10, 10, 10),
                                             child: SizedBox(
                                               height: 125,
                                               width: 125,
@@ -607,7 +651,7 @@ widgetPagamentosPendentesValue = Text(
                         child: Text(
                           "Mostrar gráfico",
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
