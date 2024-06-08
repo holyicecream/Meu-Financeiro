@@ -27,9 +27,15 @@ class GraficoDiarioState extends State<GraficoDiario> {
     dataExtrato: MongoDbModelExtrato(),
     dataTransacao: MongoDbModelTipoTransacao(),
   );
-  List<Map<String, dynamic>> dataExtrato = [];
-
   int count = 0;
+  bool lineData01 = true;
+  bool lineData02 = false;
+  bool lineData03 = true;
+  List<LineChartBarData> lineDataArray = [
+    LineChartBarData(),
+    LineChartBarData(),
+    LineChartBarData()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,163 +67,289 @@ class GraficoDiarioState extends State<GraficoDiario> {
       ),
       body: SafeArea(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Gastos no mês atual",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateColor.resolveWith(
-                          (states) => Colors.white),
-                      shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                          side: BorderSide(color: Colors.green, width: 2),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "Mostrar gráfico",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 8,
-                  ),
-                  TextButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateColor.resolveWith(
-                          (states) => Colors.green),
-                      shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "Mostrar tabela",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(width: 8, height: 5, color: Colors.green),
-                  Text(" Gastos"),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Container(width: 8, height: 5, color: Colors.blue),
-                  Text(" Média por dia"),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              FutureBuilder(
-                future: MongoDatabaseExtrato.getDataByCodCli(
+          child: SingleChildScrollView(
+            child: FutureBuilder(
+              future: MongoDatabaseExtrato.getDataByCodCli(
                   // todosArguments.dataClientes.codCliente ??= 4,
-                  todosArguments.dataClientes.codCliente??=0
-                ),
-                builder: (context, AsyncSnapshot snapshot) {
-                  double media = 0;
-                  double mediaGrid = 0;
-                  double total = 0;
-                  double maximo = 0;
-                  double minimo = 0;
-                  List<FlSpot> dataSpot = [];
-                  List<int> fullDays = [];
-                  List<int> finalDays = [];
-                  List<double> fullValues = [];
-                  List<double> finalValues = [];
-                  // List<Map<String, dynamic>> sortedFlSpot = [];
-                  if (snapshot.hasData) {
-                    int xData = 0;
-                    dynamic yData;
+                  todosArguments.dataClientes.codCliente ??= 0),
+              builder: (context, AsyncSnapshot snapshot) {
+                double intervalValue = 0;
+                double media = 0;
+                double mediaGrid = 0;
+                double totalDebito = 0;
+                double totalCredito = 0;
+                double maximo = 0;
+                double minimo = 0;
+                double saldo = 0;
+                List<FlSpot> dataSpotDebito = [];
+                List<int> fullDaysDebito = [];
+                List<int> finalDaysDebito = [];
+                List<double> fullValuesDebito = [];
+                List<double> finalValuesDebito = [];
+                List<Map<String, dynamic>> dataDebito = [];
+                List<FlSpot> dataSpotCredito = [];
+                List<int> fullDaysCredito = [];
+                List<int> finalDaysCredito = [];
+                List<double> fullValuesCredito = [];
+                List<double> finalValuesCredito = [];
+                List<Map<String, dynamic>> dataCredito = [];
 
-                    dataExtrato = snapshot.data;
-                    for (var n in snapshot.data) {
-                      xData = int.parse(n['data']
-                          .toString()
-                          .split(' ')[0]
-                          .toString()
-                          .split('-')[2]
-                          .toString());
-                      yData = n['valor'];
-                      fullDays.add((xData));
-                      fullValues.add(double.parse(yData.toString()));
-                      // sortedFlSpot.add({xData.toString(): yData});
-                    }
-                    List<int> depoisSort = fullDays;
-                    print("antes sort $depoisSort");
-                    depoisSort.sort();
-                    print("depois sort $depoisSort");
+                // List<Map<String, dynamic>> sortedFlSpot = [];
+                if (snapshot.hasData) {
+                  int xDataDebito = 0;
+                  dynamic yDataDebito;
+                  int xDataCredito = 0;
+                  dynamic yDataCredito;
 
-                    print("fullDays $fullDays");
-                    print("fullValues $fullValues");
+                  for (var dado in snapshot.data) {
+                    if (dado['debito_credito'] == 'debito') {
+                      dataDebito.add(dado);
+                    } else {
+                      dataCredito.add(dado);
+                    }
+                  }
+                  for (var n in dataDebito) {
+                    xDataDebito = int.parse(n['data']
+                        .toString()
+                        .split(' ')[0]
+                        .toString()
+                        .split('-')[2]
+                        .toString());
+                    yDataDebito = n['valor'];
+                    fullDaysDebito.add((xDataDebito));
+                    fullValuesDebito.add(double.parse(yDataDebito.toString()));
+                  }
+                  List<int> depoisSortDebito = fullDaysDebito;
+                  depoisSortDebito.sort();
+                  for (var i = 0; i < fullDaysDebito.length; i++) {
+                    if (finalDaysDebito.contains(fullDaysDebito[i])) {
+                      finalValuesDebito[finalValuesDebito.length - 1] +=
+                          fullValuesDebito[i];
+                    } else {
+                      finalDaysDebito.add(fullDaysDebito[i]);
+                      finalValuesDebito.add(fullValuesDebito[i]);
+                    }
+                  }
 
-                    // print(sortedFlSpot);
-
-                    for (var i = 0; i < fullDays.length; i++) {
-                      if (finalDays.contains(fullDays[i])) {
-                        finalValues[finalValues.length - 1] += fullValues[i];
-                      } else {
-                        finalDays.add(fullDays[i]);
-                        finalValues.add(fullValues[i]);
-                      }
+                  for (var n in dataCredito) {
+                    xDataCredito = int.parse(n['data']
+                        .toString()
+                        .split(' ')[0]
+                        .toString()
+                        .split('-')[2]
+                        .toString());
+                    yDataCredito = n['valor'];
+                    fullDaysCredito.add((xDataCredito));
+                    fullValuesCredito
+                        .add(double.parse(yDataCredito.toString()));
+                  }
+                  List<int> depoisSortCredito = fullDaysCredito;
+                  depoisSortCredito.sort();
+                  for (var i = 0; i < fullDaysCredito.length; i++) {
+                    if (finalDaysCredito.contains(fullDaysCredito[i])) {
+                      finalValuesCredito[finalValuesCredito.length - 1] +=
+                          fullValuesCredito[i];
+                    } else {
+                      finalDaysCredito.add(fullDaysCredito[i]);
+                      finalValuesCredito.add(fullValuesCredito[i]);
                     }
-                    print("finalDays $finalDays");
-                    print("finalValues $finalValues");
-
-                    for (var value in finalValues) {
-                      if (value > maximo) {
-                        maximo = value;
-                      }
-                      if (minimo == 0) {
-                        minimo = value;
-                      } else if (value < maximo) {
-                        minimo = value;
-                      }
-                      media += value;
+                  }
+                  for (var value in finalValuesDebito) {
+                    if (value > maximo) {
+                      maximo = value;
                     }
-                    total = media;
-                    media = media / finalValues.length;
-                    media = double.parse(media.toStringAsFixed(2));
-                    print("média dos valores: $media");
-                    for (var i = 0; i < finalDays.length; i++) {
-                      dataSpot.add(FlSpot(
-                        double.parse((finalDays[i]).toString()),
-                        fullValues[i],
-                      ));
+                    if (minimo == 0) {
+                      minimo = value;
+                    } else if (value < maximo) {
+                      minimo = value;
                     }
-                    mediaGrid = media/2;
-                    if (mediaGrid == 0) {
-                      mediaGrid = 1;
-                    }
-                    return Column(
+                    media += value;
+                  }
+                  for (var value in finalValuesCredito) {
+                    totalCredito += value;
+                  }
+                  totalDebito = media;
+                  saldo = totalCredito - totalDebito;
+                  media = media / finalValuesDebito.length;
+                  media = double.parse(media.toStringAsFixed(2));
+                  for (var i = 0; i < finalDaysDebito.length; i++) {
+                    dataSpotDebito.add(FlSpot(
+                      double.parse((finalDaysDebito[i]).toString()),
+                      finalValuesDebito[i],
+                    ));
+                  }
+                  for (var i = 0; i < finalDaysCredito.length; i++) {
+                    dataSpotCredito.add(FlSpot(
+                      double.parse((finalDaysCredito[i]).toString()),
+                      finalValuesCredito[i],
+                    ));
+                  }
+                  mediaGrid = media / 2;
+                  if (mediaGrid == 0) {
+                    mediaGrid = 1;
+                  }
+                  if (maximo <= 1000) {
+                    intervalValue = 100;
+                  } else if (maximo <= 2000) {
+                    intervalValue = 200;
+                  } else if (maximo <= 3000) {
+                    intervalValue = 300;
+                  } else if (maximo <= 5000) {
+                    intervalValue = 500;
+                  } else if (maximo <= 10000) {
+                    intervalValue = 1000;
+                  } else if (maximo > 10000) {
+                    intervalValue = 2000;
+                  }
+                  lineDataArray[0] = LineChartBarData(
+                    show: lineData01,
+                    dotData: FlDotData(show: false),
+                    spots: dataSpotDebito,
+                    color: Colors.red,
+                  );
+                  lineDataArray[1] = LineChartBarData(
+                    show: lineData02,
+                    dotData: FlDotData(show: false),
+                    spots: dataSpotCredito,
+                    color: Colors.green,
+                  );
+                  lineDataArray[2] = LineChartBarData(
+                    show: lineData03,
+                    dotData: FlDotData(show: false),
+                    spots: [
+                      FlSpot(1, media),
+                      FlSpot(30, media),
+                    ],
+                    color: Colors.blue,
+                  );
+                  return Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
                       children: [
+                        Center(
+                          child: Text(
+                            "Planejamento do mês",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                        ),
+                        Center(
+                          child: Text("(inclui pagamentos pendentes)"),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateColor.resolveWith(
+                                    (states) => Colors.white),
+                                shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        color: Colors.green, width: 2),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                "Mostrar gráfico",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.green,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width / 8,
+                            ),
+                            TextButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateColor.resolveWith(
+                                    (states) => Colors.green),
+                                shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.pushReplacementNamed(
+                                    context, "/GraficoMensal",
+                                    arguments: todosArguments);
+                              },
+                              child: Text(
+                                "Mostrar tabela",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  lineData01 = lineData01 ? false : true;
+                                });
+                              },
+                              child: Row(
+                                children: [
+                                  Container(
+                                      width: 8, height: 5, color: Colors.red),
+                                  Text(" Gastos"),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  lineData02 = lineData02 ? false : true;
+                                });
+                              },
+                              child: Row(
+                                children: [
+                                  Container(
+                                      width: 8, height: 5, color: Colors.green),
+                                  Text(" Ganhos"),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  lineData03 = lineData03 ? false : true;
+                                });
+                              },
+                              child: Row(
+                                children: [
+                                  Container(
+                                      width: 8, height: 5, color: Colors.blue),
+                                  Text(" Média de gasto por dia"),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
                         SizedBox(
                           height: (MediaQuery.of(context).size.height / 3),
                           width: (MediaQuery.of(context).size.width / 1.2),
@@ -232,19 +364,20 @@ class GraficoDiarioState extends State<GraficoDiario> {
                               maxX: 30,
                               minY: 0,
                               // maxY: 400,
-                              lineBarsData: [
-                                LineChartBarData(
-                                    dotData: FlDotData(show: false),
-                                    spots: dataSpot,
-                                    color: Colors.green),
-                                LineChartBarData(
-                                  spots: [
-                                    FlSpot(1, media),
-                                    FlSpot(30, media),
-                                  ],
-                                  color: Colors.blue,
-                                ),
-                              ],
+                              lineBarsData: lineDataArray,
+                              // [
+                              //   LineChartBarData(
+                              //       dotData: FlDotData(show: false),
+                              //       spots: dataSpotDebito,
+                              //       color: Colors.red),
+                              //   LineChartBarData(
+                              //     spots: [
+                              //       FlSpot(1, media),
+                              //       FlSpot(30, media),
+                              //     ],
+                              //     color: Colors.blue,
+                              //   ),
+                              // ],
                               titlesData: FlTitlesData(
                                 rightTitles: AxisTitles(
                                   sideTitles: SideTitles(showTitles: false),
@@ -255,7 +388,7 @@ class GraficoDiarioState extends State<GraficoDiario> {
                                 leftTitles: AxisTitles(
                                   sideTitles: SideTitles(
                                       showTitles: true,
-                                      interval: 100,
+                                      interval: intervalValue,
                                       reservedSize: 40),
                                 ),
                                 bottomTitles: AxisTitles(
@@ -278,35 +411,35 @@ class GraficoDiarioState extends State<GraficoDiario> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Gastos gerais: $total",
+                                "Gastos gerais: R\$$totalDebito",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
                               ),
                               Text(
-                                "Valor máximo: $maximo",
+                                "Valor máximo: R\$$maximo",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
                               ),
                               Text(
-                                "Valor mínimo: $minimo",
+                                "Valor mínimo: R\$$minimo",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
                               ),
                               Text(
-                                "Média de gastos por dia: $media",
+                                "Média de gastos por dia: R\$$media",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
                               ),
                               Text(
-                                "Saldo: \$",
+                                "Saldo final: R\$$saldo",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
@@ -316,13 +449,13 @@ class GraficoDiarioState extends State<GraficoDiario> {
                           ),
                         ),
                       ],
-                    );
-                  } else {
-                    return Text("Sem dados");
-                  }
-                },
-              ),
-            ],
+                    ),
+                  );
+                } else {
+                  return Container();
+                }
+              },
+            ),
           ),
         ),
       ),
