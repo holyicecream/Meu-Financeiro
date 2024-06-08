@@ -260,7 +260,7 @@ class EditarPagamentoPendenteState extends State<EditarPagamentoPendente> {
                           initialValue: 1,
                           onChanged: (value) {
                             setState(() {
-                              todosArguments.dataExtrato.codTransacao = value;
+                              todosArguments.dataExtrato.codTransacao = (value);
                             });
                           },
                         ),

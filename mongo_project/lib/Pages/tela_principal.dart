@@ -198,9 +198,16 @@ class MainState extends State<Main> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const CircleAvatar(
-                        radius: 40,
-                      ),
+                      if(todosArguments.dataClientes.email == "rika@gmail.com")
+                        const CircleAvatar(
+                          radius: 40,
+                          backgroundImage: AssetImage('assets/rika.png'),
+                        ),
+                      if(todosArguments.dataClientes.email != "rika@gmail.com")
+                        const CircleAvatar(
+                            radius: 40,
+                            backgroundImage: AssetImage('assets/user.png'),
+                          ),
                       FutureBuilder(
                         future: MongoDatabaseClientes.getData(),
                         builder: (context, AsyncSnapshot snapshot) {
@@ -439,6 +446,8 @@ class MainState extends State<Main> {
                                                   "${DateTime.now().toString().split(' ')[0].toString().split('-')[0]}${DateTime.now().toString().split(' ')[0].toString().split('-')[1]}${DateTime.now().toString().split(' ')[0].toString().split('-')[2]}")) {
                                         return GestureDetector(
                                           onTap: () {
+                                            // ignore: avoid_print
+                                            print("TESTEEEEE BLENDAO DEBITO ${data.codAreaConsumo}");
                                             todosArguments.dataExtrato = data;
                                             Navigator.pushReplacementNamed(
                                                 context,
@@ -461,7 +470,7 @@ class MainState extends State<Main> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                    getCircleAvatar(todosArguments.dataAreaConsumo.codAreaConsumo),
+                                                      getCircleAvatar(data.codAreaConsumo),
                                                       Row(
                                                         children: [
                                                           const Icon(
@@ -507,6 +516,10 @@ class MainState extends State<Main> {
                                         return GestureDetector(
                                           onTap: () {
                                             todosArguments.dataExtrato = data;
+                                            // ignore: avoid_print
+                                            print("TESTEEEEE BLENDAO CREDITO ${data.codAreaConsumo}");
+                                            // ignore: avoid_print
+                                            print("TESTEEEEE BLENDAO CREDITO GASTO ${data.codTransacao}");
                                             Navigator.pushReplacementNamed(
                                                 context,
                                                 '/EditarPagamentoPendente',
@@ -528,19 +541,36 @@ class MainState extends State<Main> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      getCircleAvatar(todosArguments.dataAreaConsumo.codAreaConsumo),
+                                                      getCircleAvatar(data.codAreaConsumo),
                                                       Row(
                                                         children: [
                                                           const Icon(
                                                             Icons.arrow_upward,
                                                             color: Colors.green,
                                                           ),
-                                                          Text(data.valor
-                                                              .toString()),
+                                                          Text(
+                                                            data.valor
+                                                                .toString(),
+                                                            style: TextStyle(
+                                                                fontSize: 20,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                color: Colors
+                                                                    .green
+                                                                    .shade900),
+                                                          ),
                                                         ],
                                                       ),
-                                                      Text(data.nomeDestinatario
-                                                          .toString()),
+                                                      Text(
+                                                        data.nomeDestinatario
+                                                            .toString(),
+                                                        style: const TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
                                                     ],
                                                   ),
                                                 ),
