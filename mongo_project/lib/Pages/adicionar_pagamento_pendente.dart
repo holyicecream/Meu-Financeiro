@@ -39,6 +39,13 @@ class AdicionarPagamentoPendenteState
   String data = '2024-1-1';
   String radioBtnGroup = "";
   int count = 0;
+
+  @override
+  void initState() {
+    todosArguments.dataExtrato.debitoCredito = 'debito';
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     print("dataExtrato ${todosArguments.dataExtrato.toJson()}");
@@ -54,6 +61,7 @@ class AdicionarPagamentoPendenteState
       } else if (todosArguments.dataExtrato.debitoCredito == 'credito') {
         radioBtnGroup = "Recebido";
       } else {
+        todosArguments.dataExtrato.debitoCredito = 'debito';
         radioBtnGroup = "Pago";
       }
       print(todosArguments.dataClientes.toJson());
@@ -396,8 +404,8 @@ class CustomDropdownMenu extends StatefulWidget {
     required this.items,
     required this.onChanged,
     this.initialValue,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<CustomDropdownMenu> createState() => _CustomDropdownMenuState();
@@ -414,21 +422,25 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<dynamic>(
-      value: selectedValue,
-      onChanged: (dynamic newValue) {
-        setState(() {
-          selectedValue = newValue;
-        });
-        widget.onChanged(newValue);
-      },
-      items: widget.items
-          .map<DropdownMenuItem<dynamic>>((DropdownMenuItemData item) {
-        return DropdownMenuItem<dynamic>(
-          value: item.value,
-          child: Text(item.label),
-        );
-      }).toList(),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10, 0, 15, 0),
+      child: DropdownButton<dynamic>(
+        isExpanded: true,
+        value: selectedValue,
+        onChanged: (dynamic newValue) {
+          setState(() {
+            selectedValue = newValue;
+          });
+          widget.onChanged(newValue);
+        },
+        items: widget.items
+            .map<DropdownMenuItem<dynamic>>((DropdownMenuItemData item) {
+          return DropdownMenuItem<dynamic>(
+            value: item.value,
+            child: Text(item.label),
+          );
+        }).toList(),
+      ),
     );
   }
 }
