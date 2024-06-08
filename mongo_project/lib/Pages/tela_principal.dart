@@ -13,9 +13,6 @@ import '../zModels/model_extrato.dart';
 import '../zModels/model_tipo_transacao.dart';
 import '../zModels/todos_arguments.dart';
 
-import 'package:image_field/image_field.dart';
-import 'package:image_picker/image_picker.dart';
-
 class Main extends StatefulWidget {
   const Main({super.key});
 
