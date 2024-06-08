@@ -33,6 +33,7 @@ class MainState extends State<Main> {
     {'': ''}
   ];
   int count = 0;
+  bool escondesaldo = false;
   @override
   Widget build(BuildContext context) {
     count++;
@@ -243,14 +244,25 @@ class MainState extends State<Main> {
                                     }
                                   }
                                 }
-                                widgetSaldo = Text(
-                                  '$saldo',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                  ),
-                                );
+                                if (escondesaldo == false) {
+                                  widgetSaldo = Text(
+                                    'R\$ $saldo',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                    ),
+                                  );
+                                } else {
+                                  widgetSaldo = Text(
+                                    '******',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                    ),
+                                  );
+                                }
                                 return widgetSaldo;
                               } else {
                                 return widgetSaldo;
@@ -258,7 +270,9 @@ class MainState extends State<Main> {
                             },
                           ),
                           TextButton(
-                              onPressed: () {},
+                              onPressed: () {setState(() {
+                                escondesaldo = !escondesaldo;
+                              });},
                               child: Icon(Icons.remove_red_eye_rounded))
                         ],
                       )
@@ -312,13 +326,24 @@ class MainState extends State<Main> {
                               }
                             }
                           }
-                          widgetPagamentosPendentesValue = Text(
+                          if(escondesaldo == false){
+widgetPagamentosPendentesValue = Text(
                             "R\$ ${pagamentosPendentesValue.toString()}",
                             style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           );
+                          }else{
+                            widgetPagamentosPendentesValue = Text(
+                            "******",
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold),
+                          );
+                          }
+                          
                           return widgetPagamentosPendentesValue;
                         } else {
                           return widgetPagamentosPendentesValue;
@@ -573,7 +598,9 @@ class MainState extends State<Main> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, "/GraficoDiario", arguments: todosArguments);
+                        Navigator.pushReplacementNamed(
+                            context, "/GraficoDiario",
+                            arguments: todosArguments);
                       },
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width / 3,
